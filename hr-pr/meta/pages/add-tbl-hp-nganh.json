@@ -1,0 +1,227 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "type": "template-form",
+                  "name": "form0",
+                  "components": [
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Nganh Id",
+                              "component": "Nganh_ID",
+                              "name": "Nganh_IDLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 3,
+                              "type": "textbox",
+                              "name": "Nganh_ID",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnganh.Nganh_ID}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "Nganh_IDRequiredValidator",
+                              "component": "Nganh_ID",
+                              "text": "Nganh_ID is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Nganh Name",
+                              "component": "Nganh_Name",
+                              "name": "Nganh_NameLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 25,
+                              "type": "textbox",
+                              "name": "Nganh_Name",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnganh.Nganh_Name}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Description",
+                              "component": "Description",
+                              "name": "DescriptionLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 250,
+                              "type": "textbox",
+                              "name": "Description",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnganh.Description}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "type": "button",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "buttonStyle": "primary"
+                            },
+                            {
+                              "type": "button",
+                              "buttonStyle": "light",
+                              "text": "Cancel",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to create new TblHpNganh!",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "DB_At_VDC2.createTblHpNganh",
+                        "parameters": [
+                          {
+                            "name": "TblHpNganh",
+                            "value": "${tblhpnganh}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "close-popup",
+                            "result": "${tblhpnganh}"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "data": "${tblhpnganh}",
+                  "visible": "${tblhpnganh != null}",
+                  "itemType": "CanErpHrPr.Models.DbAtVdc2.TblHpNganh"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "tblhpnganh",
+        "type": "set",
+        "value": "new CanErpHrPr.Models.DbAtVdc2.TblHpNganh()",
+        "valueType": "CanErpHrPr.Models.DbAtVdc2.TblHpNganh"
+      }
+    ]
+  },
+  "name": "Add Tbl Hp Nganh",
+  "layout": "Main"
+}

@@ -1,0 +1,391 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "components": [
+            {
+              "class": "col-md-9",
+              "components": [
+                {
+                  "name": "closeLabel",
+                  "style": {
+                    "fontWeight": "bold"
+                  },
+                  "text": "Item no longer available.",
+                  "type": "label",
+                  "visible": "${!canEdit}"
+                }
+              ],
+              "name": "col0",
+              "type": "col"
+            },
+            {
+              "class": "col-md-3",
+              "components": [
+                {
+                  "buttonStyle": "secondary",
+                  "events": {
+                    "click": [
+                      {
+                        "type": "close-popup"
+                      }
+                    ]
+                  },
+                  "icon": "",
+                  "name": "closeButton",
+                  "style": {
+                    "marginBottom": "20px"
+                  },
+                  "text": "Close",
+                  "type": "button",
+                  "visible": "${!canEdit}"
+                }
+              ],
+              "name": "col1",
+              "type": "col"
+            }
+          ],
+          "name": "row0",
+          "style": {},
+          "type": "row"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "type": "template-form",
+                  "name": "form0",
+                  "components": [
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Bac Id",
+                              "component": "Bac_ID",
+                              "name": "Bac_IDLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 2,
+                              "type": "textbox",
+                              "name": "Bac_ID",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${tblhpbac.Bac_ID}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "Bac_IDRequiredValidator",
+                              "component": "Bac_ID",
+                              "text": "Bac_ID is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Bac Name",
+                              "component": "Bac_Name",
+                              "name": "Bac_NameLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 35,
+                              "type": "textbox",
+                              "name": "Bac_Name",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpbac.Bac_Name}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "He So Luong",
+                              "component": "HeSoLuong",
+                              "name": "HeSoLuongLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "double?",
+                              "type": "numeric",
+                              "name": "HeSoLuong",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpbac.HeSoLuong}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tbl Hp Ngach",
+                              "component": "Ngach_FK",
+                              "name": "Ngach_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTblHpNgachesResult}",
+                              "textProperty": "Ngach_Name",
+                              "valueProperty": "Ngach_ID",
+                              "placeholder": "Choose TblHpNgach",
+                              "valueType": "string",
+                              "type": "dropdown",
+                              "name": "Ngach_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpbac.Ngach_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Description",
+                              "component": "Description",
+                              "name": "DescriptionLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 250,
+                              "type": "textbox",
+                              "name": "Description",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpbac.Description}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "type": "button",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "buttonStyle": "primary"
+                            },
+                            {
+                              "type": "button",
+                              "buttonStyle": "light",
+                              "text": "Cancel",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to update TblHpBac",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "DB_At_VDC2.updateTblHpBac",
+                        "parameters": [
+                          {
+                            "name": "Bac_ID",
+                            "value": "${parameters.Bac_ID}"
+                          },
+                          {
+                            "name": "TblHpBac",
+                            "value": "${tblhpbac}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "close-popup",
+                            "result": "${tblhpbac}"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "itemType": "CanErpHrPr.Models.DbAtVdc2.TblHpBac",
+                  "data": "${tblhpbac}",
+                  "visible": "${tblhpbac != null && canEdit}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "canEdit",
+        "type": "set",
+        "value": "true",
+        "valueType": "bool"
+      },
+      {
+        "name": "DB_At_VDC2.getTblHpBacByBac_ID",
+        "parameters": [
+          {
+            "name": "Bac_ID",
+            "value": "${parameters.Bac_ID}"
+          }
+        ],
+        "then": [
+          {
+            "name": "tblhpbac",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "CanErpHrPr.Models.DbAtVdc2.TblHpBac"
+          }
+        ],
+        "error": [],
+        "type": "invoke"
+      },
+      {
+        "name": "DB_At_VDC2.getTblHpNgaches",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblHpNgachesResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErpHrPr.Models.DbAtVdc2.TblHpNgach>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Edit Tbl Hp Bac",
+  "layout": "Main"
+}

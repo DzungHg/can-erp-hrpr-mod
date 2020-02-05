@@ -1,0 +1,35 @@
+﻿@page "/tbl-hp-quans"
+@layout MainLayout
+@inherits CanErpHrPr.Pages.TblHpQuansComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErpHrPr.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Tbl Hp Quans">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblHpQuansResult" TItem="CanErpHrPr.Models.DbAtVdc2.TblHpQuan" RowSelect="@Grid0RowSelect">
+          <Columns>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpQuan" Context="canErpHrPrModelsDbAtVdc2TblHpQuan" Property="Quan_ID" Title="Quan ID">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpQuan" Context="canErpHrPrModelsDbAtVdc2TblHpQuan" Property="Quan_Name" Title="Quan Name">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpQuan" Context="canErpHrPrModelsDbAtVdc2TblHpQuan" Property="Description" Title="Description">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpQuan" Context="canErpHrPrModelsDbAtVdc2TblHpQuan" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+              <Template Context="canErpHrPrModelsDbAtVdc2TblHpQuan">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErpHrPrModelsDbAtVdc2TblHpQuan))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenGridColumn>
+          </Columns>
+        </RadzenGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

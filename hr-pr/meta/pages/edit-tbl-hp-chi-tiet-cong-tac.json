@@ -1,0 +1,460 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "components": [
+            {
+              "class": "col-md-9",
+              "components": [
+                {
+                  "name": "closeLabel",
+                  "style": {
+                    "fontWeight": "bold"
+                  },
+                  "text": "Item no longer available.",
+                  "type": "label",
+                  "visible": "${!canEdit}"
+                }
+              ],
+              "name": "col0",
+              "type": "col"
+            },
+            {
+              "class": "col-md-3",
+              "components": [
+                {
+                  "buttonStyle": "secondary",
+                  "events": {
+                    "click": [
+                      {
+                        "type": "close-popup"
+                      }
+                    ]
+                  },
+                  "icon": "",
+                  "name": "closeButton",
+                  "style": {
+                    "marginBottom": "20px"
+                  },
+                  "text": "Close",
+                  "type": "button",
+                  "visible": "${!canEdit}"
+                }
+              ],
+              "name": "col1",
+              "type": "col"
+            }
+          ],
+          "name": "row0",
+          "style": {},
+          "type": "row"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "type": "template-form",
+                  "name": "form0",
+                  "components": [
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tbl Hp Nhan Vien",
+                              "component": "NhanVien_FK",
+                              "name": "NhanVien_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTblHpNhanViensResult}",
+                              "textProperty": "HoTenLot",
+                              "valueProperty": "NhanVien_ID",
+                              "placeholder": "Choose TblHpNhanVien",
+                              "valueType": "string",
+                              "type": "dropdown",
+                              "name": "NhanVien_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpchitietcongtac.NhanVien_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Ngay Bien Dong",
+                              "component": "NgayBienDong",
+                              "name": "NgayBienDongLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "DateTime?",
+                              "dateFormat": "MM/dd/yyyy",
+                              "type": "datepicker",
+                              "name": "NgayBienDong",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpchitietcongtac.NgayBienDong}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Quyet Dinh So",
+                              "component": "QuyetDinhSo",
+                              "name": "QuyetDinhSoLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 15,
+                              "type": "textbox",
+                              "name": "QuyetDinhSo",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpchitietcongtac.QuyetDinhSo}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Don Vi Cu",
+                              "component": "DonViCu",
+                              "name": "DonViCuLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 25,
+                              "type": "textbox",
+                              "name": "DonViCu",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpchitietcongtac.DonViCu}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Chuc Vu Cu",
+                              "component": "ChucVuCu",
+                              "name": "ChucVuCuLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 25,
+                              "type": "textbox",
+                              "name": "ChucVuCu",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpchitietcongtac.ChucVuCu}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Don Vi Hien Nay",
+                              "component": "DonViHienNay",
+                              "name": "DonViHienNayLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 25,
+                              "type": "textbox",
+                              "name": "DonViHienNay",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpchitietcongtac.DonViHienNay}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Chuc Vu Hien Nay",
+                              "component": "ChucVuHienNay",
+                              "name": "ChucVuHienNayLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 20,
+                              "type": "textbox",
+                              "name": "ChucVuHienNay",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpchitietcongtac.ChucVuHienNay}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "type": "button",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "buttonStyle": "primary"
+                            },
+                            {
+                              "type": "button",
+                              "buttonStyle": "light",
+                              "text": "Cancel",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to update TblHpChiTietCongTac",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "DB_At_VDC2.updateTblHpChiTietCongTac",
+                        "parameters": [
+                          {
+                            "name": "ChiTietCongTac_SEQ",
+                            "value": "${parameters.ChiTietCongTac_SEQ}"
+                          },
+                          {
+                            "name": "TblHpChiTietCongTac",
+                            "value": "${tblhpchitietcongtac}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "close-popup",
+                            "result": "${tblhpchitietcongtac}"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "itemType": "CanErpHrPr.Models.DbAtVdc2.TblHpChiTietCongTac",
+                  "data": "${tblhpchitietcongtac}",
+                  "visible": "${tblhpchitietcongtac != null && canEdit}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "canEdit",
+        "type": "set",
+        "value": "true",
+        "valueType": "bool"
+      },
+      {
+        "name": "DB_At_VDC2.getTblHpChiTietCongTacByChiTietCongTac_SEQ",
+        "parameters": [
+          {
+            "name": "ChiTietCongTac_SEQ",
+            "value": "${parameters.ChiTietCongTac_SEQ}"
+          }
+        ],
+        "then": [
+          {
+            "name": "tblhpchitietcongtac",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "CanErpHrPr.Models.DbAtVdc2.TblHpChiTietCongTac"
+          }
+        ],
+        "error": [],
+        "type": "invoke"
+      },
+      {
+        "name": "DB_At_VDC2.getTblHpNhanViens",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblHpNhanViensResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Edit Tbl Hp Chi Tiet Cong Tac",
+  "layout": "Main"
+}

@@ -1,0 +1,176 @@
+﻿@page "/tbl-hp-nhan-viens"
+@layout MainLayout
+@inherits CanErpHrPr.Pages.TblHpNhanViensComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErpHrPr.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Tbl Hp Nhan Viens">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblHpNhanViensResult" TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" RowSelect="@Grid0RowSelect">
+          <Columns>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="NhanVien_ID" Title="Nhan Vien ID">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="HoTenLot" Title="Ho Ten Lot">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="Ten" Title="Ten">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="MaTheChamCong" Title="Ma The Cham Cong">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="PhaiNam" Title="Phai Nam">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="HinhAnh" Title="Hinh Anh">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="NgayThangNamSinh" FormatString="{0:MM/dd/yyyy}" Title="Ngay Thang Nam Sinh">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="NamSinh" Title="Nam Sinh">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="NoiSinh_FK" SortProperty="TblHpTinhTp.TinhTP_Name" FilterProperty="TblHpTinhTp.TinhTP_Name" Title="Tbl Hp Tinh Tp">
+              <Template Context="data">
+              @(data.TblHpTinhTp?.TinhTP_Name)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="QueQuan_FK" SortProperty="TblHpTinhTp1.TinhTP_Name" FilterProperty="TblHpTinhTp1.TinhTP_Name" Title="Tbl Hp Tinh Tp">
+              <Template Context="data">
+              @(data.TblHpTinhTp1?.TinhTP_Name)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="DanToc_FK" SortProperty="TblHpDanToc.DanToc_Name" FilterProperty="TblHpDanToc.DanToc_Name" Title="Tbl Hp Dan Toc">
+              <Template Context="data">
+              @(data.TblHpDanToc?.DanToc_Name)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="TonGiao_FK" SortProperty="TblHpTonGiao.TonGiao_Name" FilterProperty="TblHpTonGiao.TonGiao_Name" Title="Tbl Hp Ton Giao">
+              <Template Context="data">
+              @(data.TblHpTonGiao?.TonGiao_Name)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="QuocTich_FK" SortProperty="TblHpQuocTich.QuocTich_Name" FilterProperty="TblHpQuocTich.QuocTich_Name" Title="Tbl Hp Quoc Tich">
+              <Template Context="data">
+              @(data.TblHpQuocTich?.QuocTich_Name)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="SoCMND" Title="So CMND">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="NgayCapCMND" FormatString="{0:MM/dd/yyyy}" Title="Ngay Cap CMND">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="NoiCapCMND" Title="Noi Cap CMND">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="HoKhau" Title="Ho Khau">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="QuanHoKhau_FK" SortProperty="TblHpQuan.Quan_Name" FilterProperty="TblHpQuan.Quan_Name" Title="Tbl Hp Quan">
+              <Template Context="data">
+              @(data.TblHpQuan?.Quan_Name)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="TinhTPHoKhau_FK" SortProperty="TblHpTinhTp2.TinhTP_Name" FilterProperty="TblHpTinhTp2.TinhTP_Name" Title="Tbl Hp Tinh Tp">
+              <Template Context="data">
+              @(data.TblHpTinhTp2?.TinhTP_Name)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="ChoOHienNay" Title="Cho O Hien Nay">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="QuanChoOHienNay_FK" SortProperty="TblHpQuan1.Quan_Name" FilterProperty="TblHpQuan1.Quan_Name" Title="Tbl Hp Quan">
+              <Template Context="data">
+              @(data.TblHpQuan1?.Quan_Name)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="TinhTPChoOHienNay_FK" SortProperty="TblHpTinhTp3.TinhTP_Name" FilterProperty="TblHpTinhTp3.TinhTP_Name" Title="Tbl Hp Tinh Tp">
+              <Template Context="data">
+              @(data.TblHpTinhTp3?.TinhTP_Name)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="SoDienThoai" Title="So Dien Thoai">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="Email" Title="Email">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="MaSoThueCaNhan" Title="Ma So Thue Ca Nhan">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="TaiKhoanThanhToan" Title="Tai Khoan Thanh Toan">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="HoTenATM" Title="Ho Ten ATM">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="MaKeToan" Title="Ma Ke Toan">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="GiaCanh" Title="Gia Canh">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="SoCon" Title="So Con">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="LoaiHopDongLD" Title="Loai Hop Dong LD">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="HopDongLaoDong" Title="Hop Dong Lao Dong">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="Department_FK" SortProperty="TblGnDepartment.Deparment_Name" FilterProperty="TblGnDepartment.Deparment_Name" Title="Tbl Gn Department">
+              <Template Context="data">
+              @(data.TblGnDepartment?.Deparment_Name)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="DonViTo_FK" SortProperty="TblHpDonViTo.DonViTo_Name" FilterProperty="TblHpDonViTo.DonViTo_Name" Title="Tbl Hp Don Vi To">
+              <Template Context="data">
+              @(data.TblHpDonViTo?.DonViTo_Name)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="ChucVu_FK" SortProperty="TblHpChucVu.ChucVu_Name" FilterProperty="TblHpChucVu.ChucVu_Name" Title="Tbl Hp Chuc Vu">
+              <Template Context="data">
+              @(data.TblHpChucVu?.ChucVu_Name)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="ThongTinLuuTru" Title="Thong Tin Luu Tru">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="ThuViec" Title="Thu Viec">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="DaNghiViec" Title="Da Nghi Viec">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="NgayNghiViec" FormatString="{0:MM/dd/yyyy}" Title="Ngay Nghi Viec">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="TrinhDoHocVan_FK" SortProperty="TblHpTrinhDoVanHoa.TrinhDoVanHoa_Name" FilterProperty="TblHpTrinhDoVanHoa.TrinhDoVanHoa_Name" Title="Tbl Hp Trinh Do Van Hoa">
+              <Template Context="data">
+              @(data.TblHpTrinhDoVanHoa?.TrinhDoVanHoa_Name)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="Ngach_FK" SortProperty="TblHpNgach.Ngach_Name" FilterProperty="TblHpNgach.Ngach_Name" Title="Tbl Hp Ngach">
+              <Template Context="data">
+              @(data.TblHpNgach?.Ngach_Name)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="Bac_FK" SortProperty="TblHpBac.Bac_Name" FilterProperty="TblHpBac.Bac_Name" Title="Tbl Hp Bac">
+              <Template Context="data">
+              @(data.TblHpBac?.Bac_Name)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="HeSoLuong" Title="He So Luong">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="LuongCoBan" Title="Luong Co Ban">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="HeSoPhuCapChucVu" Title="He So Phu Cap Chuc Vu">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="HeSoPhuCapDocHai" Title="He So Phu Cap Doc Hai">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="HeSoDiemPhucTap" Title="He So Diem Phuc Tap">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="HeSoPhuCapThamNien" Title="He So Phu Cap Tham Nien">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="SoNguoiPhuThuoc" Title="So Nguoi Phu Thuoc">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="SoBHXH" Title="So BHXH">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Property="NgayNhatTu" FormatString="{0:MM/dd/yyyy}" Title="Ngay Nhat Tu">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+              <Template Context="canErpHrPrModelsDbAtVdc2TblHpNhanVien">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErpHrPrModelsDbAtVdc2TblHpNhanVien))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenGridColumn>
+          </Columns>
+        </RadzenGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

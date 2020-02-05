@@ -1,0 +1,298 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "components": [
+            {
+              "class": "col-md-9",
+              "components": [
+                {
+                  "name": "closeLabel",
+                  "style": {
+                    "fontWeight": "bold"
+                  },
+                  "text": "Item no longer available.",
+                  "type": "label",
+                  "visible": "${!canEdit}"
+                }
+              ],
+              "name": "col0",
+              "type": "col"
+            },
+            {
+              "class": "col-md-3",
+              "components": [
+                {
+                  "buttonStyle": "secondary",
+                  "events": {
+                    "click": [
+                      {
+                        "type": "close-popup"
+                      }
+                    ]
+                  },
+                  "icon": "",
+                  "name": "closeButton",
+                  "style": {
+                    "marginBottom": "20px"
+                  },
+                  "text": "Close",
+                  "type": "button",
+                  "visible": "${!canEdit}"
+                }
+              ],
+              "name": "col1",
+              "type": "col"
+            }
+          ],
+          "name": "row0",
+          "style": {},
+          "type": "row"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "type": "template-form",
+                  "name": "form0",
+                  "components": [
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Xi Nghiep Id",
+                              "component": "XiNghiep_ID",
+                              "name": "XiNghiep_IDLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 2,
+                              "type": "textbox",
+                              "name": "XiNghiep_ID",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${tblhpxinghiep.XiNghiep_ID}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "XiNghiep_IDRequiredValidator",
+                              "component": "XiNghiep_ID",
+                              "text": "XiNghiep_ID is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Xi Nghiep Name",
+                              "component": "XiNghiep_Name",
+                              "name": "XiNghiep_NameLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 35,
+                              "type": "textbox",
+                              "name": "XiNghiep_Name",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpxinghiep.XiNghiep_Name}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Description",
+                              "component": "Description",
+                              "name": "DescriptionLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 250,
+                              "type": "textbox",
+                              "name": "Description",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpxinghiep.Description}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "type": "button",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "buttonStyle": "primary"
+                            },
+                            {
+                              "type": "button",
+                              "buttonStyle": "light",
+                              "text": "Cancel",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to update TblHpXiNghiep",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "DB_At_VDC2.updateTblHpXiNghiep",
+                        "parameters": [
+                          {
+                            "name": "XiNghiep_ID",
+                            "value": "${parameters.XiNghiep_ID}"
+                          },
+                          {
+                            "name": "TblHpXiNghiep",
+                            "value": "${tblhpxinghiep}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "close-popup",
+                            "result": "${tblhpxinghiep}"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "itemType": "CanErpHrPr.Models.DbAtVdc2.TblHpXiNghiep",
+                  "data": "${tblhpxinghiep}",
+                  "visible": "${tblhpxinghiep != null && canEdit}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "canEdit",
+        "type": "set",
+        "value": "true",
+        "valueType": "bool"
+      },
+      {
+        "name": "DB_At_VDC2.getTblHpXiNghiepByXiNghiep_ID",
+        "parameters": [
+          {
+            "name": "XiNghiep_ID",
+            "value": "${parameters.XiNghiep_ID}"
+          }
+        ],
+        "then": [
+          {
+            "name": "tblhpxinghiep",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "CanErpHrPr.Models.DbAtVdc2.TblHpXiNghiep"
+          }
+        ],
+        "error": [],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Edit Tbl Hp Xi Nghiep",
+  "layout": "Main"
+}

@@ -1,0 +1,67 @@
+﻿@page "/add-tbl-hp-chi-tiet-chuyen-mon"
+@layout MainLayout
+@inherits CanErpHrPr.Pages.AddTblHpChiTietChuyenMonComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErpHrPr.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@tblhpchitietchuyenmon" Visible="@(tblhpchitietchuyenmon != null)" TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietChuyenMon" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Tbl Hp Nhan Vien" Component="NhanVien_FK" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblHpNhanViensResult" TextProperty="HoTenLot" ValueProperty="NhanVien_ID" Placeholder="Choose TblHpNhanVien" style="width: 100%" @bind-Value="@(tblhpchitietchuyenmon.NhanVien_FK)" Name="NhanVien_FK">
+                </RadzenDropDown>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Bang Cap Fk" Component="BangCap_FK" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="2" style="width: 100%" @bind-Value="@(tblhpchitietchuyenmon.BangCap_FK)" Name="BangCap_FK">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Nganh Fk" Component="Nganh_FK" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="3" style="width: 100%" @bind-Value="@(tblhpchitietchuyenmon.Nganh_FK)" Name="Nganh_FK">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="He Dao Tao Fk" Component="HeDaoTao_FK" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="2" style="width: 100%" @bind-Value="@(tblhpchitietchuyenmon.HeDaoTao_FK)" Name="HeDaoTao_FK">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Save" ButtonStyle="ButtonStyle.Primary">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" Text="Cancel" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

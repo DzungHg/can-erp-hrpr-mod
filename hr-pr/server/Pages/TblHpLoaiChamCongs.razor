@@ -1,0 +1,39 @@
+﻿@page "/tbl-hp-loai-cham-congs"
+@layout MainLayout
+@inherits CanErpHrPr.Pages.TblHpLoaiChamCongsComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErpHrPr.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Tbl Hp Loai Cham Congs">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblHpLoaiChamCongsResult" TItem="CanErpHrPr.Models.DbAtVdc2.TblHpLoaiChamCong" RowSelect="@Grid0RowSelect">
+          <Columns>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpLoaiChamCong" Context="canErpHrPrModelsDbAtVdc2TblHpLoaiChamCong" Property="LoaiChamCong_ID" Title="Loai Cham Cong ID">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpLoaiChamCong" Context="canErpHrPrModelsDbAtVdc2TblHpLoaiChamCong" Property="LoaiChamCong_Name" Title="Loai Cham Cong Name">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpLoaiChamCong" Context="canErpHrPrModelsDbAtVdc2TblHpLoaiChamCong" Property="TyLeHuongLuong" Title="Ty Le Huong Luong">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpLoaiChamCong" Context="canErpHrPrModelsDbAtVdc2TblHpLoaiChamCong" Property="HuongLuongCoBan" Title="Huong Luong Co Ban">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpLoaiChamCong" Context="canErpHrPrModelsDbAtVdc2TblHpLoaiChamCong" Property="Description" Title="Description">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpLoaiChamCong" Context="canErpHrPrModelsDbAtVdc2TblHpLoaiChamCong" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+              <Template Context="canErpHrPrModelsDbAtVdc2TblHpLoaiChamCong">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErpHrPrModelsDbAtVdc2TblHpLoaiChamCong))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenGridColumn>
+          </Columns>
+        </RadzenGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

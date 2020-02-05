@@ -1,0 +1,42 @@
+﻿@page "/tbl-hp-bacs"
+@layout MainLayout
+@inherits CanErpHrPr.Pages.TblHpBacsComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErpHrPr.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Tbl Hp Bacs">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblHpBacsResult" TItem="CanErpHrPr.Models.DbAtVdc2.TblHpBac" RowSelect="@Grid0RowSelect">
+          <Columns>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpBac" Context="canErpHrPrModelsDbAtVdc2TblHpBac" Property="Bac_ID" Title="Bac ID">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpBac" Context="canErpHrPrModelsDbAtVdc2TblHpBac" Property="Bac_Name" Title="Bac Name">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpBac" Context="canErpHrPrModelsDbAtVdc2TblHpBac" Property="HeSoLuong" Title="He So Luong">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpBac" Context="canErpHrPrModelsDbAtVdc2TblHpBac" Property="Ngach_FK" SortProperty="TblHpNgach.Ngach_Name" FilterProperty="TblHpNgach.Ngach_Name" Title="Tbl Hp Ngach">
+              <Template Context="data">
+              @(data.TblHpNgach?.Ngach_Name)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpBac" Context="canErpHrPrModelsDbAtVdc2TblHpBac" Property="Description" Title="Description">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpBac" Context="canErpHrPrModelsDbAtVdc2TblHpBac" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+              <Template Context="canErpHrPrModelsDbAtVdc2TblHpBac">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErpHrPrModelsDbAtVdc2TblHpBac))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenGridColumn>
+          </Columns>
+        </RadzenGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

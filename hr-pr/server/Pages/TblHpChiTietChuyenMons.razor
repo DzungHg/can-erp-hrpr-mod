@@ -1,0 +1,42 @@
+﻿@page "/tbl-hp-chi-tiet-chuyen-mons"
+@layout MainLayout
+@inherits CanErpHrPr.Pages.TblHpChiTietChuyenMonsComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErpHrPr.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Tbl Hp Chi Tiet Chuyen Mons">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblHpChiTietChuyenMonsResult" TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietChuyenMon" RowSelect="@Grid0RowSelect">
+          <Columns>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietChuyenMon" Context="canErpHrPrModelsDbAtVdc2TblHpChiTietChuyenMon" Property="ChiTietChuyenMon_SEQ" Title="Chi Tiet Chuyen Mon SEQ">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietChuyenMon" Context="canErpHrPrModelsDbAtVdc2TblHpChiTietChuyenMon" Property="NhanVien_FK" SortProperty="TblHpNhanVien.HoTenLot" FilterProperty="TblHpNhanVien.HoTenLot" Title="Tbl Hp Nhan Vien">
+              <Template Context="data">
+              @(data.TblHpNhanVien?.HoTenLot)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietChuyenMon" Context="canErpHrPrModelsDbAtVdc2TblHpChiTietChuyenMon" Property="BangCap_FK" Title="Bang Cap FK">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietChuyenMon" Context="canErpHrPrModelsDbAtVdc2TblHpChiTietChuyenMon" Property="Nganh_FK" Title="Nganh FK">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietChuyenMon" Context="canErpHrPrModelsDbAtVdc2TblHpChiTietChuyenMon" Property="HeDaoTao_FK" Title="He Dao Tao FK">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietChuyenMon" Context="canErpHrPrModelsDbAtVdc2TblHpChiTietChuyenMon" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+              <Template Context="canErpHrPrModelsDbAtVdc2TblHpChiTietChuyenMon">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErpHrPrModelsDbAtVdc2TblHpChiTietChuyenMon))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenGridColumn>
+          </Columns>
+        </RadzenGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

@@ -1,0 +1,301 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "type": "template-form",
+                  "name": "form0",
+                  "components": [
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Loai Cham Cong Id",
+                              "component": "LoaiChamCong_ID",
+                              "name": "LoaiChamCong_IDLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 3,
+                              "type": "textbox",
+                              "name": "LoaiChamCong_ID",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${tblhploaichamcong.LoaiChamCong_ID}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "LoaiChamCong_IDRequiredValidator",
+                              "component": "LoaiChamCong_ID",
+                              "text": "LoaiChamCong_ID is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Loai Cham Cong Name",
+                              "component": "LoaiChamCong_Name",
+                              "name": "LoaiChamCong_NameLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 65,
+                              "type": "textbox",
+                              "name": "LoaiChamCong_Name",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhploaichamcong.LoaiChamCong_Name}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Ty Le Huong Luong",
+                              "component": "TyLeHuongLuong",
+                              "name": "TyLeHuongLuongLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "double?",
+                              "type": "numeric",
+                              "name": "TyLeHuongLuong",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhploaichamcong.TyLeHuongLuong}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Huong Luong Co Ban",
+                              "component": "HuongLuongCoBan",
+                              "name": "HuongLuongCoBanLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "bool?",
+                              "type": "checkbox",
+                              "name": "HuongLuongCoBan",
+                              "triState": true,
+                              "value": "${tblhploaichamcong.HuongLuongCoBan}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Description",
+                              "component": "Description",
+                              "name": "DescriptionLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 250,
+                              "type": "textbox",
+                              "name": "Description",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhploaichamcong.Description}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "type": "button",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "buttonStyle": "primary"
+                            },
+                            {
+                              "type": "button",
+                              "buttonStyle": "light",
+                              "text": "Cancel",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to create new TblHpLoaiChamCong!",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "DB_At_VDC2.createTblHpLoaiChamCong",
+                        "parameters": [
+                          {
+                            "name": "TblHpLoaiChamCong",
+                            "value": "${tblhploaichamcong}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "close-popup",
+                            "result": "${tblhploaichamcong}"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "data": "${tblhploaichamcong}",
+                  "visible": "${tblhploaichamcong != null}",
+                  "itemType": "CanErpHrPr.Models.DbAtVdc2.TblHpLoaiChamCong"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "tblhploaichamcong",
+        "type": "set",
+        "value": "new CanErpHrPr.Models.DbAtVdc2.TblHpLoaiChamCong()",
+        "valueType": "CanErpHrPr.Models.DbAtVdc2.TblHpLoaiChamCong"
+      }
+    ]
+  },
+  "name": "Add Tbl Hp Loai Cham Cong",
+  "layout": "Main"
+}

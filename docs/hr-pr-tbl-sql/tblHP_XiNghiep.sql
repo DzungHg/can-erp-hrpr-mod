@@ -1,0 +1,29 @@
+USE [OT_ERP_CAN_TRADE]
+GO
+
+/****** Object:  Table [dbo].[tblHP_XiNghiep]    Script Date: 10/14/2019 4:33:16 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[tblHP_XiNghiep](
+	[XiNghiep_ID] [char](2) NOT NULL,
+	[XiNghiep_Name] [nvarchar](35) NULL,
+	[Description] [nvarchar](250) NULL,
+ CONSTRAINT [pk_HP_XiNghiep] PRIMARY KEY CLUSTERED 
+(
+	[XiNghiep_ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+

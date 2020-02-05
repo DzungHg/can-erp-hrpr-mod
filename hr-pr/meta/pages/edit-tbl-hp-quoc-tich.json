@@ -1,0 +1,298 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "components": [
+            {
+              "class": "col-md-9",
+              "components": [
+                {
+                  "name": "closeLabel",
+                  "style": {
+                    "fontWeight": "bold"
+                  },
+                  "text": "Item no longer available.",
+                  "type": "label",
+                  "visible": "${!canEdit}"
+                }
+              ],
+              "name": "col0",
+              "type": "col"
+            },
+            {
+              "class": "col-md-3",
+              "components": [
+                {
+                  "buttonStyle": "secondary",
+                  "events": {
+                    "click": [
+                      {
+                        "type": "close-popup"
+                      }
+                    ]
+                  },
+                  "icon": "",
+                  "name": "closeButton",
+                  "style": {
+                    "marginBottom": "20px"
+                  },
+                  "text": "Close",
+                  "type": "button",
+                  "visible": "${!canEdit}"
+                }
+              ],
+              "name": "col1",
+              "type": "col"
+            }
+          ],
+          "name": "row0",
+          "style": {},
+          "type": "row"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "type": "template-form",
+                  "name": "form0",
+                  "components": [
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Quoc Tich Id",
+                              "component": "QuocTich_ID",
+                              "name": "QuocTich_IDLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 2,
+                              "type": "textbox",
+                              "name": "QuocTich_ID",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${tblhpquoctich.QuocTich_ID}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "QuocTich_IDRequiredValidator",
+                              "component": "QuocTich_ID",
+                              "text": "QuocTich_ID is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Quoc Tich Name",
+                              "component": "QuocTich_Name",
+                              "name": "QuocTich_NameLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 20,
+                              "type": "textbox",
+                              "name": "QuocTich_Name",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpquoctich.QuocTich_Name}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Description",
+                              "component": "Description",
+                              "name": "DescriptionLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 250,
+                              "type": "textbox",
+                              "name": "Description",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpquoctich.Description}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "type": "button",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "buttonStyle": "primary"
+                            },
+                            {
+                              "type": "button",
+                              "buttonStyle": "light",
+                              "text": "Cancel",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to update TblHpQuocTich",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "DB_At_VDC2.updateTblHpQuocTich",
+                        "parameters": [
+                          {
+                            "name": "QuocTich_ID",
+                            "value": "${parameters.QuocTich_ID}"
+                          },
+                          {
+                            "name": "TblHpQuocTich",
+                            "value": "${tblhpquoctich}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "close-popup",
+                            "result": "${tblhpquoctich}"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "itemType": "CanErpHrPr.Models.DbAtVdc2.TblHpQuocTich",
+                  "data": "${tblhpquoctich}",
+                  "visible": "${tblhpquoctich != null && canEdit}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "canEdit",
+        "type": "set",
+        "value": "true",
+        "valueType": "bool"
+      },
+      {
+        "name": "DB_At_VDC2.getTblHpQuocTichByQuocTich_ID",
+        "parameters": [
+          {
+            "name": "QuocTich_ID",
+            "value": "${parameters.QuocTich_ID}"
+          }
+        ],
+        "then": [
+          {
+            "name": "tblhpquoctich",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "CanErpHrPr.Models.DbAtVdc2.TblHpQuocTich"
+          }
+        ],
+        "error": [],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Edit Tbl Hp Quoc Tich",
+  "layout": "Main"
+}

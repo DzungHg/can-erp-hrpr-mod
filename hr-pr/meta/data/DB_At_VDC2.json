@@ -1,0 +1,5585 @@
+{
+  "info": {
+    "title": "DB_At_VDC2",
+    "x-type": "odata",
+    "x-connector": "mssql",
+    "x-connector-version": 12
+  },
+  "definitions": {
+    "TblGnDepartment": {
+      "x-table": "dbo.tblGN_Department",
+      "resource": "TblGnDepartments",
+      "required": [
+        "Department_ID"
+      ],
+      "properties": {
+        "Department_ID": {
+          "x-key": true,
+          "x-nullable": false,
+          "type": "string",
+          "length": 5,
+          "x-navigation": [
+            {
+              "inversePropertyName": "TblGnDepartment",
+              "name": "TblHpNhanViens",
+              "type": "TblHpNhanVien"
+            }
+          ]
+        },
+        "Deparment_Name": {
+          "type": "string",
+          "length": 15
+        },
+        "Description": {
+          "type": "string",
+          "length": 150
+        },
+        "TblHpNhanViens": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TblHpNhanVien"
+          }
+        }
+      }
+    },
+    "TblHpBac": {
+      "x-table": "dbo.tblHP_Bac",
+      "resource": "TblHpBacs",
+      "required": [
+        "Bac_ID"
+      ],
+      "properties": {
+        "Bac_ID": {
+          "x-key": true,
+          "x-nullable": false,
+          "type": "string",
+          "length": 2,
+          "x-navigation": [
+            {
+              "inversePropertyName": "TblHpBac",
+              "name": "TblHpNhanViens",
+              "type": "TblHpNhanVien"
+            }
+          ]
+        },
+        "Bac_Name": {
+          "type": "string",
+          "length": 35
+        },
+        "HeSoLuong": {
+          "type": "number",
+          "format": "double"
+        },
+        "TblHpNgach": {
+          "type": "object",
+          "$ref": "#/definitions/TblHpNgach"
+        },
+        "Ngach_FK": {
+          "type": "string",
+          "length": 10,
+          "x-foreignKey": {
+            "parentTable": "tblHP_Ngach",
+            "parentEntityType": "TblHpNgach",
+            "type": "TblHpNgach",
+            "principalKey": "Ngach_ID",
+            "name": "TblHpNgach",
+            "textProperty": "Ngach_Name",
+            "navigationProperty": "TblHpBacs"
+          }
+        },
+        "Description": {
+          "type": "string",
+          "length": 250
+        },
+        "TblHpNhanViens": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TblHpNhanVien"
+          }
+        }
+      }
+    },
+    "TblHpChiTietChuyenMon": {
+      "x-table": "dbo.tblHP_ChiTietChuyenMon",
+      "resource": "TblHpChiTietChuyenMons",
+      "required": [],
+      "properties": {
+        "ChiTietChuyenMon_SEQ": {
+          "x-key": true,
+          "x-identity": true,
+          "x-nullable": false,
+          "type": "integer"
+        },
+        "TblHpNhanVien": {
+          "type": "object",
+          "$ref": "#/definitions/TblHpNhanVien"
+        },
+        "NhanVien_FK": {
+          "type": "string",
+          "length": 4,
+          "x-foreignKey": {
+            "parentTable": "tblHP_NhanVien",
+            "parentEntityType": "TblHpNhanVien",
+            "type": "TblHpNhanVien",
+            "principalKey": "NhanVien_ID",
+            "name": "TblHpNhanVien",
+            "textProperty": "HoTenLot",
+            "navigationProperty": "TblHpChiTietChuyenMons"
+          }
+        },
+        "BangCap_FK": {
+          "type": "string",
+          "length": 2
+        },
+        "Nganh_FK": {
+          "type": "string",
+          "length": 3
+        },
+        "HeDaoTao_FK": {
+          "type": "string",
+          "length": 2
+        }
+      }
+    },
+    "TblHpChiTietCongTac": {
+      "x-table": "dbo.tblHP_ChiTietCongTac",
+      "resource": "TblHpChiTietCongTacs",
+      "required": [],
+      "properties": {
+        "ChiTietCongTac_SEQ": {
+          "x-key": true,
+          "x-identity": true,
+          "x-nullable": false,
+          "type": "integer"
+        },
+        "TblHpNhanVien": {
+          "type": "object",
+          "$ref": "#/definitions/TblHpNhanVien"
+        },
+        "NhanVien_FK": {
+          "type": "string",
+          "length": 4,
+          "x-foreignKey": {
+            "parentTable": "tblHP_NhanVien",
+            "parentEntityType": "TblHpNhanVien",
+            "type": "TblHpNhanVien",
+            "principalKey": "NhanVien_ID",
+            "name": "TblHpNhanVien",
+            "textProperty": "HoTenLot",
+            "navigationProperty": "TblHpChiTietCongTacs"
+          }
+        },
+        "NgayBienDong": {
+          "type": "string",
+          "format": "date-time",
+          "x-datetime": "date"
+        },
+        "QuyetDinhSo": {
+          "type": "string",
+          "length": 15
+        },
+        "DonViCu": {
+          "type": "string",
+          "length": 25
+        },
+        "ChucVuCu": {
+          "type": "string",
+          "length": 25
+        },
+        "DonViHienNay": {
+          "type": "string",
+          "length": 25
+        },
+        "ChucVuHienNay": {
+          "type": "string",
+          "length": 20
+        }
+      }
+    },
+    "TblHpChiTietGiaCanh": {
+      "x-table": "dbo.tblHP_ChiTietGiaCanh",
+      "resource": "TblHpChiTietGiaCanhs",
+      "required": [],
+      "properties": {
+        "ChiTietGiaCanh_SEQ": {
+          "x-key": true,
+          "x-identity": true,
+          "x-nullable": false,
+          "type": "integer"
+        },
+        "TblHpNhanVien": {
+          "type": "object",
+          "$ref": "#/definitions/TblHpNhanVien"
+        },
+        "NhanVien_FK": {
+          "type": "string",
+          "length": 4,
+          "x-foreignKey": {
+            "parentTable": "tblHP_NhanVien",
+            "parentEntityType": "TblHpNhanVien",
+            "type": "TblHpNhanVien",
+            "principalKey": "NhanVien_ID",
+            "name": "TblHpNhanVien",
+            "textProperty": "HoTenLot",
+            "navigationProperty": "TblHpChiTietGiaCanhs"
+          }
+        },
+        "HoVaTen": {
+          "type": "string",
+          "length": 35
+        },
+        "NamSinh": {
+          "type": "integer",
+          "format": "int16"
+        },
+        "PhaiNam": {
+          "type": "boolean"
+        },
+        "QuanHe": {
+          "type": "string",
+          "length": 8
+        },
+        "NgheNghiep": {
+          "type": "string",
+          "length": 30
+        },
+        "DaChet": {
+          "type": "boolean"
+        }
+      }
+    },
+    "TblHpChiTietLuong": {
+      "x-table": "dbo.tblHP_ChiTietLuong",
+      "resource": "TblHpChiTietLuongs",
+      "required": [],
+      "properties": {
+        "ChiTietLuong_SEQ": {
+          "x-key": true,
+          "x-identity": true,
+          "x-nullable": false,
+          "type": "integer"
+        },
+        "TblHpNhanVien": {
+          "type": "object",
+          "$ref": "#/definitions/TblHpNhanVien"
+        },
+        "NhanVien_FK": {
+          "type": "string",
+          "length": 4,
+          "x-foreignKey": {
+            "parentTable": "tblHP_NhanVien",
+            "parentEntityType": "TblHpNhanVien",
+            "type": "TblHpNhanVien",
+            "principalKey": "NhanVien_ID",
+            "name": "TblHpNhanVien",
+            "textProperty": "HoTenLot",
+            "navigationProperty": "TblHpChiTietLuongs"
+          }
+        },
+        "NgayHuongLuong": {
+          "type": "string",
+          "format": "date-time",
+          "x-datetime": "date"
+        },
+        "QuyetDinhSo": {
+          "type": "string",
+          "length": 15
+        },
+        "NgayKy": {
+          "type": "string",
+          "format": "date-time",
+          "x-datetime": "date"
+        },
+        "CoQuanKy": {
+          "type": "string",
+          "length": 20
+        },
+        "Ngach": {
+          "type": "string",
+          "length": 45
+        },
+        "Bac": {
+          "type": "string",
+          "length": 35
+        },
+        "HeSoLuong": {
+          "type": "number",
+          "format": "double"
+        },
+        "HeSoPhuCapChucVu": {
+          "type": "number",
+          "format": "double"
+        },
+        "HeSoPhuCapDocHai": {
+          "type": "number",
+          "format": "double"
+        },
+        "DienGiai": {
+          "type": "string",
+          "length": 45
+        }
+      }
+    },
+    "TblHpChiTietNgoaiNgu": {
+      "x-table": "dbo.tblHP_ChiTietNgoaiNgu",
+      "resource": "TblHpChiTietNgoaiNgus",
+      "required": [],
+      "properties": {
+        "ChiTietNgoaiNgu_SEQ": {
+          "x-key": true,
+          "x-identity": true,
+          "x-nullable": false,
+          "type": "integer"
+        },
+        "TblHpNhanVien": {
+          "type": "object",
+          "$ref": "#/definitions/TblHpNhanVien"
+        },
+        "NhanVien_FK": {
+          "type": "string",
+          "length": 4,
+          "x-foreignKey": {
+            "parentTable": "tblHP_NhanVien",
+            "parentEntityType": "TblHpNhanVien",
+            "type": "TblHpNhanVien",
+            "principalKey": "NhanVien_ID",
+            "name": "TblHpNhanVien",
+            "textProperty": "HoTenLot",
+            "navigationProperty": "TblHpChiTietNgoaiNgus"
+          }
+        },
+        "NgoaiNgu_FK": {
+          "type": "string",
+          "length": 2
+        },
+        "TrinhDo_FK": {
+          "type": "string",
+          "length": 2
+        },
+        "VanBang": {
+          "type": "string",
+          "length": 25
+        }
+      }
+    },
+    "TblHpChucVu": {
+      "x-table": "dbo.tblHP_ChucVu",
+      "resource": "TblHpChucVus",
+      "required": [
+        "ChucVu_ID"
+      ],
+      "properties": {
+        "ChucVu_ID": {
+          "x-key": true,
+          "x-nullable": false,
+          "type": "string",
+          "length": 3,
+          "x-navigation": [
+            {
+              "inversePropertyName": "TblHpChucVu",
+              "name": "TblHpNhanViens",
+              "type": "TblHpNhanVien"
+            }
+          ]
+        },
+        "ChucVu_Name": {
+          "type": "string",
+          "length": 20
+        },
+        "Description": {
+          "type": "string",
+          "length": 250
+        },
+        "TblHpNhanViens": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TblHpNhanVien"
+          }
+        }
+      }
+    },
+    "TblHpDanToc": {
+      "x-table": "dbo.tblHP_DanToc",
+      "resource": "TblHpDanTocs",
+      "required": [
+        "DanToc_ID"
+      ],
+      "properties": {
+        "DanToc_ID": {
+          "x-key": true,
+          "x-nullable": false,
+          "type": "string",
+          "length": 2,
+          "x-navigation": [
+            {
+              "inversePropertyName": "TblHpDanToc",
+              "name": "TblHpNhanViens",
+              "type": "TblHpNhanVien"
+            }
+          ]
+        },
+        "DanToc_Name": {
+          "type": "string",
+          "length": 15
+        },
+        "Description": {
+          "type": "string",
+          "length": 250
+        },
+        "TblHpNhanViens": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TblHpNhanVien"
+          }
+        }
+      }
+    },
+    "TblHpDonViTo": {
+      "x-table": "dbo.tblHP_DonViTo",
+      "resource": "TblHpDonViTos",
+      "required": [
+        "DonViTo_ID"
+      ],
+      "properties": {
+        "DonViTo_ID": {
+          "x-key": true,
+          "x-nullable": false,
+          "type": "string",
+          "length": 9,
+          "x-navigation": [
+            {
+              "inversePropertyName": "TblHpDonViTo",
+              "name": "TblHpNhanViens",
+              "type": "TblHpNhanVien"
+            }
+          ]
+        },
+        "DonViTo_Name": {
+          "type": "string",
+          "length": 25
+        },
+        "Description": {
+          "type": "string",
+          "length": 250
+        },
+        "TblHpNhanViens": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TblHpNhanVien"
+          }
+        }
+      }
+    },
+    "TblHpHeDaoTao": {
+      "x-table": "dbo.tblHP_HeDaoTao",
+      "resource": "TblHpHeDaoTaos",
+      "required": [
+        "HeDaoTao_ID"
+      ],
+      "properties": {
+        "HeDaoTao_ID": {
+          "x-key": true,
+          "x-nullable": false,
+          "type": "string",
+          "length": 2
+        },
+        "HeDaoTao_Name": {
+          "type": "string",
+          "length": 20
+        },
+        "Description": {
+          "type": "string",
+          "length": 250
+        }
+      }
+    },
+    "TblHpLoaiChamCong": {
+      "x-table": "dbo.tblHP_LoaiChamCong",
+      "resource": "TblHpLoaiChamCongs",
+      "required": [
+        "LoaiChamCong_ID"
+      ],
+      "properties": {
+        "LoaiChamCong_ID": {
+          "x-key": true,
+          "x-nullable": false,
+          "type": "string",
+          "length": 3
+        },
+        "LoaiChamCong_Name": {
+          "type": "string",
+          "length": 65
+        },
+        "TyLeHuongLuong": {
+          "type": "number",
+          "format": "double"
+        },
+        "HuongLuongCoBan": {
+          "type": "boolean"
+        },
+        "Description": {
+          "type": "string",
+          "length": 250
+        }
+      }
+    },
+    "TblHpNgach": {
+      "x-table": "dbo.tblHP_Ngach",
+      "resource": "TblHpNgaches",
+      "required": [
+        "Ngach_ID"
+      ],
+      "properties": {
+        "Ngach_ID": {
+          "x-key": true,
+          "x-nullable": false,
+          "type": "string",
+          "length": 10,
+          "x-navigation": [
+            {
+              "inversePropertyName": "TblHpNgach",
+              "name": "TblHpNhanViens",
+              "type": "TblHpNhanVien"
+            },
+            {
+              "inversePropertyName": "TblHpNgach",
+              "name": "TblHpBacs",
+              "type": "TblHpBac"
+            }
+          ]
+        },
+        "Ngach_Name": {
+          "type": "string",
+          "length": 45
+        },
+        "Description": {
+          "type": "string",
+          "length": 250
+        },
+        "TblHpNhanViens": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TblHpNhanVien"
+          }
+        },
+        "TblHpBacs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TblHpBac"
+          }
+        }
+      }
+    },
+    "TblHpNganh": {
+      "x-table": "dbo.tblHP_Nganh",
+      "resource": "TblHpNganhs",
+      "required": [
+        "Nganh_ID"
+      ],
+      "properties": {
+        "Nganh_ID": {
+          "x-key": true,
+          "x-nullable": false,
+          "type": "string",
+          "length": 3
+        },
+        "Nganh_Name": {
+          "type": "string",
+          "length": 25
+        },
+        "Description": {
+          "type": "string",
+          "length": 250
+        }
+      }
+    },
+    "TblHpNgoaiNgu": {
+      "x-table": "dbo.tblHP_NgoaiNgu",
+      "resource": "TblHpNgoaiNgus",
+      "required": [
+        "NgoaiNgu_ID"
+      ],
+      "properties": {
+        "NgoaiNgu_ID": {
+          "x-key": true,
+          "x-nullable": false,
+          "type": "string",
+          "length": 2
+        },
+        "NgoaiNgu_Name": {
+          "type": "string",
+          "length": 20
+        },
+        "Description": {
+          "type": "string",
+          "length": 250
+        }
+      }
+    },
+    "TblHpNhanVien": {
+      "x-table": "dbo.tblHP_NhanVien",
+      "resource": "TblHpNhanViens",
+      "required": [
+        "NhanVien_ID"
+      ],
+      "properties": {
+        "NhanVien_ID": {
+          "x-key": true,
+          "x-nullable": false,
+          "type": "string",
+          "length": 4,
+          "x-navigation": [
+            {
+              "inversePropertyName": "TblHpNhanVien",
+              "name": "TblHpChiTietLuongs",
+              "type": "TblHpChiTietLuong"
+            },
+            {
+              "inversePropertyName": "TblHpNhanVien",
+              "name": "TblHpChiTietNgoaiNgus",
+              "type": "TblHpChiTietNgoaiNgu"
+            },
+            {
+              "inversePropertyName": "TblHpNhanVien",
+              "name": "TblHpChiTietGiaCanhs",
+              "type": "TblHpChiTietGiaCanh"
+            },
+            {
+              "inversePropertyName": "TblHpNhanVien",
+              "name": "TblHpChiTietCongTacs",
+              "type": "TblHpChiTietCongTac"
+            },
+            {
+              "inversePropertyName": "TblHpNhanVien",
+              "name": "TblHpChiTietChuyenMons",
+              "type": "TblHpChiTietChuyenMon"
+            }
+          ]
+        },
+        "HoTenLot": {
+          "type": "string",
+          "length": 30
+        },
+        "Ten": {
+          "type": "string",
+          "length": 70
+        },
+        "MaTheChamCong": {
+          "type": "string",
+          "length": 12
+        },
+        "PhaiNam": {
+          "type": "boolean"
+        },
+        "HinhAnh": {
+          "type": "string",
+          "format": "binary"
+        },
+        "NgayThangNamSinh": {
+          "type": "string",
+          "format": "date-time",
+          "x-datetime": "date"
+        },
+        "NamSinh": {
+          "type": "integer",
+          "format": "int16"
+        },
+        "TblHpTinhTp": {
+          "type": "object",
+          "$ref": "#/definitions/TblHpTinhTp"
+        },
+        "NoiSinh_FK": {
+          "type": "string",
+          "length": 5,
+          "x-foreignKey": {
+            "parentTable": "tblHP_TinhTP",
+            "parentEntityType": "TblHpTinhTp",
+            "type": "TblHpTinhTp",
+            "principalKey": "TinhTP_ID",
+            "name": "TblHpTinhTp",
+            "textProperty": "TinhTP_Name",
+            "navigationProperty": "TblHpNhanViens"
+          }
+        },
+        "TblHpTinhTp1": {
+          "type": "object",
+          "$ref": "#/definitions/TblHpTinhTp"
+        },
+        "QueQuan_FK": {
+          "type": "string",
+          "length": 5,
+          "x-foreignKey": {
+            "parentTable": "tblHP_TinhTP",
+            "parentEntityType": "TblHpTinhTp",
+            "type": "TblHpTinhTp",
+            "principalKey": "TinhTP_ID",
+            "name": "TblHpTinhTp1",
+            "textProperty": "TinhTP_Name",
+            "navigationProperty": "TblHpNhanViens1"
+          }
+        },
+        "TblHpDanToc": {
+          "type": "object",
+          "$ref": "#/definitions/TblHpDanToc"
+        },
+        "DanToc_FK": {
+          "type": "string",
+          "length": 2,
+          "x-foreignKey": {
+            "parentTable": "tblHP_DanToc",
+            "parentEntityType": "TblHpDanToc",
+            "type": "TblHpDanToc",
+            "principalKey": "DanToc_ID",
+            "name": "TblHpDanToc",
+            "textProperty": "DanToc_Name",
+            "navigationProperty": "TblHpNhanViens"
+          }
+        },
+        "TblHpTonGiao": {
+          "type": "object",
+          "$ref": "#/definitions/TblHpTonGiao"
+        },
+        "TonGiao_FK": {
+          "type": "string",
+          "length": 2,
+          "x-foreignKey": {
+            "parentTable": "tblHP_TonGiao",
+            "parentEntityType": "TblHpTonGiao",
+            "type": "TblHpTonGiao",
+            "principalKey": "TonGiao_ID",
+            "name": "TblHpTonGiao",
+            "textProperty": "TonGiao_Name",
+            "navigationProperty": "TblHpNhanViens"
+          }
+        },
+        "TblHpQuocTich": {
+          "type": "object",
+          "$ref": "#/definitions/TblHpQuocTich"
+        },
+        "QuocTich_FK": {
+          "type": "string",
+          "length": 2,
+          "x-foreignKey": {
+            "parentTable": "tblHP_QuocTich",
+            "parentEntityType": "TblHpQuocTich",
+            "type": "TblHpQuocTich",
+            "principalKey": "QuocTich_ID",
+            "name": "TblHpQuocTich",
+            "textProperty": "QuocTich_Name",
+            "navigationProperty": "TblHpNhanViens"
+          }
+        },
+        "SoCMND": {
+          "type": "string",
+          "length": 12
+        },
+        "NgayCapCMND": {
+          "type": "string",
+          "format": "date-time",
+          "x-datetime": "date"
+        },
+        "NoiCapCMND": {
+          "type": "string",
+          "length": 25
+        },
+        "HoKhau": {
+          "type": "string",
+          "length": 50
+        },
+        "TblHpQuan": {
+          "type": "object",
+          "$ref": "#/definitions/TblHpQuan"
+        },
+        "QuanHoKhau_FK": {
+          "type": "string",
+          "length": 3,
+          "x-foreignKey": {
+            "parentTable": "tblHP_Quan",
+            "parentEntityType": "TblHpQuan",
+            "type": "TblHpQuan",
+            "principalKey": "Quan_ID",
+            "name": "TblHpQuan",
+            "textProperty": "Quan_Name",
+            "navigationProperty": "TblHpNhanViens"
+          }
+        },
+        "TblHpTinhTp2": {
+          "type": "object",
+          "$ref": "#/definitions/TblHpTinhTp"
+        },
+        "TinhTPHoKhau_FK": {
+          "type": "string",
+          "length": 5,
+          "x-foreignKey": {
+            "parentTable": "tblHP_TinhTP",
+            "parentEntityType": "TblHpTinhTp",
+            "type": "TblHpTinhTp",
+            "principalKey": "TinhTP_ID",
+            "name": "TblHpTinhTp2",
+            "textProperty": "TinhTP_Name",
+            "navigationProperty": "TblHpNhanViens2"
+          }
+        },
+        "ChoOHienNay": {
+          "type": "string",
+          "length": 50
+        },
+        "TblHpQuan1": {
+          "type": "object",
+          "$ref": "#/definitions/TblHpQuan"
+        },
+        "QuanChoOHienNay_FK": {
+          "type": "string",
+          "length": 3,
+          "x-foreignKey": {
+            "parentTable": "tblHP_Quan",
+            "parentEntityType": "TblHpQuan",
+            "type": "TblHpQuan",
+            "principalKey": "Quan_ID",
+            "name": "TblHpQuan1",
+            "textProperty": "Quan_Name",
+            "navigationProperty": "TblHpNhanViens1"
+          }
+        },
+        "TblHpTinhTp3": {
+          "type": "object",
+          "$ref": "#/definitions/TblHpTinhTp"
+        },
+        "TinhTPChoOHienNay_FK": {
+          "type": "string",
+          "length": 5,
+          "x-foreignKey": {
+            "parentTable": "tblHP_TinhTP",
+            "parentEntityType": "TblHpTinhTp",
+            "type": "TblHpTinhTp",
+            "principalKey": "TinhTP_ID",
+            "name": "TblHpTinhTp3",
+            "textProperty": "TinhTP_Name",
+            "navigationProperty": "TblHpNhanViens3"
+          }
+        },
+        "SoDienThoai": {
+          "type": "string",
+          "length": 25
+        },
+        "Email": {
+          "type": "string",
+          "length": 50
+        },
+        "MaSoThueCaNhan": {
+          "type": "string",
+          "length": 10
+        },
+        "TaiKhoanThanhToan": {
+          "type": "string",
+          "length": 15
+        },
+        "HoTenATM": {
+          "type": "string",
+          "length": 30
+        },
+        "MaKeToan": {
+          "type": "string",
+          "length": 10
+        },
+        "GiaCanh": {
+          "type": "integer",
+          "format": "int16"
+        },
+        "SoCon": {
+          "type": "integer",
+          "format": "int16"
+        },
+        "LoaiHopDongLD": {
+          "type": "integer",
+          "format": "int16"
+        },
+        "HopDongLaoDong": {
+          "type": "string",
+          "length": 250
+        },
+        "TblGnDepartment": {
+          "type": "object",
+          "$ref": "#/definitions/TblGnDepartment"
+        },
+        "Department_FK": {
+          "type": "string",
+          "length": 5,
+          "x-foreignKey": {
+            "parentTable": "tblGN_Department",
+            "parentEntityType": "TblGnDepartment",
+            "type": "TblGnDepartment",
+            "principalKey": "Department_ID",
+            "name": "TblGnDepartment",
+            "textProperty": "Deparment_Name",
+            "navigationProperty": "TblHpNhanViens"
+          }
+        },
+        "TblHpDonViTo": {
+          "type": "object",
+          "$ref": "#/definitions/TblHpDonViTo"
+        },
+        "DonViTo_FK": {
+          "type": "string",
+          "length": 9,
+          "x-foreignKey": {
+            "parentTable": "tblHP_DonViTo",
+            "parentEntityType": "TblHpDonViTo",
+            "type": "TblHpDonViTo",
+            "principalKey": "DonViTo_ID",
+            "name": "TblHpDonViTo",
+            "textProperty": "DonViTo_Name",
+            "navigationProperty": "TblHpNhanViens"
+          }
+        },
+        "TblHpChucVu": {
+          "type": "object",
+          "$ref": "#/definitions/TblHpChucVu"
+        },
+        "ChucVu_FK": {
+          "type": "string",
+          "length": 3,
+          "x-foreignKey": {
+            "parentTable": "tblHP_ChucVu",
+            "parentEntityType": "TblHpChucVu",
+            "type": "TblHpChucVu",
+            "principalKey": "ChucVu_ID",
+            "name": "TblHpChucVu",
+            "textProperty": "ChucVu_Name",
+            "navigationProperty": "TblHpNhanViens"
+          }
+        },
+        "ThongTinLuuTru": {
+          "type": "string",
+          "length": 255
+        },
+        "ThuViec": {
+          "type": "boolean"
+        },
+        "DaNghiViec": {
+          "type": "boolean"
+        },
+        "NgayNghiViec": {
+          "type": "string",
+          "format": "date-time",
+          "x-datetime": "date"
+        },
+        "TblHpTrinhDoVanHoa": {
+          "type": "object",
+          "$ref": "#/definitions/TblHpTrinhDoVanHoa"
+        },
+        "TrinhDoHocVan_FK": {
+          "type": "string",
+          "length": 2,
+          "x-foreignKey": {
+            "parentTable": "tblHP_TrinhDoVanHoa",
+            "parentEntityType": "TblHpTrinhDoVanHoa",
+            "type": "TblHpTrinhDoVanHoa",
+            "principalKey": "TrinhDoVanHoa_ID",
+            "name": "TblHpTrinhDoVanHoa",
+            "textProperty": "TrinhDoVanHoa_Name",
+            "navigationProperty": "TblHpNhanViens"
+          }
+        },
+        "TblHpNgach": {
+          "type": "object",
+          "$ref": "#/definitions/TblHpNgach"
+        },
+        "Ngach_FK": {
+          "type": "string",
+          "length": 10,
+          "x-foreignKey": {
+            "parentTable": "tblHP_Ngach",
+            "parentEntityType": "TblHpNgach",
+            "type": "TblHpNgach",
+            "principalKey": "Ngach_ID",
+            "name": "TblHpNgach",
+            "textProperty": "Ngach_Name",
+            "navigationProperty": "TblHpNhanViens"
+          }
+        },
+        "TblHpBac": {
+          "type": "object",
+          "$ref": "#/definitions/TblHpBac"
+        },
+        "Bac_FK": {
+          "type": "string",
+          "length": 2,
+          "x-foreignKey": {
+            "parentTable": "tblHP_Bac",
+            "parentEntityType": "TblHpBac",
+            "type": "TblHpBac",
+            "principalKey": "Bac_ID",
+            "name": "TblHpBac",
+            "textProperty": "Bac_Name",
+            "navigationProperty": "TblHpNhanViens"
+          }
+        },
+        "HeSoLuong": {
+          "type": "number",
+          "format": "double"
+        },
+        "LuongCoBan": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "HeSoPhuCapChucVu": {
+          "type": "number",
+          "format": "double"
+        },
+        "HeSoPhuCapDocHai": {
+          "type": "number",
+          "format": "double"
+        },
+        "HeSoDiemPhucTap": {
+          "type": "number",
+          "format": "double"
+        },
+        "HeSoPhuCapThamNien": {
+          "type": "number",
+          "format": "double"
+        },
+        "SoNguoiPhuThuoc": {
+          "type": "integer",
+          "format": "int8"
+        },
+        "SoBHXH": {
+          "type": "string",
+          "length": 15
+        },
+        "NgayNhatTu": {
+          "x-default-sql": "(getdate())",
+          "type": "string",
+          "format": "date-time",
+          "x-datetime": "datetime"
+        },
+        "TblHpChiTietLuongs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TblHpChiTietLuong"
+          }
+        },
+        "TblHpChiTietNgoaiNgus": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TblHpChiTietNgoaiNgu"
+          }
+        },
+        "TblHpChiTietGiaCanhs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TblHpChiTietGiaCanh"
+          }
+        },
+        "TblHpChiTietCongTacs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TblHpChiTietCongTac"
+          }
+        },
+        "TblHpChiTietChuyenMons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TblHpChiTietChuyenMon"
+          }
+        }
+      }
+    },
+    "TblHpPhanLoaiNv": {
+      "x-table": "dbo.tblHP_PhanLoaiNV",
+      "resource": "TblHpPhanLoaiNvs",
+      "required": [
+        "PhanLoaiNV_ID"
+      ],
+      "properties": {
+        "PhanLoaiNV_ID": {
+          "x-key": true,
+          "x-nullable": false,
+          "type": "string",
+          "length": 1
+        },
+        "PhanLoaiNV_Name": {
+          "type": "string",
+          "length": 25
+        },
+        "Description": {
+          "type": "string",
+          "length": 150
+        }
+      }
+    },
+    "TblHpQuan": {
+      "x-table": "dbo.tblHP_Quan",
+      "resource": "TblHpQuans",
+      "required": [
+        "Quan_ID"
+      ],
+      "properties": {
+        "Quan_ID": {
+          "x-key": true,
+          "x-nullable": false,
+          "type": "string",
+          "length": 3,
+          "x-navigation": [
+            {
+              "inversePropertyName": "TblHpQuan",
+              "name": "TblHpNhanViens",
+              "type": "TblHpNhanVien"
+            },
+            {
+              "inversePropertyName": "TblHpQuan1",
+              "name": "TblHpNhanViens1",
+              "type": "TblHpNhanVien"
+            }
+          ]
+        },
+        "Quan_Name": {
+          "type": "string",
+          "length": 35
+        },
+        "Description": {
+          "type": "string",
+          "length": 250
+        },
+        "TblHpNhanViens": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TblHpNhanVien"
+          }
+        }
+      }
+    },
+    "TblHpQuocTich": {
+      "x-table": "dbo.tblHP_QuocTich",
+      "resource": "TblHpQuocTiches",
+      "required": [
+        "QuocTich_ID"
+      ],
+      "properties": {
+        "QuocTich_ID": {
+          "x-key": true,
+          "x-nullable": false,
+          "type": "string",
+          "length": 2,
+          "x-navigation": [
+            {
+              "inversePropertyName": "TblHpQuocTich",
+              "name": "TblHpNhanViens",
+              "type": "TblHpNhanVien"
+            }
+          ]
+        },
+        "QuocTich_Name": {
+          "type": "string",
+          "length": 20
+        },
+        "Description": {
+          "type": "string",
+          "length": 250
+        },
+        "TblHpNhanViens": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TblHpNhanVien"
+          }
+        }
+      }
+    },
+    "TblHpTinhTp": {
+      "x-table": "dbo.tblHP_TinhTP",
+      "resource": "TblHpTinhTps",
+      "required": [
+        "TinhTP_ID"
+      ],
+      "properties": {
+        "TinhTP_ID": {
+          "x-key": true,
+          "x-nullable": false,
+          "type": "string",
+          "length": 5,
+          "x-navigation": [
+            {
+              "inversePropertyName": "TblHpTinhTp",
+              "name": "TblHpNhanViens",
+              "type": "TblHpNhanVien"
+            },
+            {
+              "inversePropertyName": "TblHpTinhTp1",
+              "name": "TblHpNhanViens1",
+              "type": "TblHpNhanVien"
+            },
+            {
+              "inversePropertyName": "TblHpTinhTp2",
+              "name": "TblHpNhanViens2",
+              "type": "TblHpNhanVien"
+            },
+            {
+              "inversePropertyName": "TblHpTinhTp3",
+              "name": "TblHpNhanViens3",
+              "type": "TblHpNhanVien"
+            }
+          ]
+        },
+        "TinhTP_Name": {
+          "type": "string",
+          "length": 30
+        },
+        "Description": {
+          "type": "string",
+          "length": 250
+        },
+        "TblHpNhanViens": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TblHpNhanVien"
+          }
+        }
+      }
+    },
+    "TblHpTonGiao": {
+      "x-table": "dbo.tblHP_TonGiao",
+      "resource": "TblHpTonGiaos",
+      "required": [
+        "TonGiao_ID"
+      ],
+      "properties": {
+        "TonGiao_ID": {
+          "x-key": true,
+          "x-nullable": false,
+          "type": "string",
+          "length": 2,
+          "x-navigation": [
+            {
+              "inversePropertyName": "TblHpTonGiao",
+              "name": "TblHpNhanViens",
+              "type": "TblHpNhanVien"
+            }
+          ]
+        },
+        "TonGiao_Name": {
+          "type": "string",
+          "length": 15
+        },
+        "Description": {
+          "type": "string",
+          "length": 250
+        },
+        "TblHpNhanViens": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TblHpNhanVien"
+          }
+        }
+      }
+    },
+    "TblHpTrinhDoChuyenMon": {
+      "x-table": "dbo.tblHP_TrinhDoChuyenMon",
+      "resource": "TblHpTrinhDoChuyenMons",
+      "required": [
+        "TrinhDoChuyenMon_ID"
+      ],
+      "properties": {
+        "TrinhDoChuyenMon_ID": {
+          "x-key": true,
+          "x-nullable": false,
+          "type": "string",
+          "length": 2
+        },
+        "TrinhDoChuyenMon_Name": {
+          "type": "string",
+          "length": 20
+        },
+        "Description": {
+          "type": "string",
+          "length": 250
+        }
+      }
+    },
+    "TblHpTrinhDoVanHoa": {
+      "x-table": "dbo.tblHP_TrinhDoVanHoa",
+      "resource": "TblHpTrinhDoVanHoas",
+      "required": [
+        "TrinhDoVanHoa_ID"
+      ],
+      "properties": {
+        "TrinhDoVanHoa_ID": {
+          "x-key": true,
+          "x-nullable": false,
+          "type": "string",
+          "length": 2,
+          "x-navigation": [
+            {
+              "inversePropertyName": "TblHpTrinhDoVanHoa",
+              "name": "TblHpNhanViens",
+              "type": "TblHpNhanVien"
+            }
+          ]
+        },
+        "TrinhDoVanHoa_Name": {
+          "type": "string",
+          "length": 20
+        },
+        "Description": {
+          "type": "string",
+          "length": 250
+        },
+        "TblHpNhanViens": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TblHpNhanVien"
+          }
+        }
+      }
+    },
+    "TblHpXiNghiep": {
+      "x-table": "dbo.tblHP_XiNghiep",
+      "resource": "TblHpXiNghieps",
+      "required": [
+        "XiNghiep_ID"
+      ],
+      "properties": {
+        "XiNghiep_ID": {
+          "x-key": true,
+          "x-nullable": false,
+          "type": "string",
+          "length": 2
+        },
+        "XiNghiep_Name": {
+          "type": "string",
+          "length": 35
+        },
+        "Description": {
+          "type": "string",
+          "length": 250
+        }
+      }
+    },
+    "VwHrLyLichNv": {
+      "x-view": true,
+      "x-table": "dbo.vwHR_LyLichNV",
+      "resource": "VwHrLyLichNvs",
+      "required": [
+        "NhanVien_ID"
+      ],
+      "properties": {
+        "NhanVien_ID": {
+          "x-nullable": false,
+          "type": "string",
+          "length": 4,
+          "x-key": true,
+          "x-virtual": true
+        },
+        "HoTenLot": {
+          "type": "string",
+          "length": 30
+        },
+        "Ten": {
+          "type": "string",
+          "length": 70
+        },
+        "MaTheChamCong": {
+          "type": "string",
+          "length": 12
+        },
+        "PhaiNam": {
+          "type": "boolean"
+        },
+        "HinhAnh": {
+          "type": "string",
+          "format": "binary"
+        },
+        "NgayThangNamSinh": {
+          "type": "string",
+          "format": "date-time",
+          "x-datetime": "date"
+        },
+        "NamSinh": {
+          "type": "integer",
+          "format": "int16"
+        },
+        "NoiSinh_FK": {
+          "type": "string",
+          "length": 5
+        },
+        "QueQuan_FK": {
+          "type": "string",
+          "length": 5
+        },
+        "DanToc_FK": {
+          "type": "string",
+          "length": 2
+        },
+        "TonGiao_FK": {
+          "type": "string",
+          "length": 2
+        },
+        "QuocTich_FK": {
+          "type": "string",
+          "length": 2
+        },
+        "SoCMND": {
+          "type": "string",
+          "length": 12
+        },
+        "NgayCapCMND": {
+          "type": "string",
+          "format": "date-time",
+          "x-datetime": "date"
+        },
+        "NoiCapCMND": {
+          "type": "string",
+          "length": 25
+        },
+        "HoKhau": {
+          "type": "string",
+          "length": 50
+        },
+        "QuanHoKhau_FK": {
+          "type": "string",
+          "length": 3
+        },
+        "TinhTPHoKhau_FK": {
+          "type": "string",
+          "length": 5
+        },
+        "ChoOHienNay": {
+          "type": "string",
+          "length": 50
+        },
+        "QuanChoOHienNay_FK": {
+          "type": "string",
+          "length": 3
+        },
+        "TinhTPChoOHienNay_FK": {
+          "type": "string",
+          "length": 5
+        },
+        "SoDienThoai": {
+          "type": "string",
+          "length": 25
+        },
+        "Email": {
+          "type": "string",
+          "length": 50
+        },
+        "MaSoThueCaNhan": {
+          "type": "string",
+          "length": 10
+        },
+        "TaiKhoanThanhToan": {
+          "type": "string",
+          "length": 15
+        },
+        "HoTenATM": {
+          "type": "string",
+          "length": 30
+        },
+        "MaKeToan": {
+          "type": "string",
+          "length": 10
+        },
+        "NgayNhatTu": {
+          "type": "string",
+          "format": "date-time",
+          "x-datetime": "datetime"
+        }
+      }
+    }
+  },
+  "paths": {
+    "/TblGnDepartments": {
+      "get": {
+        "operationId": "getTblGnDepartments",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/TblGnDepartment"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createTblGnDepartment",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblGnDepartment",
+            "schema": {
+              "$ref": "#/definitions/TblGnDepartment"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/TblGnDepartment"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpBacs": {
+      "get": {
+        "operationId": "getTblHpBacs",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/TblHpBac"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createTblHpBac",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpBac",
+            "schema": {
+              "$ref": "#/definitions/TblHpBac"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/TblHpBac"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpChiTietChuyenMons": {
+      "get": {
+        "operationId": "getTblHpChiTietChuyenMons",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/TblHpChiTietChuyenMon"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createTblHpChiTietChuyenMon",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpChiTietChuyenMon",
+            "schema": {
+              "$ref": "#/definitions/TblHpChiTietChuyenMon"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/TblHpChiTietChuyenMon"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpChiTietCongTacs": {
+      "get": {
+        "operationId": "getTblHpChiTietCongTacs",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/TblHpChiTietCongTac"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createTblHpChiTietCongTac",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpChiTietCongTac",
+            "schema": {
+              "$ref": "#/definitions/TblHpChiTietCongTac"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/TblHpChiTietCongTac"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpChiTietGiaCanhs": {
+      "get": {
+        "operationId": "getTblHpChiTietGiaCanhs",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/TblHpChiTietGiaCanh"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createTblHpChiTietGiaCanh",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpChiTietGiaCanh",
+            "schema": {
+              "$ref": "#/definitions/TblHpChiTietGiaCanh"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/TblHpChiTietGiaCanh"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpChiTietLuongs": {
+      "get": {
+        "operationId": "getTblHpChiTietLuongs",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/TblHpChiTietLuong"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createTblHpChiTietLuong",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpChiTietLuong",
+            "schema": {
+              "$ref": "#/definitions/TblHpChiTietLuong"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/TblHpChiTietLuong"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpChiTietNgoaiNgus": {
+      "get": {
+        "operationId": "getTblHpChiTietNgoaiNgus",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/TblHpChiTietNgoaiNgu"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createTblHpChiTietNgoaiNgu",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpChiTietNgoaiNgu",
+            "schema": {
+              "$ref": "#/definitions/TblHpChiTietNgoaiNgu"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/TblHpChiTietNgoaiNgu"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpChucVus": {
+      "get": {
+        "operationId": "getTblHpChucVus",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/TblHpChucVu"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createTblHpChucVu",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpChucVu",
+            "schema": {
+              "$ref": "#/definitions/TblHpChucVu"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/TblHpChucVu"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpDanTocs": {
+      "get": {
+        "operationId": "getTblHpDanTocs",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/TblHpDanToc"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createTblHpDanToc",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpDanToc",
+            "schema": {
+              "$ref": "#/definitions/TblHpDanToc"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/TblHpDanToc"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpDonViTos": {
+      "get": {
+        "operationId": "getTblHpDonViTos",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/TblHpDonViTo"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createTblHpDonViTo",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpDonViTo",
+            "schema": {
+              "$ref": "#/definitions/TblHpDonViTo"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/TblHpDonViTo"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpHeDaoTaos": {
+      "get": {
+        "operationId": "getTblHpHeDaoTaos",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/TblHpHeDaoTao"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createTblHpHeDaoTao",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpHeDaoTao",
+            "schema": {
+              "$ref": "#/definitions/TblHpHeDaoTao"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/TblHpHeDaoTao"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpLoaiChamCongs": {
+      "get": {
+        "operationId": "getTblHpLoaiChamCongs",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/TblHpLoaiChamCong"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createTblHpLoaiChamCong",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpLoaiChamCong",
+            "schema": {
+              "$ref": "#/definitions/TblHpLoaiChamCong"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/TblHpLoaiChamCong"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpNgaches": {
+      "get": {
+        "operationId": "getTblHpNgaches",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/TblHpNgach"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createTblHpNgach",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpNgach",
+            "schema": {
+              "$ref": "#/definitions/TblHpNgach"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/TblHpNgach"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpNganhs": {
+      "get": {
+        "operationId": "getTblHpNganhs",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/TblHpNganh"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createTblHpNganh",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpNganh",
+            "schema": {
+              "$ref": "#/definitions/TblHpNganh"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/TblHpNganh"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpNgoaiNgus": {
+      "get": {
+        "operationId": "getTblHpNgoaiNgus",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/TblHpNgoaiNgu"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createTblHpNgoaiNgu",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpNgoaiNgu",
+            "schema": {
+              "$ref": "#/definitions/TblHpNgoaiNgu"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/TblHpNgoaiNgu"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpNhanViens": {
+      "get": {
+        "operationId": "getTblHpNhanViens",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/TblHpNhanVien"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createTblHpNhanVien",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpNhanVien",
+            "schema": {
+              "$ref": "#/definitions/TblHpNhanVien"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/TblHpNhanVien"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpPhanLoaiNvs": {
+      "get": {
+        "operationId": "getTblHpPhanLoaiNvs",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/TblHpPhanLoaiNv"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createTblHpPhanLoaiNv",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpPhanLoaiNv",
+            "schema": {
+              "$ref": "#/definitions/TblHpPhanLoaiNv"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/TblHpPhanLoaiNv"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpQuans": {
+      "get": {
+        "operationId": "getTblHpQuans",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/TblHpQuan"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createTblHpQuan",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpQuan",
+            "schema": {
+              "$ref": "#/definitions/TblHpQuan"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/TblHpQuan"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpQuocTiches": {
+      "get": {
+        "operationId": "getTblHpQuocTiches",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/TblHpQuocTich"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createTblHpQuocTich",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpQuocTich",
+            "schema": {
+              "$ref": "#/definitions/TblHpQuocTich"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/TblHpQuocTich"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpTinhTps": {
+      "get": {
+        "operationId": "getTblHpTinhTps",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/TblHpTinhTp"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createTblHpTinhTp",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpTinhTp",
+            "schema": {
+              "$ref": "#/definitions/TblHpTinhTp"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/TblHpTinhTp"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpTonGiaos": {
+      "get": {
+        "operationId": "getTblHpTonGiaos",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/TblHpTonGiao"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createTblHpTonGiao",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpTonGiao",
+            "schema": {
+              "$ref": "#/definitions/TblHpTonGiao"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/TblHpTonGiao"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpTrinhDoChuyenMons": {
+      "get": {
+        "operationId": "getTblHpTrinhDoChuyenMons",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/TblHpTrinhDoChuyenMon"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createTblHpTrinhDoChuyenMon",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpTrinhDoChuyenMon",
+            "schema": {
+              "$ref": "#/definitions/TblHpTrinhDoChuyenMon"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/TblHpTrinhDoChuyenMon"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpTrinhDoVanHoas": {
+      "get": {
+        "operationId": "getTblHpTrinhDoVanHoas",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/TblHpTrinhDoVanHoa"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createTblHpTrinhDoVanHoa",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpTrinhDoVanHoa",
+            "schema": {
+              "$ref": "#/definitions/TblHpTrinhDoVanHoa"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/TblHpTrinhDoVanHoa"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpXiNghieps": {
+      "get": {
+        "operationId": "getTblHpXiNghieps",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/TblHpXiNghiep"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createTblHpXiNghiep",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpXiNghiep",
+            "schema": {
+              "$ref": "#/definitions/TblHpXiNghiep"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/TblHpXiNghiep"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/VwHrLyLichNvs": {
+      "get": {
+        "operationId": "getVwHrLyLichNvs",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$format",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/VwHrLyLichNv"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblGnDepartments('{Department_ID}')": {
+      "delete": {
+        "operationId": "deleteTblGnDepartment",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Department_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getTblGnDepartmentByDepartment_ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Department_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/TblGnDepartment"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateTblGnDepartment",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Department_ID",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "TblGnDepartment",
+            "schema": {
+              "$ref": "#/definitions/TblGnDepartment"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelTblGnDepartmentChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblGnDepartment",
+            "schema": {
+              "$ref": "#/definitions/TblGnDepartment"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpBacs('{Bac_ID}')": {
+      "delete": {
+        "operationId": "deleteTblHpBac",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Bac_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getTblHpBacByBac_ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Bac_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/TblHpBac"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateTblHpBac",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Bac_ID",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "TblHpBac",
+            "schema": {
+              "$ref": "#/definitions/TblHpBac"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelTblHpBacChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpBac",
+            "schema": {
+              "$ref": "#/definitions/TblHpBac"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpChiTietChuyenMons({ChiTietChuyenMon_SEQ})": {
+      "delete": {
+        "operationId": "deleteTblHpChiTietChuyenMon",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ChiTietChuyenMon_SEQ",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getTblHpChiTietChuyenMonByChiTietChuyenMon_SEQ",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ChiTietChuyenMon_SEQ",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/TblHpChiTietChuyenMon"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateTblHpChiTietChuyenMon",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ChiTietChuyenMon_SEQ",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "TblHpChiTietChuyenMon",
+            "schema": {
+              "$ref": "#/definitions/TblHpChiTietChuyenMon"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelTblHpChiTietChuyenMonChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpChiTietChuyenMon",
+            "schema": {
+              "$ref": "#/definitions/TblHpChiTietChuyenMon"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpChiTietCongTacs({ChiTietCongTac_SEQ})": {
+      "delete": {
+        "operationId": "deleteTblHpChiTietCongTac",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ChiTietCongTac_SEQ",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getTblHpChiTietCongTacByChiTietCongTac_SEQ",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ChiTietCongTac_SEQ",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/TblHpChiTietCongTac"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateTblHpChiTietCongTac",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ChiTietCongTac_SEQ",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "TblHpChiTietCongTac",
+            "schema": {
+              "$ref": "#/definitions/TblHpChiTietCongTac"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelTblHpChiTietCongTacChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpChiTietCongTac",
+            "schema": {
+              "$ref": "#/definitions/TblHpChiTietCongTac"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpChiTietGiaCanhs({ChiTietGiaCanh_SEQ})": {
+      "delete": {
+        "operationId": "deleteTblHpChiTietGiaCanh",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ChiTietGiaCanh_SEQ",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getTblHpChiTietGiaCanhByChiTietGiaCanh_SEQ",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ChiTietGiaCanh_SEQ",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/TblHpChiTietGiaCanh"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateTblHpChiTietGiaCanh",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ChiTietGiaCanh_SEQ",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "TblHpChiTietGiaCanh",
+            "schema": {
+              "$ref": "#/definitions/TblHpChiTietGiaCanh"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelTblHpChiTietGiaCanhChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpChiTietGiaCanh",
+            "schema": {
+              "$ref": "#/definitions/TblHpChiTietGiaCanh"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpChiTietLuongs({ChiTietLuong_SEQ})": {
+      "delete": {
+        "operationId": "deleteTblHpChiTietLuong",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ChiTietLuong_SEQ",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getTblHpChiTietLuongByChiTietLuong_SEQ",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ChiTietLuong_SEQ",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/TblHpChiTietLuong"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateTblHpChiTietLuong",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ChiTietLuong_SEQ",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "TblHpChiTietLuong",
+            "schema": {
+              "$ref": "#/definitions/TblHpChiTietLuong"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelTblHpChiTietLuongChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpChiTietLuong",
+            "schema": {
+              "$ref": "#/definitions/TblHpChiTietLuong"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpChiTietNgoaiNgus({ChiTietNgoaiNgu_SEQ})": {
+      "delete": {
+        "operationId": "deleteTblHpChiTietNgoaiNgu",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ChiTietNgoaiNgu_SEQ",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getTblHpChiTietNgoaiNguByChiTietNgoaiNgu_SEQ",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ChiTietNgoaiNgu_SEQ",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/TblHpChiTietNgoaiNgu"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateTblHpChiTietNgoaiNgu",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ChiTietNgoaiNgu_SEQ",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "TblHpChiTietNgoaiNgu",
+            "schema": {
+              "$ref": "#/definitions/TblHpChiTietNgoaiNgu"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelTblHpChiTietNgoaiNguChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpChiTietNgoaiNgu",
+            "schema": {
+              "$ref": "#/definitions/TblHpChiTietNgoaiNgu"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpChucVus('{ChucVu_ID}')": {
+      "delete": {
+        "operationId": "deleteTblHpChucVu",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ChucVu_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getTblHpChucVuByChucVu_ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ChucVu_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/TblHpChucVu"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateTblHpChucVu",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ChucVu_ID",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "TblHpChucVu",
+            "schema": {
+              "$ref": "#/definitions/TblHpChucVu"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelTblHpChucVuChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpChucVu",
+            "schema": {
+              "$ref": "#/definitions/TblHpChucVu"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpDanTocs('{DanToc_ID}')": {
+      "delete": {
+        "operationId": "deleteTblHpDanToc",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "DanToc_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getTblHpDanTocByDanToc_ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "DanToc_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/TblHpDanToc"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateTblHpDanToc",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "DanToc_ID",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "TblHpDanToc",
+            "schema": {
+              "$ref": "#/definitions/TblHpDanToc"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelTblHpDanTocChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpDanToc",
+            "schema": {
+              "$ref": "#/definitions/TblHpDanToc"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpDonViTos('{DonViTo_ID}')": {
+      "delete": {
+        "operationId": "deleteTblHpDonViTo",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "DonViTo_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getTblHpDonViToByDonViTo_ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "DonViTo_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/TblHpDonViTo"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateTblHpDonViTo",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "DonViTo_ID",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "TblHpDonViTo",
+            "schema": {
+              "$ref": "#/definitions/TblHpDonViTo"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelTblHpDonViToChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpDonViTo",
+            "schema": {
+              "$ref": "#/definitions/TblHpDonViTo"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpHeDaoTaos('{HeDaoTao_ID}')": {
+      "delete": {
+        "operationId": "deleteTblHpHeDaoTao",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "HeDaoTao_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getTblHpHeDaoTaoByHeDaoTao_ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "HeDaoTao_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/TblHpHeDaoTao"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateTblHpHeDaoTao",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "HeDaoTao_ID",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "TblHpHeDaoTao",
+            "schema": {
+              "$ref": "#/definitions/TblHpHeDaoTao"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelTblHpHeDaoTaoChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpHeDaoTao",
+            "schema": {
+              "$ref": "#/definitions/TblHpHeDaoTao"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpLoaiChamCongs('{LoaiChamCong_ID}')": {
+      "delete": {
+        "operationId": "deleteTblHpLoaiChamCong",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "LoaiChamCong_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getTblHpLoaiChamCongByLoaiChamCong_ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "LoaiChamCong_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/TblHpLoaiChamCong"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateTblHpLoaiChamCong",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "LoaiChamCong_ID",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "TblHpLoaiChamCong",
+            "schema": {
+              "$ref": "#/definitions/TblHpLoaiChamCong"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelTblHpLoaiChamCongChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpLoaiChamCong",
+            "schema": {
+              "$ref": "#/definitions/TblHpLoaiChamCong"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpNgaches('{Ngach_ID}')": {
+      "delete": {
+        "operationId": "deleteTblHpNgach",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Ngach_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getTblHpNgachByNgach_ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Ngach_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/TblHpNgach"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateTblHpNgach",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Ngach_ID",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "TblHpNgach",
+            "schema": {
+              "$ref": "#/definitions/TblHpNgach"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelTblHpNgachChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpNgach",
+            "schema": {
+              "$ref": "#/definitions/TblHpNgach"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpNganhs('{Nganh_ID}')": {
+      "delete": {
+        "operationId": "deleteTblHpNganh",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Nganh_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getTblHpNganhByNganh_ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Nganh_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/TblHpNganh"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateTblHpNganh",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Nganh_ID",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "TblHpNganh",
+            "schema": {
+              "$ref": "#/definitions/TblHpNganh"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelTblHpNganhChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpNganh",
+            "schema": {
+              "$ref": "#/definitions/TblHpNganh"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpNgoaiNgus('{NgoaiNgu_ID}')": {
+      "delete": {
+        "operationId": "deleteTblHpNgoaiNgu",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "NgoaiNgu_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getTblHpNgoaiNguByNgoaiNgu_ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "NgoaiNgu_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/TblHpNgoaiNgu"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateTblHpNgoaiNgu",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "NgoaiNgu_ID",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "TblHpNgoaiNgu",
+            "schema": {
+              "$ref": "#/definitions/TblHpNgoaiNgu"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelTblHpNgoaiNguChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpNgoaiNgu",
+            "schema": {
+              "$ref": "#/definitions/TblHpNgoaiNgu"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpNhanViens('{NhanVien_ID}')": {
+      "delete": {
+        "operationId": "deleteTblHpNhanVien",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "NhanVien_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getTblHpNhanVienByNhanVien_ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "NhanVien_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/TblHpNhanVien"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateTblHpNhanVien",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "NhanVien_ID",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "TblHpNhanVien",
+            "schema": {
+              "$ref": "#/definitions/TblHpNhanVien"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelTblHpNhanVienChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpNhanVien",
+            "schema": {
+              "$ref": "#/definitions/TblHpNhanVien"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpPhanLoaiNvs('{PhanLoaiNV_ID}')": {
+      "delete": {
+        "operationId": "deleteTblHpPhanLoaiNv",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "PhanLoaiNV_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getTblHpPhanLoaiNvByPhanLoaiNV_ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "PhanLoaiNV_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/TblHpPhanLoaiNv"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateTblHpPhanLoaiNv",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "PhanLoaiNV_ID",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "TblHpPhanLoaiNv",
+            "schema": {
+              "$ref": "#/definitions/TblHpPhanLoaiNv"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelTblHpPhanLoaiNvChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpPhanLoaiNv",
+            "schema": {
+              "$ref": "#/definitions/TblHpPhanLoaiNv"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpQuans('{Quan_ID}')": {
+      "delete": {
+        "operationId": "deleteTblHpQuan",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Quan_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getTblHpQuanByQuan_ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Quan_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/TblHpQuan"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateTblHpQuan",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Quan_ID",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "TblHpQuan",
+            "schema": {
+              "$ref": "#/definitions/TblHpQuan"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelTblHpQuanChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpQuan",
+            "schema": {
+              "$ref": "#/definitions/TblHpQuan"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpQuocTiches('{QuocTich_ID}')": {
+      "delete": {
+        "operationId": "deleteTblHpQuocTich",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "QuocTich_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getTblHpQuocTichByQuocTich_ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "QuocTich_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/TblHpQuocTich"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateTblHpQuocTich",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "QuocTich_ID",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "TblHpQuocTich",
+            "schema": {
+              "$ref": "#/definitions/TblHpQuocTich"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelTblHpQuocTichChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpQuocTich",
+            "schema": {
+              "$ref": "#/definitions/TblHpQuocTich"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpTinhTps('{TinhTP_ID}')": {
+      "delete": {
+        "operationId": "deleteTblHpTinhTp",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "TinhTP_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getTblHpTinhTpByTinhTP_ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "TinhTP_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/TblHpTinhTp"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateTblHpTinhTp",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "TinhTP_ID",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "TblHpTinhTp",
+            "schema": {
+              "$ref": "#/definitions/TblHpTinhTp"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelTblHpTinhTpChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpTinhTp",
+            "schema": {
+              "$ref": "#/definitions/TblHpTinhTp"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpTonGiaos('{TonGiao_ID}')": {
+      "delete": {
+        "operationId": "deleteTblHpTonGiao",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "TonGiao_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getTblHpTonGiaoByTonGiao_ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "TonGiao_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/TblHpTonGiao"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateTblHpTonGiao",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "TonGiao_ID",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "TblHpTonGiao",
+            "schema": {
+              "$ref": "#/definitions/TblHpTonGiao"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelTblHpTonGiaoChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpTonGiao",
+            "schema": {
+              "$ref": "#/definitions/TblHpTonGiao"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpTrinhDoChuyenMons('{TrinhDoChuyenMon_ID}')": {
+      "delete": {
+        "operationId": "deleteTblHpTrinhDoChuyenMon",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "TrinhDoChuyenMon_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getTblHpTrinhDoChuyenMonByTrinhDoChuyenMon_ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "TrinhDoChuyenMon_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/TblHpTrinhDoChuyenMon"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateTblHpTrinhDoChuyenMon",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "TrinhDoChuyenMon_ID",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "TblHpTrinhDoChuyenMon",
+            "schema": {
+              "$ref": "#/definitions/TblHpTrinhDoChuyenMon"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelTblHpTrinhDoChuyenMonChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpTrinhDoChuyenMon",
+            "schema": {
+              "$ref": "#/definitions/TblHpTrinhDoChuyenMon"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpTrinhDoVanHoas('{TrinhDoVanHoa_ID}')": {
+      "delete": {
+        "operationId": "deleteTblHpTrinhDoVanHoa",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "TrinhDoVanHoa_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getTblHpTrinhDoVanHoaByTrinhDoVanHoa_ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "TrinhDoVanHoa_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/TblHpTrinhDoVanHoa"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateTblHpTrinhDoVanHoa",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "TrinhDoVanHoa_ID",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "TblHpTrinhDoVanHoa",
+            "schema": {
+              "$ref": "#/definitions/TblHpTrinhDoVanHoa"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelTblHpTrinhDoVanHoaChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpTrinhDoVanHoa",
+            "schema": {
+              "$ref": "#/definitions/TblHpTrinhDoVanHoa"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TblHpXiNghieps('{XiNghiep_ID}')": {
+      "delete": {
+        "operationId": "deleteTblHpXiNghiep",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "XiNghiep_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getTblHpXiNghiepByXiNghiep_ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "XiNghiep_ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/TblHpXiNghiep"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateTblHpXiNghiep",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "XiNghiep_ID",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "TblHpXiNghiep",
+            "schema": {
+              "$ref": "#/definitions/TblHpXiNghiep"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "cancel": {
+        "operationId": "cancelTblHpXiNghiepChanges",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TblHpXiNghiep",
+            "schema": {
+              "$ref": "#/definitions/TblHpXiNghiep"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    }
+  },
+  "basePath": "/odata/DbAtVdc2",
+  "host": "localhost:5000",
+  "schemes": [
+    "http"
+  ]
+}

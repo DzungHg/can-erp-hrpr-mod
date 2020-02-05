@@ -1,0 +1,59 @@
+﻿@page "/add-tbl-hp-trinh-do-chuyen-mon"
+@layout MainLayout
+@inherits CanErpHrPr.Pages.AddTblHpTrinhDoChuyenMonComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErpHrPr.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@tblhptrinhdochuyenmon" Visible="@(tblhptrinhdochuyenmon != null)" TItem="CanErpHrPr.Models.DbAtVdc2.TblHpTrinhDoChuyenMon" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Trinh Do Chuyen Mon Id" Component="TrinhDoChuyenMon_ID" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="2" style="display: block; width: 100%" @bind-Value="@(tblhptrinhdochuyenmon.TrinhDoChuyenMon_ID)" Name="TrinhDoChuyenMon_ID">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="TrinhDoChuyenMon_ID" Text="TrinhDoChuyenMon_ID is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Trinh Do Chuyen Mon Name" Component="TrinhDoChuyenMon_Name" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="width: 100%" @bind-Value="@(tblhptrinhdochuyenmon.TrinhDoChuyenMon_Name)" Name="TrinhDoChuyenMon_Name">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Description" Component="Description" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="250" style="width: 100%" @bind-Value="@(tblhptrinhdochuyenmon.Description)" Name="Description">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Save" ButtonStyle="ButtonStyle.Primary">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" Text="Cancel" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

@@ -1,0 +1,59 @@
+﻿@page "/add-tbl-hp-he-dao-tao"
+@layout MainLayout
+@inherits CanErpHrPr.Pages.AddTblHpHeDaoTaoComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErpHrPr.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@tblhphedaotao" Visible="@(tblhphedaotao != null)" TItem="CanErpHrPr.Models.DbAtVdc2.TblHpHeDaoTao" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="He Dao Tao Id" Component="HeDaoTao_ID" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="2" style="display: block; width: 100%" @bind-Value="@(tblhphedaotao.HeDaoTao_ID)" Name="HeDaoTao_ID">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="HeDaoTao_ID" Text="HeDaoTao_ID is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="He Dao Tao Name" Component="HeDaoTao_Name" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="width: 100%" @bind-Value="@(tblhphedaotao.HeDaoTao_Name)" Name="HeDaoTao_Name">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Description" Component="Description" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="250" style="width: 100%" @bind-Value="@(tblhphedaotao.Description)" Name="Description">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Save" ButtonStyle="ButtonStyle.Primary">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" Text="Cancel" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

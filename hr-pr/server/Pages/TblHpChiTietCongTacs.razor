@@ -1,0 +1,48 @@
+﻿@page "/tbl-hp-chi-tiet-cong-tacs"
+@layout MainLayout
+@inherits CanErpHrPr.Pages.TblHpChiTietCongTacsComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErpHrPr.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Tbl Hp Chi Tiet Cong Tacs">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblHpChiTietCongTacsResult" TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietCongTac" RowSelect="@Grid0RowSelect">
+          <Columns>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietCongTac" Context="canErpHrPrModelsDbAtVdc2TblHpChiTietCongTac" Property="ChiTietCongTac_SEQ" Title="Chi Tiet Cong Tac SEQ">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietCongTac" Context="canErpHrPrModelsDbAtVdc2TblHpChiTietCongTac" Property="NhanVien_FK" SortProperty="TblHpNhanVien.HoTenLot" FilterProperty="TblHpNhanVien.HoTenLot" Title="Tbl Hp Nhan Vien">
+              <Template Context="data">
+              @(data.TblHpNhanVien?.HoTenLot)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietCongTac" Context="canErpHrPrModelsDbAtVdc2TblHpChiTietCongTac" Property="NgayBienDong" FormatString="{0:MM/dd/yyyy}" Title="Ngay Bien Dong">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietCongTac" Context="canErpHrPrModelsDbAtVdc2TblHpChiTietCongTac" Property="QuyetDinhSo" Title="Quyet Dinh So">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietCongTac" Context="canErpHrPrModelsDbAtVdc2TblHpChiTietCongTac" Property="DonViCu" Title="Don Vi Cu">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietCongTac" Context="canErpHrPrModelsDbAtVdc2TblHpChiTietCongTac" Property="ChucVuCu" Title="Chuc Vu Cu">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietCongTac" Context="canErpHrPrModelsDbAtVdc2TblHpChiTietCongTac" Property="DonViHienNay" Title="Don Vi Hien Nay">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietCongTac" Context="canErpHrPrModelsDbAtVdc2TblHpChiTietCongTac" Property="ChucVuHienNay" Title="Chuc Vu Hien Nay">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietCongTac" Context="canErpHrPrModelsDbAtVdc2TblHpChiTietCongTac" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+              <Template Context="canErpHrPrModelsDbAtVdc2TblHpChiTietCongTac">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErpHrPrModelsDbAtVdc2TblHpChiTietCongTac))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenGridColumn>
+          </Columns>
+        </RadzenGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

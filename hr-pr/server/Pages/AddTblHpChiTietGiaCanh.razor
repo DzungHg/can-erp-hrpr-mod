@@ -1,0 +1,97 @@
+﻿@page "/add-tbl-hp-chi-tiet-gia-canh"
+@layout MainLayout
+@inherits CanErpHrPr.Pages.AddTblHpChiTietGiaCanhComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErpHrPr.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@tblhpchitietgiacanh" Visible="@(tblhpchitietgiacanh != null)" TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietGiaCanh" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Tbl Hp Nhan Vien" Component="NhanVien_FK" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblHpNhanViensResult" TextProperty="HoTenLot" ValueProperty="NhanVien_ID" Placeholder="Choose TblHpNhanVien" style="width: 100%" @bind-Value="@(tblhpchitietgiacanh.NhanVien_FK)" Name="NhanVien_FK">
+                </RadzenDropDown>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Ho Va Ten" Component="HoVaTen" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="35" style="width: 100%" @bind-Value="@(tblhpchitietgiacanh.HoVaTen)" Name="HoVaTen">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Nam Sinh" Component="NamSinh" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(tblhpchitietgiacanh.NamSinh)" Name="NamSinh">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Phai Nam" Component="PhaiNam" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenCheckBox TriState="true" @bind-Value="@(tblhpchitietgiacanh.PhaiNam)" Name="PhaiNam">
+                </RadzenCheckBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Quan He" Component="QuanHe" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="8" style="width: 100%" @bind-Value="@(tblhpchitietgiacanh.QuanHe)" Name="QuanHe">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Nghe Nghiep" Component="NgheNghiep" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="30" style="width: 100%" @bind-Value="@(tblhpchitietgiacanh.NgheNghiep)" Name="NgheNghiep">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Da Chet" Component="DaChet" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenCheckBox TriState="true" @bind-Value="@(tblhpchitietgiacanh.DaChet)" Name="DaChet">
+                </RadzenCheckBox>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Save" ButtonStyle="ButtonStyle.Primary">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" Text="Cancel" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

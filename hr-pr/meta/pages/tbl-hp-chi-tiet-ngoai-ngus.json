@@ -1,0 +1,180 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Tbl Hp Chi Tiet Ngoai Ngus"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "icon": "add_circle_outline",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "10px"
+                  },
+                  "text": "Add",
+                  "type": "button",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "add-tbl-hp-chi-tiet-ngoai-ngu",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "grid0.Reload();",
+                            "type": "execute"
+                          },
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getTblHpChiTietNgoaiNgusResult}",
+                  "events": {
+                    "loadData": [],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "ChiTietNgoaiNgu_SEQ",
+                            "value": "${event.ChiTietNgoaiNgu_SEQ}"
+                          }
+                        ],
+                        "path": "edit-tbl-hp-chi-tiet-ngoai-ngu",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "ChiTietNgoaiNgu_SEQ",
+                      "title": "Chi Tiet Ngoai Ngu SEQ"
+                    },
+                    {
+                      "property": "NhanVien_FK",
+                      "sortProperty": "TblHpNhanVien.HoTenLot",
+                      "filterProperty": "TblHpNhanVien.HoTenLot",
+                      "template": "${data.TblHpNhanVien?.HoTenLot}",
+                      "title": "Tbl Hp Nhan Vien"
+                    },
+                    {
+                      "property": "NgoaiNgu_FK",
+                      "title": "Ngoai Ngu FK"
+                    },
+                    {
+                      "property": "TrinhDo_FK",
+                      "title": "Trinh Do FK"
+                    },
+                    {
+                      "property": "VanBang",
+                      "title": "Van Bang"
+                    },
+                    {
+                      "filterable": false,
+                      "sortable": false,
+                      "width": "70px",
+                      "textAlign": "center",
+                      "template": [
+                        {
+                          "attributes": [
+                            {
+                              "name": "@onclick:stopPropagation",
+                              "value": true
+                            }
+                          ],
+                          "buttonStyle": "danger",
+                          "icon": "close",
+                          "name": "gridDeleteButton",
+                          "text": "",
+                          "size": "sm",
+                          "type": "button",
+                          "events": {
+                            "click": [
+                              {
+                                "error": [
+                                  {
+                                    "detail": "Unable to delete TblHpChiTietNgoaiNgu",
+                                    "severity": "error",
+                                    "summary": "Error",
+                                    "type": "notify"
+                                  }
+                                ],
+                                "name": "DB_At_VDC2.deleteTblHpChiTietNgoaiNgu",
+                                "parameters": [
+                                  {
+                                    "name": "ChiTietNgoaiNgu_SEQ",
+                                    "value": "${data.ChiTietNgoaiNgu_SEQ}"
+                                  }
+                                ],
+                                "then": [
+                                  {
+                                    "code": "grid0.Reload();",
+                                    "condition": "result != null",
+                                    "type": "execute"
+                                  }
+                                ],
+                                "type": "invoke"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "CanErpHrPr.Models.DbAtVdc2.TblHpChiTietNgoaiNgu"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "DB_At_VDC2.getTblHpChiTietNgoaiNgus",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblHpChiTietNgoaiNgusResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErpHrPr.Models.DbAtVdc2.TblHpChiTietNgoaiNgu>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Tbl Hp Chi Tiet Ngoai Ngus",
+  "layout": "Main"
+}

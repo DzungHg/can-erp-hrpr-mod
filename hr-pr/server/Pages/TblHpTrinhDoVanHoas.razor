@@ -1,0 +1,35 @@
+﻿@page "/tbl-hp-trinh-do-van-hoas"
+@layout MainLayout
+@inherits CanErpHrPr.Pages.TblHpTrinhDoVanHoasComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErpHrPr.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Tbl Hp Trinh Do Van Hoas">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblHpTrinhDoVanHoasResult" TItem="CanErpHrPr.Models.DbAtVdc2.TblHpTrinhDoVanHoa" RowSelect="@Grid0RowSelect">
+          <Columns>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpTrinhDoVanHoa" Context="canErpHrPrModelsDbAtVdc2TblHpTrinhDoVanHoa" Property="TrinhDoVanHoa_ID" Title="Trinh Do Van Hoa ID">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpTrinhDoVanHoa" Context="canErpHrPrModelsDbAtVdc2TblHpTrinhDoVanHoa" Property="TrinhDoVanHoa_Name" Title="Trinh Do Van Hoa Name">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpTrinhDoVanHoa" Context="canErpHrPrModelsDbAtVdc2TblHpTrinhDoVanHoa" Property="Description" Title="Description">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpTrinhDoVanHoa" Context="canErpHrPrModelsDbAtVdc2TblHpTrinhDoVanHoa" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+              <Template Context="canErpHrPrModelsDbAtVdc2TblHpTrinhDoVanHoa">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErpHrPrModelsDbAtVdc2TblHpTrinhDoVanHoa))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenGridColumn>
+          </Columns>
+        </RadzenGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

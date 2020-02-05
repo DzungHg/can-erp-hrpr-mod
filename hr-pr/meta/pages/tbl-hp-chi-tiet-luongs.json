@@ -1,0 +1,210 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Tbl Hp Chi Tiet Luongs"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "icon": "add_circle_outline",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "10px"
+                  },
+                  "text": "Add",
+                  "type": "button",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "add-tbl-hp-chi-tiet-luong",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "grid0.Reload();",
+                            "type": "execute"
+                          },
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getTblHpChiTietLuongsResult}",
+                  "events": {
+                    "loadData": [],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "ChiTietLuong_SEQ",
+                            "value": "${event.ChiTietLuong_SEQ}"
+                          }
+                        ],
+                        "path": "edit-tbl-hp-chi-tiet-luong",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "ChiTietLuong_SEQ",
+                      "title": "Chi Tiet Luong SEQ"
+                    },
+                    {
+                      "property": "NhanVien_FK",
+                      "sortProperty": "TblHpNhanVien.HoTenLot",
+                      "filterProperty": "TblHpNhanVien.HoTenLot",
+                      "template": "${data.TblHpNhanVien?.HoTenLot}",
+                      "title": "Tbl Hp Nhan Vien"
+                    },
+                    {
+                      "property": "NgayHuongLuong",
+                      "formatString": "{0:MM/dd/yyyy}",
+                      "title": "Ngay Huong Luong"
+                    },
+                    {
+                      "property": "QuyetDinhSo",
+                      "title": "Quyet Dinh So"
+                    },
+                    {
+                      "property": "NgayKy",
+                      "formatString": "{0:MM/dd/yyyy}",
+                      "title": "Ngay Ky"
+                    },
+                    {
+                      "property": "CoQuanKy",
+                      "title": "Co Quan Ky"
+                    },
+                    {
+                      "property": "Ngach",
+                      "title": "Ngach"
+                    },
+                    {
+                      "property": "Bac",
+                      "title": "Bac"
+                    },
+                    {
+                      "property": "HeSoLuong",
+                      "title": "He So Luong"
+                    },
+                    {
+                      "property": "HeSoPhuCapChucVu",
+                      "title": "He So Phu Cap Chuc Vu"
+                    },
+                    {
+                      "property": "HeSoPhuCapDocHai",
+                      "title": "He So Phu Cap Doc Hai"
+                    },
+                    {
+                      "property": "DienGiai",
+                      "title": "Dien Giai"
+                    },
+                    {
+                      "filterable": false,
+                      "sortable": false,
+                      "width": "70px",
+                      "textAlign": "center",
+                      "template": [
+                        {
+                          "attributes": [
+                            {
+                              "name": "@onclick:stopPropagation",
+                              "value": true
+                            }
+                          ],
+                          "buttonStyle": "danger",
+                          "icon": "close",
+                          "name": "gridDeleteButton",
+                          "text": "",
+                          "size": "sm",
+                          "type": "button",
+                          "events": {
+                            "click": [
+                              {
+                                "error": [
+                                  {
+                                    "detail": "Unable to delete TblHpChiTietLuong",
+                                    "severity": "error",
+                                    "summary": "Error",
+                                    "type": "notify"
+                                  }
+                                ],
+                                "name": "DB_At_VDC2.deleteTblHpChiTietLuong",
+                                "parameters": [
+                                  {
+                                    "name": "ChiTietLuong_SEQ",
+                                    "value": "${data.ChiTietLuong_SEQ}"
+                                  }
+                                ],
+                                "then": [
+                                  {
+                                    "code": "grid0.Reload();",
+                                    "condition": "result != null",
+                                    "type": "execute"
+                                  }
+                                ],
+                                "type": "invoke"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "CanErpHrPr.Models.DbAtVdc2.TblHpChiTietLuong"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "DB_At_VDC2.getTblHpChiTietLuongs",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblHpChiTietLuongsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErpHrPr.Models.DbAtVdc2.TblHpChiTietLuong>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Tbl Hp Chi Tiet Luongs",
+  "layout": "Main"
+}

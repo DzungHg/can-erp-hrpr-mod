@@ -1,0 +1,180 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Tbl Hp Chi Tiet Chuyen Mons"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "icon": "add_circle_outline",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "10px"
+                  },
+                  "text": "Add",
+                  "type": "button",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "add-tbl-hp-chi-tiet-chuyen-mon",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "grid0.Reload();",
+                            "type": "execute"
+                          },
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getTblHpChiTietChuyenMonsResult}",
+                  "events": {
+                    "loadData": [],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "ChiTietChuyenMon_SEQ",
+                            "value": "${event.ChiTietChuyenMon_SEQ}"
+                          }
+                        ],
+                        "path": "edit-tbl-hp-chi-tiet-chuyen-mon",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "ChiTietChuyenMon_SEQ",
+                      "title": "Chi Tiet Chuyen Mon SEQ"
+                    },
+                    {
+                      "property": "NhanVien_FK",
+                      "sortProperty": "TblHpNhanVien.HoTenLot",
+                      "filterProperty": "TblHpNhanVien.HoTenLot",
+                      "template": "${data.TblHpNhanVien?.HoTenLot}",
+                      "title": "Tbl Hp Nhan Vien"
+                    },
+                    {
+                      "property": "BangCap_FK",
+                      "title": "Bang Cap FK"
+                    },
+                    {
+                      "property": "Nganh_FK",
+                      "title": "Nganh FK"
+                    },
+                    {
+                      "property": "HeDaoTao_FK",
+                      "title": "He Dao Tao FK"
+                    },
+                    {
+                      "filterable": false,
+                      "sortable": false,
+                      "width": "70px",
+                      "textAlign": "center",
+                      "template": [
+                        {
+                          "attributes": [
+                            {
+                              "name": "@onclick:stopPropagation",
+                              "value": true
+                            }
+                          ],
+                          "buttonStyle": "danger",
+                          "icon": "close",
+                          "name": "gridDeleteButton",
+                          "text": "",
+                          "size": "sm",
+                          "type": "button",
+                          "events": {
+                            "click": [
+                              {
+                                "error": [
+                                  {
+                                    "detail": "Unable to delete TblHpChiTietChuyenMon",
+                                    "severity": "error",
+                                    "summary": "Error",
+                                    "type": "notify"
+                                  }
+                                ],
+                                "name": "DB_At_VDC2.deleteTblHpChiTietChuyenMon",
+                                "parameters": [
+                                  {
+                                    "name": "ChiTietChuyenMon_SEQ",
+                                    "value": "${data.ChiTietChuyenMon_SEQ}"
+                                  }
+                                ],
+                                "then": [
+                                  {
+                                    "code": "grid0.Reload();",
+                                    "condition": "result != null",
+                                    "type": "execute"
+                                  }
+                                ],
+                                "type": "invoke"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "CanErpHrPr.Models.DbAtVdc2.TblHpChiTietChuyenMon"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "DB_At_VDC2.getTblHpChiTietChuyenMons",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblHpChiTietChuyenMonsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErpHrPr.Models.DbAtVdc2.TblHpChiTietChuyenMon>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Tbl Hp Chi Tiet Chuyen Mons",
+  "layout": "Main"
+}

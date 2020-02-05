@@ -1,0 +1,169 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Tbl Hp Don Vi Tos"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "icon": "add_circle_outline",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "10px"
+                  },
+                  "text": "Add",
+                  "type": "button",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "add-tbl-hp-don-vi-to",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "grid0.Reload();",
+                            "type": "execute"
+                          },
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getTblHpDonViTosResult}",
+                  "events": {
+                    "loadData": [],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "DonViTo_ID",
+                            "value": "${event.DonViTo_ID}"
+                          }
+                        ],
+                        "path": "edit-tbl-hp-don-vi-to",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "DonViTo_ID",
+                      "title": "Don Vi To ID"
+                    },
+                    {
+                      "property": "DonViTo_Name",
+                      "title": "Don Vi To Name"
+                    },
+                    {
+                      "property": "Description",
+                      "title": "Description"
+                    },
+                    {
+                      "filterable": false,
+                      "sortable": false,
+                      "width": "70px",
+                      "textAlign": "center",
+                      "template": [
+                        {
+                          "attributes": [
+                            {
+                              "name": "@onclick:stopPropagation",
+                              "value": true
+                            }
+                          ],
+                          "buttonStyle": "danger",
+                          "icon": "close",
+                          "name": "gridDeleteButton",
+                          "text": "",
+                          "size": "sm",
+                          "type": "button",
+                          "events": {
+                            "click": [
+                              {
+                                "error": [
+                                  {
+                                    "detail": "Unable to delete TblHpDonViTo",
+                                    "severity": "error",
+                                    "summary": "Error",
+                                    "type": "notify"
+                                  }
+                                ],
+                                "name": "DB_At_VDC2.deleteTblHpDonViTo",
+                                "parameters": [
+                                  {
+                                    "name": "DonViTo_ID",
+                                    "value": "${data.DonViTo_ID}"
+                                  }
+                                ],
+                                "then": [
+                                  {
+                                    "code": "grid0.Reload();",
+                                    "condition": "result != null",
+                                    "type": "execute"
+                                  }
+                                ],
+                                "type": "invoke"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "CanErpHrPr.Models.DbAtVdc2.TblHpDonViTo"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "DB_At_VDC2.getTblHpDonViTos",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblHpDonViTosResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErpHrPr.Models.DbAtVdc2.TblHpDonViTo>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Tbl Hp Don Vi Tos",
+  "layout": "Main"
+}

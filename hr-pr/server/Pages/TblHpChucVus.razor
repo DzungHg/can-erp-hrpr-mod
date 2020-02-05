@@ -1,0 +1,35 @@
+﻿@page "/tbl-hp-chuc-vus"
+@layout MainLayout
+@inherits CanErpHrPr.Pages.TblHpChucVusComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErpHrPr.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Tbl Hp Chuc Vus">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblHpChucVusResult" TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChucVu" RowSelect="@Grid0RowSelect">
+          <Columns>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChucVu" Context="canErpHrPrModelsDbAtVdc2TblHpChucVu" Property="ChucVu_ID" Title="Chuc Vu ID">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChucVu" Context="canErpHrPrModelsDbAtVdc2TblHpChucVu" Property="ChucVu_Name" Title="Chuc Vu Name">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChucVu" Context="canErpHrPrModelsDbAtVdc2TblHpChucVu" Property="Description" Title="Description">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChucVu" Context="canErpHrPrModelsDbAtVdc2TblHpChucVu" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+              <Template Context="canErpHrPrModelsDbAtVdc2TblHpChucVu">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErpHrPrModelsDbAtVdc2TblHpChucVu))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenGridColumn>
+          </Columns>
+        </RadzenGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

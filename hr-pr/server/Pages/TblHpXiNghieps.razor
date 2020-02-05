@@ -1,0 +1,35 @@
+﻿@page "/tbl-hp-xi-nghieps"
+@layout MainLayout
+@inherits CanErpHrPr.Pages.TblHpXiNghiepsComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErpHrPr.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Tbl Hp Xi Nghieps">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblHpXiNghiepsResult" TItem="CanErpHrPr.Models.DbAtVdc2.TblHpXiNghiep" RowSelect="@Grid0RowSelect">
+          <Columns>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpXiNghiep" Context="canErpHrPrModelsDbAtVdc2TblHpXiNghiep" Property="XiNghiep_ID" Title="Xi Nghiep ID">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpXiNghiep" Context="canErpHrPrModelsDbAtVdc2TblHpXiNghiep" Property="XiNghiep_Name" Title="Xi Nghiep Name">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpXiNghiep" Context="canErpHrPrModelsDbAtVdc2TblHpXiNghiep" Property="Description" Title="Description">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpXiNghiep" Context="canErpHrPrModelsDbAtVdc2TblHpXiNghiep" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+              <Template Context="canErpHrPrModelsDbAtVdc2TblHpXiNghiep">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErpHrPrModelsDbAtVdc2TblHpXiNghiep))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenGridColumn>
+          </Columns>
+        </RadzenGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

@@ -1,0 +1,343 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "components": [
+            {
+              "class": "col-md-9",
+              "components": [
+                {
+                  "name": "closeLabel",
+                  "style": {
+                    "fontWeight": "bold"
+                  },
+                  "text": "Item no longer available.",
+                  "type": "label",
+                  "visible": "${!canEdit}"
+                }
+              ],
+              "name": "col0",
+              "type": "col"
+            },
+            {
+              "class": "col-md-3",
+              "components": [
+                {
+                  "buttonStyle": "secondary",
+                  "events": {
+                    "click": [
+                      {
+                        "type": "close-popup"
+                      }
+                    ]
+                  },
+                  "icon": "",
+                  "name": "closeButton",
+                  "style": {
+                    "marginBottom": "20px"
+                  },
+                  "text": "Close",
+                  "type": "button",
+                  "visible": "${!canEdit}"
+                }
+              ],
+              "name": "col1",
+              "type": "col"
+            }
+          ],
+          "name": "row0",
+          "style": {},
+          "type": "row"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "type": "template-form",
+                  "name": "form0",
+                  "components": [
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tbl Hp Nhan Vien",
+                              "component": "NhanVien_FK",
+                              "name": "NhanVien_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTblHpNhanViensResult}",
+                              "textProperty": "HoTenLot",
+                              "valueProperty": "NhanVien_ID",
+                              "placeholder": "Choose TblHpNhanVien",
+                              "valueType": "string",
+                              "type": "dropdown",
+                              "name": "NhanVien_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpchitietngoaingu.NhanVien_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Ngoai Ngu Fk",
+                              "component": "NgoaiNgu_FK",
+                              "name": "NgoaiNgu_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 2,
+                              "type": "textbox",
+                              "name": "NgoaiNgu_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpchitietngoaingu.NgoaiNgu_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Trinh Do Fk",
+                              "component": "TrinhDo_FK",
+                              "name": "TrinhDo_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 2,
+                              "type": "textbox",
+                              "name": "TrinhDo_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpchitietngoaingu.TrinhDo_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Van Bang",
+                              "component": "VanBang",
+                              "name": "VanBangLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 25,
+                              "type": "textbox",
+                              "name": "VanBang",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpchitietngoaingu.VanBang}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "type": "button",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "buttonStyle": "primary"
+                            },
+                            {
+                              "type": "button",
+                              "buttonStyle": "light",
+                              "text": "Cancel",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to update TblHpChiTietNgoaiNgu",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "DB_At_VDC2.updateTblHpChiTietNgoaiNgu",
+                        "parameters": [
+                          {
+                            "name": "ChiTietNgoaiNgu_SEQ",
+                            "value": "${parameters.ChiTietNgoaiNgu_SEQ}"
+                          },
+                          {
+                            "name": "TblHpChiTietNgoaiNgu",
+                            "value": "${tblhpchitietngoaingu}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "close-popup",
+                            "result": "${tblhpchitietngoaingu}"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "itemType": "CanErpHrPr.Models.DbAtVdc2.TblHpChiTietNgoaiNgu",
+                  "data": "${tblhpchitietngoaingu}",
+                  "visible": "${tblhpchitietngoaingu != null && canEdit}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "canEdit",
+        "type": "set",
+        "value": "true",
+        "valueType": "bool"
+      },
+      {
+        "name": "DB_At_VDC2.getTblHpChiTietNgoaiNguByChiTietNgoaiNgu_SEQ",
+        "parameters": [
+          {
+            "name": "ChiTietNgoaiNgu_SEQ",
+            "value": "${parameters.ChiTietNgoaiNgu_SEQ}"
+          }
+        ],
+        "then": [
+          {
+            "name": "tblhpchitietngoaingu",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "CanErpHrPr.Models.DbAtVdc2.TblHpChiTietNgoaiNgu"
+          }
+        ],
+        "error": [],
+        "type": "invoke"
+      },
+      {
+        "name": "DB_At_VDC2.getTblHpNhanViens",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblHpNhanViensResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Edit Tbl Hp Chi Tiet Ngoai Ngu",
+  "layout": "Main"
+}

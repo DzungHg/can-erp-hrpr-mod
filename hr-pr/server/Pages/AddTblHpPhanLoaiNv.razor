@@ -1,0 +1,59 @@
+﻿@page "/add-tbl-hp-phan-loai-nv"
+@layout MainLayout
+@inherits CanErpHrPr.Pages.AddTblHpPhanLoaiNvComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErpHrPr.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@tblhpphanloainv" Visible="@(tblhpphanloainv != null)" TItem="CanErpHrPr.Models.DbAtVdc2.TblHpPhanLoaiNv" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Phan Loai Nv Id" Component="PhanLoaiNV_ID" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="1" style="display: block; width: 100%" @bind-Value="@(tblhpphanloainv.PhanLoaiNV_ID)" Name="PhanLoaiNV_ID">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="PhanLoaiNV_ID" Text="PhanLoaiNV_ID is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Phan Loai Nv Name" Component="PhanLoaiNV_Name" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="25" style="width: 100%" @bind-Value="@(tblhpphanloainv.PhanLoaiNV_Name)" Name="PhanLoaiNV_Name">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Description" Component="Description" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="150" style="width: 100%" @bind-Value="@(tblhpphanloainv.Description)" Name="Description">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Save" ButtonStyle="ButtonStyle.Primary">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" Text="Cancel" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

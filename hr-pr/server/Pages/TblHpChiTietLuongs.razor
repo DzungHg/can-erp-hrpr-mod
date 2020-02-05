@@ -1,0 +1,56 @@
+﻿@page "/tbl-hp-chi-tiet-luongs"
+@layout MainLayout
+@inherits CanErpHrPr.Pages.TblHpChiTietLuongsComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErpHrPr.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Tbl Hp Chi Tiet Luongs">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblHpChiTietLuongsResult" TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietLuong" RowSelect="@Grid0RowSelect">
+          <Columns>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietLuong" Context="canErpHrPrModelsDbAtVdc2TblHpChiTietLuong" Property="ChiTietLuong_SEQ" Title="Chi Tiet Luong SEQ">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietLuong" Context="canErpHrPrModelsDbAtVdc2TblHpChiTietLuong" Property="NhanVien_FK" SortProperty="TblHpNhanVien.HoTenLot" FilterProperty="TblHpNhanVien.HoTenLot" Title="Tbl Hp Nhan Vien">
+              <Template Context="data">
+              @(data.TblHpNhanVien?.HoTenLot)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietLuong" Context="canErpHrPrModelsDbAtVdc2TblHpChiTietLuong" Property="NgayHuongLuong" FormatString="{0:MM/dd/yyyy}" Title="Ngay Huong Luong">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietLuong" Context="canErpHrPrModelsDbAtVdc2TblHpChiTietLuong" Property="QuyetDinhSo" Title="Quyet Dinh So">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietLuong" Context="canErpHrPrModelsDbAtVdc2TblHpChiTietLuong" Property="NgayKy" FormatString="{0:MM/dd/yyyy}" Title="Ngay Ky">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietLuong" Context="canErpHrPrModelsDbAtVdc2TblHpChiTietLuong" Property="CoQuanKy" Title="Co Quan Ky">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietLuong" Context="canErpHrPrModelsDbAtVdc2TblHpChiTietLuong" Property="Ngach" Title="Ngach">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietLuong" Context="canErpHrPrModelsDbAtVdc2TblHpChiTietLuong" Property="Bac" Title="Bac">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietLuong" Context="canErpHrPrModelsDbAtVdc2TblHpChiTietLuong" Property="HeSoLuong" Title="He So Luong">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietLuong" Context="canErpHrPrModelsDbAtVdc2TblHpChiTietLuong" Property="HeSoPhuCapChucVu" Title="He So Phu Cap Chuc Vu">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietLuong" Context="canErpHrPrModelsDbAtVdc2TblHpChiTietLuong" Property="HeSoPhuCapDocHai" Title="He So Phu Cap Doc Hai">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietLuong" Context="canErpHrPrModelsDbAtVdc2TblHpChiTietLuong" Property="DienGiai" Title="Dien Giai">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietLuong" Context="canErpHrPrModelsDbAtVdc2TblHpChiTietLuong" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+              <Template Context="canErpHrPrModelsDbAtVdc2TblHpChiTietLuong">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErpHrPrModelsDbAtVdc2TblHpChiTietLuong))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenGridColumn>
+          </Columns>
+        </RadzenGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

@@ -1,0 +1,613 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "components": [
+            {
+              "class": "col-md-9",
+              "components": [
+                {
+                  "name": "closeLabel",
+                  "style": {
+                    "fontWeight": "bold"
+                  },
+                  "text": "Item no longer available.",
+                  "type": "label",
+                  "visible": "${!canEdit}"
+                }
+              ],
+              "name": "col0",
+              "type": "col"
+            },
+            {
+              "class": "col-md-3",
+              "components": [
+                {
+                  "buttonStyle": "secondary",
+                  "events": {
+                    "click": [
+                      {
+                        "type": "close-popup"
+                      }
+                    ]
+                  },
+                  "icon": "",
+                  "name": "closeButton",
+                  "style": {
+                    "marginBottom": "20px"
+                  },
+                  "text": "Close",
+                  "type": "button",
+                  "visible": "${!canEdit}"
+                }
+              ],
+              "name": "col1",
+              "type": "col"
+            }
+          ],
+          "name": "row0",
+          "style": {},
+          "type": "row"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "type": "template-form",
+                  "name": "form0",
+                  "components": [
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tbl Hp Nhan Vien",
+                              "component": "NhanVien_FK",
+                              "name": "NhanVien_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTblHpNhanViensResult}",
+                              "textProperty": "HoTenLot",
+                              "valueProperty": "NhanVien_ID",
+                              "placeholder": "Choose TblHpNhanVien",
+                              "valueType": "string",
+                              "type": "dropdown",
+                              "name": "NhanVien_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpchitietluong.NhanVien_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Ngay Huong Luong",
+                              "component": "NgayHuongLuong",
+                              "name": "NgayHuongLuongLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "DateTime?",
+                              "dateFormat": "MM/dd/yyyy",
+                              "type": "datepicker",
+                              "name": "NgayHuongLuong",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpchitietluong.NgayHuongLuong}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Quyet Dinh So",
+                              "component": "QuyetDinhSo",
+                              "name": "QuyetDinhSoLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 15,
+                              "type": "textbox",
+                              "name": "QuyetDinhSo",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpchitietluong.QuyetDinhSo}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Ngay Ky",
+                              "component": "NgayKy",
+                              "name": "NgayKyLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "DateTime?",
+                              "dateFormat": "MM/dd/yyyy",
+                              "type": "datepicker",
+                              "name": "NgayKy",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpchitietluong.NgayKy}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Co Quan Ky",
+                              "component": "CoQuanKy",
+                              "name": "CoQuanKyLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 20,
+                              "type": "textbox",
+                              "name": "CoQuanKy",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpchitietluong.CoQuanKy}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Ngach",
+                              "component": "Ngach",
+                              "name": "NgachLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 45,
+                              "type": "textbox",
+                              "name": "Ngach",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpchitietluong.Ngach}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Bac",
+                              "component": "Bac",
+                              "name": "BacLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 35,
+                              "type": "textbox",
+                              "name": "Bac",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpchitietluong.Bac}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "He So Luong",
+                              "component": "HeSoLuong",
+                              "name": "HeSoLuongLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "double?",
+                              "type": "numeric",
+                              "name": "HeSoLuong",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpchitietluong.HeSoLuong}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "He So Phu Cap Chuc Vu",
+                              "component": "HeSoPhuCapChucVu",
+                              "name": "HeSoPhuCapChucVuLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "double?",
+                              "type": "numeric",
+                              "name": "HeSoPhuCapChucVu",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpchitietluong.HeSoPhuCapChucVu}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "He So Phu Cap Doc Hai",
+                              "component": "HeSoPhuCapDocHai",
+                              "name": "HeSoPhuCapDocHaiLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "double?",
+                              "type": "numeric",
+                              "name": "HeSoPhuCapDocHai",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpchitietluong.HeSoPhuCapDocHai}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Dien Giai",
+                              "component": "DienGiai",
+                              "name": "DienGiaiLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 45,
+                              "type": "textbox",
+                              "name": "DienGiai",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpchitietluong.DienGiai}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "type": "button",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "buttonStyle": "primary"
+                            },
+                            {
+                              "type": "button",
+                              "buttonStyle": "light",
+                              "text": "Cancel",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to update TblHpChiTietLuong",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "DB_At_VDC2.updateTblHpChiTietLuong",
+                        "parameters": [
+                          {
+                            "name": "ChiTietLuong_SEQ",
+                            "value": "${parameters.ChiTietLuong_SEQ}"
+                          },
+                          {
+                            "name": "TblHpChiTietLuong",
+                            "value": "${tblhpchitietluong}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "close-popup",
+                            "result": "${tblhpchitietluong}"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "itemType": "CanErpHrPr.Models.DbAtVdc2.TblHpChiTietLuong",
+                  "data": "${tblhpchitietluong}",
+                  "visible": "${tblhpchitietluong != null && canEdit}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "canEdit",
+        "type": "set",
+        "value": "true",
+        "valueType": "bool"
+      },
+      {
+        "name": "DB_At_VDC2.getTblHpChiTietLuongByChiTietLuong_SEQ",
+        "parameters": [
+          {
+            "name": "ChiTietLuong_SEQ",
+            "value": "${parameters.ChiTietLuong_SEQ}"
+          }
+        ],
+        "then": [
+          {
+            "name": "tblhpchitietluong",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "CanErpHrPr.Models.DbAtVdc2.TblHpChiTietLuong"
+          }
+        ],
+        "error": [],
+        "type": "invoke"
+      },
+      {
+        "name": "DB_At_VDC2.getTblHpNhanViens",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblHpNhanViensResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Edit Tbl Hp Chi Tiet Luong",
+  "layout": "Main"
+}

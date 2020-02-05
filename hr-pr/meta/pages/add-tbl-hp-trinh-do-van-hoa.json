@@ -1,0 +1,227 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "type": "template-form",
+                  "name": "form0",
+                  "components": [
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Trinh Do Van Hoa Id",
+                              "component": "TrinhDoVanHoa_ID",
+                              "name": "TrinhDoVanHoa_IDLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 2,
+                              "type": "textbox",
+                              "name": "TrinhDoVanHoa_ID",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${tblhptrinhdovanhoa.TrinhDoVanHoa_ID}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "TrinhDoVanHoa_IDRequiredValidator",
+                              "component": "TrinhDoVanHoa_ID",
+                              "text": "TrinhDoVanHoa_ID is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Trinh Do Van Hoa Name",
+                              "component": "TrinhDoVanHoa_Name",
+                              "name": "TrinhDoVanHoa_NameLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 20,
+                              "type": "textbox",
+                              "name": "TrinhDoVanHoa_Name",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhptrinhdovanhoa.TrinhDoVanHoa_Name}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Description",
+                              "component": "Description",
+                              "name": "DescriptionLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 250,
+                              "type": "textbox",
+                              "name": "Description",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhptrinhdovanhoa.Description}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "type": "button",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "buttonStyle": "primary"
+                            },
+                            {
+                              "type": "button",
+                              "buttonStyle": "light",
+                              "text": "Cancel",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to create new TblHpTrinhDoVanHoa!",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "DB_At_VDC2.createTblHpTrinhDoVanHoa",
+                        "parameters": [
+                          {
+                            "name": "TblHpTrinhDoVanHoa",
+                            "value": "${tblhptrinhdovanhoa}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "close-popup",
+                            "result": "${tblhptrinhdovanhoa}"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "data": "${tblhptrinhdovanhoa}",
+                  "visible": "${tblhptrinhdovanhoa != null}",
+                  "itemType": "CanErpHrPr.Models.DbAtVdc2.TblHpTrinhDoVanHoa"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "tblhptrinhdovanhoa",
+        "type": "set",
+        "value": "new CanErpHrPr.Models.DbAtVdc2.TblHpTrinhDoVanHoa()",
+        "valueType": "CanErpHrPr.Models.DbAtVdc2.TblHpTrinhDoVanHoa"
+      }
+    ]
+  },
+  "name": "Add Tbl Hp Trinh Do Van Hoa",
+  "layout": "Main"
+}

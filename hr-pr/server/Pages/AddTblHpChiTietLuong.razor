@@ -1,0 +1,137 @@
+﻿@page "/add-tbl-hp-chi-tiet-luong"
+@layout MainLayout
+@inherits CanErpHrPr.Pages.AddTblHpChiTietLuongComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErpHrPr.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@tblhpchitietluong" Visible="@(tblhpchitietluong != null)" TItem="CanErpHrPr.Models.DbAtVdc2.TblHpChiTietLuong" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Tbl Hp Nhan Vien" Component="NhanVien_FK" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblHpNhanViensResult" TextProperty="HoTenLot" ValueProperty="NhanVien_ID" Placeholder="Choose TblHpNhanVien" style="width: 100%" @bind-Value="@(tblhpchitietluong.NhanVien_FK)" Name="NhanVien_FK">
+                </RadzenDropDown>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Ngay Huong Luong" Component="NgayHuongLuong" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDatePicker DateFormat="MM/dd/yyyy" style="width: 100%" @bind-Value="@(tblhpchitietluong.NgayHuongLuong)" Name="NgayHuongLuong">
+                </RadzenDatePicker>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Quyet Dinh So" Component="QuyetDinhSo" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="15" style="width: 100%" @bind-Value="@(tblhpchitietluong.QuyetDinhSo)" Name="QuyetDinhSo">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Ngay Ky" Component="NgayKy" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDatePicker DateFormat="MM/dd/yyyy" style="width: 100%" @bind-Value="@(tblhpchitietluong.NgayKy)" Name="NgayKy">
+                </RadzenDatePicker>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Co Quan Ky" Component="CoQuanKy" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="width: 100%" @bind-Value="@(tblhpchitietluong.CoQuanKy)" Name="CoQuanKy">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Ngach" Component="Ngach" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="45" style="width: 100%" @bind-Value="@(tblhpchitietluong.Ngach)" Name="Ngach">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Bac" Component="Bac" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="35" style="width: 100%" @bind-Value="@(tblhpchitietluong.Bac)" Name="Bac">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="He So Luong" Component="HeSoLuong" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(tblhpchitietluong.HeSoLuong)" Name="HeSoLuong">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="He So Phu Cap Chuc Vu" Component="HeSoPhuCapChucVu" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(tblhpchitietluong.HeSoPhuCapChucVu)" Name="HeSoPhuCapChucVu">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="He So Phu Cap Doc Hai" Component="HeSoPhuCapDocHai" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(tblhpchitietluong.HeSoPhuCapDocHai)" Name="HeSoPhuCapDocHai">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Dien Giai" Component="DienGiai" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="45" style="width: 100%" @bind-Value="@(tblhpchitietluong.DienGiai)" Name="DienGiai">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Save" ButtonStyle="ButtonStyle.Primary">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" Text="Cancel" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

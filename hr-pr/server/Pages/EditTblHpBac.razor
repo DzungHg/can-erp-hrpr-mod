@@ -1,0 +1,89 @@
+﻿@page "/edit-tbl-hp-bac/{Bac_ID}"
+@layout MainLayout
+@inherits CanErpHrPr.Pages.EditTblHpBacComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErpHrPr.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <div style="" class="row">
+      <div class="col-md-9">
+        <RadzenLabel style="font-weight: bold" Text="Item no longer available." Visible="@(!canEdit)">
+        </RadzenLabel>
+      </div>
+      <div class="col-md-3">
+        <RadzenButton ButtonStyle="ButtonStyle.Secondary" style="margin-bottom: 20px" Text="Close" Visible="@(!canEdit)" Click="@CloseButtonClick">
+        </RadzenButton>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm TItem="CanErpHrPr.Models.DbAtVdc2.TblHpBac" Data="@tblhpbac" Visible="@(tblhpbac != null && canEdit)" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Bac Id" Component="Bac_ID" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="2" style="display: block; width: 100%" @bind-Value="@(tblhpbac.Bac_ID)" Name="Bac_ID">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="Bac_ID" Text="Bac_ID is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Bac Name" Component="Bac_Name" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="35" style="width: 100%" @bind-Value="@(tblhpbac.Bac_Name)" Name="Bac_Name">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="He So Luong" Component="HeSoLuong" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(tblhpbac.HeSoLuong)" Name="HeSoLuong">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Tbl Hp Ngach" Component="Ngach_FK" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblHpNgachesResult" TextProperty="Ngach_Name" ValueProperty="Ngach_ID" Placeholder="Choose TblHpNgach" style="width: 100%" @bind-Value="@(tblhpbac.Ngach_FK)" Name="Ngach_FK">
+                </RadzenDropDown>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Description" Component="Description" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="250" style="width: 100%" @bind-Value="@(tblhpbac.Description)" Name="Description">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Save" ButtonStyle="ButtonStyle.Primary">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" Text="Cancel" Click="@Button3Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>
