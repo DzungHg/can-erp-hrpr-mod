@@ -1,0 +1,615 @@
+﻿@page "/add-tbl-hp-nh-vien-l-lich"
+@layout MainLayout
+@inherits CanErpHrPr.Pages.AddTblHpNhVienLLichComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErpHrPr.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@tblhpnhanvien" TItem="CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien" Visible="@(tblhpnhanvien != null)" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-md-12">
+                    <RadzenLabel Component="NgayNhatTu" style="width: 100%" Text="Ngay Nhat Tu">
+                    </RadzenLabel>
+                  </div>
+                  <div class="col-md-12">
+                    <RadzenDatePicker DateFormat="MM/dd/yyyy" Disabled="true" style="width: 100%" @bind-Value="@(tblhpnhanvien.NgayNhatTu)" Name="NgayNhatTu">
+                    </RadzenDatePicker>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-md-12">
+                    <RadzenLabel Component="HoTenLot" style="width: 100%" Text="Ho Ten Lot">
+                    </RadzenLabel>
+                  </div>
+                  <div class="col-md-12">
+                    <RadzenTextBox MaxLength="30" style="width: 100%" @bind-Value="@(tblhpnhanvien.HoTenLot)" Name="HoTenLot">
+                    </RadzenTextBox>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-md-12">
+                    <RadzenLabel Component="Ten" style="width: 100%" Text="Ten">
+                    </RadzenLabel>
+                  </div>
+                  <div class="col-md-12">
+                    <RadzenTextBox MaxLength="70" style="width: 100%" @bind-Value="@(tblhpnhanvien.Ten)" Name="Ten">
+                    </RadzenTextBox>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-12">
+                    <RadzenLabel Component="NhanVien_ID" style="width: 100%" Text="Nhan Vien Id">
+                    </RadzenLabel>
+                  </div>
+                  <div class="col-md-12">
+                    <RadzenRequiredValidator Component="NhanVien_ID" style="position: absolute" Text="NhanVien_ID is required">
+                    </RadzenRequiredValidator>
+                    <RadzenTextBox MaxLength="4" style="display: block; width: 100%" @bind-Value="@(tblhpnhanvien.NhanVien_ID)" Name="NhanVien_ID">
+                    </RadzenTextBox>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-12">
+                    <RadzenLabel Component="MaTheChamCong" style="width: 100%" Text="Ma The Cham Cong">
+                    </RadzenLabel>
+                  </div>
+                  <div class="col-md-12">
+                    <RadzenTextBox MaxLength="12" style="width: 100%" @bind-Value="@(tblhpnhanvien.MaTheChamCong)" Name="MaTheChamCong">
+                    </RadzenTextBox>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-12">
+                    <RadzenLabel Component="PhaiNam" style="width: 100%" Text="Phai Nam">
+                    </RadzenLabel>
+                  </div>
+                  <div class="col-md-12">
+                    <RadzenCheckBox TriState="true" @bind-Value="@(tblhpnhanvien.PhaiNam)" Name="PhaiNam">
+                    </RadzenCheckBox>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-12">
+                    <RadzenLabel Component="NgayThangNamSinh" style="width: 100%" Text="Ngay Thang Nam Sinh">
+                    </RadzenLabel>
+                  </div>
+                  <div class="col-md-9">
+                    <RadzenDatePicker DateFormat="MM/dd/yyyy" style="width: 100%" @bind-Value="@(tblhpnhanvien.NgayThangNamSinh)" Name="NgayThangNamSinh">
+                    </RadzenDatePicker>
+                  </div>
+                  <div class="col-md-12">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-12">
+                    <RadzenLabel Component="NamSinh" style="width: 100%" Text="Năm sinh">
+                    </RadzenLabel>
+                  </div>
+                  <div class="col-md-12">
+                    <RadzenNumeric style="width: 100%" @bind-Value="@(tblhpnhanvien.NamSinh)" Name="NamSinh">
+                    </RadzenNumeric>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-12">
+                    <RadzenLabel Component="NoiSinh_FK" style="width: 100%" Text="Nơi sinh">
+                    </RadzenLabel>
+                  </div>
+                  <div class="col-md-12">
+                    <RadzenDropDown Data="@getTblHpTinhTpsResult" Placeholder="Choose TblHpTinhTp" style="width: 100%" TextProperty="TinhTP_Name" @bind-Value="@(tblhpnhanvien.NoiSinh_FK)" ValueProperty="TinhTP_ID" Name="NoiSinh_FK">
+                    </RadzenDropDown>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-12">
+                    <RadzenLabel Component="QueQuan_FK" style="width: 100%" Text="Quê quán">
+                    </RadzenLabel>
+                  </div>
+                  <div class="col-md-12">
+                    <RadzenDropDown Data="@getTblHpTinhTpsResult" Placeholder="Choose TblHpTinhTp" style="width: 100%" TextProperty="TinhTP_Name" @bind-Value="@(tblhpnhanvien.QueQuan_FK)" ValueProperty="TinhTP_ID" Name="QueQuan_FK">
+                    </RadzenDropDown>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-12">
+                    <RadzenLabel Component="DanToc_FK" style="width: 100%" Text="Dân tộc">
+                    </RadzenLabel>
+                  </div>
+                  <div class="col-md-12">
+                    <RadzenDropDown Data="@getTblHpDanTocsResult" Placeholder="Choose TblHpDanToc" style="width: 100%" TextProperty="DanToc_Name" @bind-Value="@(tblhpnhanvien.DanToc_FK)" ValueProperty="DanToc_ID" Name="DanToc_FK">
+                    </RadzenDropDown>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="HinhAnh" style="width: 100%" Text="Hinh Anh">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenFileInput @bind-Value="@(tblhpnhanvien.HinhAnh)" Name="HinhAnh">
+                </RadzenFileInput>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-12">
+                    <RadzenLabel Component="QuocTich_FK" style="width: 100%" Text="Quốc tịch">
+                    </RadzenLabel>
+                  </div>
+                  <div class="col-md-12">
+                    <RadzenDropDown Data="@getTblHpQuocTichesResult" Placeholder="Choose TblHpQuocTich" style="width: 100%" TextProperty="QuocTich_Name" @bind-Value="@(tblhpnhanvien.QuocTich_FK)" ValueProperty="QuocTich_ID" Name="QuocTich_FK">
+                    </RadzenDropDown>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-12">
+                    <RadzenLabel Component="TonGiao_FK" style="width: 100%" Text="Tôn giáo">
+                    </RadzenLabel>
+                  </div>
+                  <div class="col-md-12">
+                    <RadzenDropDown Data="@getTblHpTonGiaosResult" Placeholder="Choose TblHpTonGiao" style="width: 100%" TextProperty="TonGiao_Name" @bind-Value="@(tblhpnhanvien.TonGiao_FK)" ValueProperty="TonGiao_ID" Name="TonGiao_FK">
+                    </RadzenDropDown>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+              </div>
+              <div class="col-md-9">
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+              </div>
+              <div class="col-md-9">
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+              </div>
+              <div class="col-md-9">
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+              </div>
+              <div class="col-md-9">
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+              </div>
+              <div class="col-md-9">
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="SoCMND" style="width: 100%" Text="So Cmnd">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="12" style="width: 100%" @bind-Value="@(tblhpnhanvien.SoCMND)" Name="SoCMND">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="NgayCapCMND" style="width: 100%" Text="Ngay Cap Cmnd">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDatePicker DateFormat="MM/dd/yyyy" style="width: 100%" @bind-Value="@(tblhpnhanvien.NgayCapCMND)" Name="NgayCapCMND">
+                </RadzenDatePicker>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="NoiCapCMND" style="width: 100%" Text="Noi Cap Cmnd">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="25" style="width: 100%" @bind-Value="@(tblhpnhanvien.NoiCapCMND)" Name="NoiCapCMND">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="HoKhau" style="width: 100%" Text="Ho Khau">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="width: 100%" @bind-Value="@(tblhpnhanvien.HoKhau)" Name="HoKhau">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="QuanHoKhau_FK" style="width: 100%" Text="Tbl Hp Quan">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblHpQuansResult" Placeholder="Choose TblHpQuan" style="width: 100%" TextProperty="Quan_Name" @bind-Value="@(tblhpnhanvien.QuanHoKhau_FK)" ValueProperty="Quan_ID" Name="QuanHoKhau_FK">
+                </RadzenDropDown>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="TinhTPHoKhau_FK" style="width: 100%" Text="Tbl Hp Tinh Tp">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblHpTinhTpsResult" Placeholder="Choose TblHpTinhTp" style="width: 100%" TextProperty="TinhTP_Name" @bind-Value="@(tblhpnhanvien.TinhTPHoKhau_FK)" ValueProperty="TinhTP_ID" Name="TinhTPHoKhau_FK">
+                </RadzenDropDown>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="ChoOHienNay" style="width: 100%" Text="Cho O Hien Nay">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="width: 100%" @bind-Value="@(tblhpnhanvien.ChoOHienNay)" Name="ChoOHienNay">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="QuanChoOHienNay_FK" style="width: 100%" Text="Tbl Hp Quan">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblHpQuansResult" Placeholder="Choose TblHpQuan" style="width: 100%" TextProperty="Quan_Name" @bind-Value="@(tblhpnhanvien.QuanChoOHienNay_FK)" ValueProperty="Quan_ID" Name="QuanChoOHienNay_FK">
+                </RadzenDropDown>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="TinhTPChoOHienNay_FK" style="width: 100%" Text="Tbl Hp Tinh Tp">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblHpTinhTpsResult" Placeholder="Choose TblHpTinhTp" style="width: 100%" TextProperty="TinhTP_Name" @bind-Value="@(tblhpnhanvien.TinhTPChoOHienNay_FK)" ValueProperty="TinhTP_ID" Name="TinhTPChoOHienNay_FK">
+                </RadzenDropDown>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="SoDienThoai" style="width: 100%" Text="So Dien Thoai">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="25" style="width: 100%" @bind-Value="@(tblhpnhanvien.SoDienThoai)" Name="SoDienThoai">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="Email" style="width: 100%" Text="Email">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="width: 100%" @bind-Value="@(tblhpnhanvien.Email)" Name="Email">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="MaSoThueCaNhan" style="width: 100%" Text="Ma So Thue Ca Nhan">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="10" style="width: 100%" @bind-Value="@(tblhpnhanvien.MaSoThueCaNhan)" Name="MaSoThueCaNhan">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="TaiKhoanThanhToan" style="width: 100%" Text="Tai Khoan Thanh Toan">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="15" style="width: 100%" @bind-Value="@(tblhpnhanvien.TaiKhoanThanhToan)" Name="TaiKhoanThanhToan">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="HoTenATM" style="width: 100%" Text="Ho Ten Atm">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="30" style="width: 100%" @bind-Value="@(tblhpnhanvien.HoTenATM)" Name="HoTenATM">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="MaKeToan" style="width: 100%" Text="Ma Ke Toan">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="10" style="width: 100%" @bind-Value="@(tblhpnhanvien.MaKeToan)" Name="MaKeToan">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="GiaCanh" style="width: 100%" Text="Gia Canh">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(tblhpnhanvien.GiaCanh)" Name="GiaCanh">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="SoCon" style="width: 100%" Text="So Con">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(tblhpnhanvien.SoCon)" Name="SoCon">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="LoaiHopDongLD" style="width: 100%" Text="Loai Hop Dong Ld">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(tblhpnhanvien.LoaiHopDongLD)" Name="LoaiHopDongLD">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="HopDongLaoDong" style="width: 100%" Text="Hop Dong Lao Dong">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="250" style="width: 100%" @bind-Value="@(tblhpnhanvien.HopDongLaoDong)" Name="HopDongLaoDong">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="Department_FK" style="width: 100%" Text="Tbl Gn Department">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblGnDepartmentsResult" Placeholder="Choose TblGnDepartment" style="width: 100%" TextProperty="Deparment_Name" @bind-Value="@(tblhpnhanvien.Department_FK)" ValueProperty="Department_ID" Name="Department_FK">
+                </RadzenDropDown>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="DonViTo_FK" style="width: 100%" Text="Tbl Hp Don Vi To">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblHpDonViTosResult" Placeholder="Choose TblHpDonViTo" style="width: 100%" TextProperty="DonViTo_Name" @bind-Value="@(tblhpnhanvien.DonViTo_FK)" ValueProperty="DonViTo_ID" Name="DonViTo_FK">
+                </RadzenDropDown>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="ChucVu_FK" style="width: 100%" Text="Tbl Hp Chuc Vu">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblHpChucVusResult" Placeholder="Choose TblHpChucVu" style="width: 100%" TextProperty="ChucVu_Name" @bind-Value="@(tblhpnhanvien.ChucVu_FK)" ValueProperty="ChucVu_ID" Name="ChucVu_FK">
+                </RadzenDropDown>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="ThongTinLuuTru" style="width: 100%" Text="Thong Tin Luu Tru">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="255" style="width: 100%" @bind-Value="@(tblhpnhanvien.ThongTinLuuTru)" Name="ThongTinLuuTru">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="ThuViec" style="width: 100%" Text="Thu Viec">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenCheckBox TriState="true" @bind-Value="@(tblhpnhanvien.ThuViec)" Name="ThuViec">
+                </RadzenCheckBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="DaNghiViec" style="width: 100%" Text="Da Nghi Viec">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenCheckBox TriState="true" @bind-Value="@(tblhpnhanvien.DaNghiViec)" Name="DaNghiViec">
+                </RadzenCheckBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="NgayNghiViec" style="width: 100%" Text="Ngay Nghi Viec">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDatePicker DateFormat="MM/dd/yyyy" style="width: 100%" @bind-Value="@(tblhpnhanvien.NgayNghiViec)" Name="NgayNghiViec">
+                </RadzenDatePicker>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="TrinhDoHocVan_FK" style="width: 100%" Text="Tbl Hp Trinh Do Van Hoa">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblHpTrinhDoVanHoasResult" Placeholder="Choose TblHpTrinhDoVanHoa" style="width: 100%" TextProperty="TrinhDoVanHoa_Name" @bind-Value="@(tblhpnhanvien.TrinhDoHocVan_FK)" ValueProperty="TrinhDoVanHoa_ID" Name="TrinhDoHocVan_FK">
+                </RadzenDropDown>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="Ngach_FK" style="width: 100%" Text="Tbl Hp Ngach">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblHpNgachesResult" Placeholder="Choose TblHpNgach" style="width: 100%" TextProperty="Ngach_Name" @bind-Value="@(tblhpnhanvien.Ngach_FK)" ValueProperty="Ngach_ID" Name="Ngach_FK">
+                </RadzenDropDown>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="Bac_FK" style="width: 100%" Text="Tbl Hp Bac">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblHpBacsResult" Placeholder="Choose TblHpBac" style="width: 100%" TextProperty="Bac_Name" @bind-Value="@(tblhpnhanvien.Bac_FK)" ValueProperty="Bac_ID" Name="Bac_FK">
+                </RadzenDropDown>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="HeSoLuong" style="width: 100%" Text="He So Luong">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(tblhpnhanvien.HeSoLuong)" Name="HeSoLuong">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="LuongCoBan" style="width: 100%" Text="Luong Co Ban">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(tblhpnhanvien.LuongCoBan)" Name="LuongCoBan">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="HeSoPhuCapChucVu" style="width: 100%" Text="He So Phu Cap Chuc Vu">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(tblhpnhanvien.HeSoPhuCapChucVu)" Name="HeSoPhuCapChucVu">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="HeSoPhuCapDocHai" style="width: 100%" Text="He So Phu Cap Doc Hai">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(tblhpnhanvien.HeSoPhuCapDocHai)" Name="HeSoPhuCapDocHai">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="HeSoDiemPhucTap" style="width: 100%" Text="He So Diem Phuc Tap">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(tblhpnhanvien.HeSoDiemPhucTap)" Name="HeSoDiemPhucTap">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="HeSoPhuCapThamNien" style="width: 100%" Text="He So Phu Cap Tham Nien">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(tblhpnhanvien.HeSoPhuCapThamNien)" Name="HeSoPhuCapThamNien">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="SoNguoiPhuThuoc" style="width: 100%" Text="So Nguoi Phu Thuoc">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(tblhpnhanvien.SoNguoiPhuThuoc)" Name="SoNguoiPhuThuoc">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="SoBHXH" style="width: 100%" Text="So Bhxh">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="15" style="width: 100%" @bind-Value="@(tblhpnhanvien.SoBHXH)" Name="SoBHXH">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+              </div>
+              <div class="col-md-9">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonStyle="ButtonStyle.Primary" ButtonType="ButtonType.Submit" Icon="save" Text="Save">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" Text="Cancel" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>
