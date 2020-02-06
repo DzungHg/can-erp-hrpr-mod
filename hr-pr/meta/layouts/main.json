@@ -9,8 +9,6 @@
               "class": "col-md-6 d-flex align-items-center",
               "components": [
                 {
-                  "name": "sidebar-toggle0",
-                  "type": "sidebar-toggle",
                   "events": {
                     "click": [
                       {
@@ -22,7 +20,9 @@
                         "type": "execute"
                       }
                     ]
-                  }
+                  },
+                  "name": "sidebar-toggle0",
+                  "type": "sidebar-toggle"
                 },
                 {
                   "name": "label0",
@@ -59,6 +59,25 @@
     {
       "components": [
         {
+          "items": [
+            {
+              "items": [
+                {
+                  "icon": "",
+                  "path": "vw-hr-ly-lich-nv",
+                  "text": "Lý lịch"
+                },
+                {
+                  "path": "tbl-hp-nhan-viens",
+                  "text": "DS Nhân viên"
+                }
+              ],
+              "text": "Lý lịch NV"
+            },
+            {
+              "text": "Cài đặt"
+            }
+          ],
           "name": "panelmenu0",
           "style": {
             "height": "100%"

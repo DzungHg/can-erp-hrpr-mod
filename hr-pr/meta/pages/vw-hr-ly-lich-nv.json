@@ -1,0 +1,222 @@
+{
+  "components": [
+    {
+      "components": [
+        {
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Vw Hr Ly Lich Nv",
+          "type": "heading"
+        },
+        {
+          "components": [
+            {
+              "class": "col-md-12",
+              "components": [
+                {
+                  "buttonType": "button",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "add-vw-hp-nhan-vien-l-lich",
+                        "then": [
+                          {
+                            "code": "grid0.Reload()",
+                            "type": "execute"
+                          },
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ],
+                        "type": "popup"
+                      }
+                    ]
+                  },
+                  "name": "button0",
+                  "text": "Thêm ",
+                  "type": "button"
+                },
+                {
+                  "allowFiltering": true,
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "columns": [
+                    {
+                      "property": "NhanVien_ID",
+                      "title": "Nhan Vien ID"
+                    },
+                    {
+                      "property": "HoTenLot",
+                      "title": "Ho Ten Lot"
+                    },
+                    {
+                      "property": "Ten",
+                      "title": "Ten"
+                    },
+                    {
+                      "property": "MaTheChamCong",
+                      "title": "Ma The Cham Cong"
+                    },
+                    {
+                      "property": "PhaiNam",
+                      "title": "Phai Nam"
+                    },
+                    {
+                      "property": "HinhAnh",
+                      "title": "Hinh Anh"
+                    },
+                    {
+                      "formatString": "{0:d}",
+                      "property": "NgayThangNamSinh",
+                      "title": "Ngay Thang Nam Sinh"
+                    },
+                    {
+                      "property": "NamSinh",
+                      "title": "Nam Sinh"
+                    },
+                    {
+                      "property": "NoiSinh_FK",
+                      "title": "Noi Sinh FK"
+                    },
+                    {
+                      "property": "QueQuan_FK",
+                      "title": "Que Quan FK"
+                    },
+                    {
+                      "property": "DanToc_FK",
+                      "title": "Dan Toc FK"
+                    },
+                    {
+                      "property": "TonGiao_FK",
+                      "title": "Ton Giao FK"
+                    },
+                    {
+                      "property": "QuocTich_FK",
+                      "title": "Quoc Tich FK"
+                    },
+                    {
+                      "property": "SoCMND",
+                      "title": "So CMND"
+                    },
+                    {
+                      "formatString": "{0:d}",
+                      "property": "NgayCapCMND",
+                      "title": "Ngay Cap CMND"
+                    },
+                    {
+                      "property": "NoiCapCMND",
+                      "title": "Noi Cap CMND"
+                    },
+                    {
+                      "property": "HoKhau",
+                      "title": "Ho Khau"
+                    },
+                    {
+                      "property": "QuanHoKhau_FK",
+                      "title": "Quan Ho Khau FK"
+                    },
+                    {
+                      "property": "TinhTPHoKhau_FK",
+                      "title": "Tinh TP Ho Khau FK"
+                    },
+                    {
+                      "property": "ChoOHienNay",
+                      "title": "Cho O Hien Nay"
+                    },
+                    {
+                      "property": "QuanChoOHienNay_FK",
+                      "title": "Quan Cho O Hien Nay FK"
+                    },
+                    {
+                      "property": "TinhTPChoOHienNay_FK",
+                      "title": "Tinh TP Cho O Hien Nay FK"
+                    },
+                    {
+                      "property": "SoDienThoai",
+                      "title": "So Dien Thoai"
+                    },
+                    {
+                      "property": "Email",
+                      "title": "Email"
+                    },
+                    {
+                      "property": "MaSoThueCaNhan",
+                      "title": "Ma So Thue Ca Nhan"
+                    },
+                    {
+                      "property": "TaiKhoanThanhToan",
+                      "title": "Tai Khoan Thanh Toan"
+                    },
+                    {
+                      "property": "HoTenATM",
+                      "title": "Ho Ten ATM"
+                    },
+                    {
+                      "property": "MaKeToan",
+                      "title": "Ma Ke Toan"
+                    },
+                    {
+                      "formatString": "{0:d}",
+                      "property": "NgayNhatTu",
+                      "title": "Ngay Nhat Tu"
+                    }
+                  ],
+                  "data": "${getVwHrLyLichNvsResult}",
+                  "events": {
+                    "loadData": [],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "NhanVien_ID ",
+                            "value": "${event.NhanVien_ID}"
+                          }
+                        ],
+                        "path": "edit-vw-hp-nhan-vien-l-lich",
+                        "then": [
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ],
+                        "type": "popup"
+                      }
+                    ]
+                  },
+                  "itemType": "CanErpHrPr.Models.DbAtVdc2.VwHrLyLichNv",
+                  "name": "grid0",
+                  "title": "",
+                  "type": "grid"
+                }
+              ],
+              "type": "col"
+            }
+          ],
+          "type": "row"
+        }
+      ],
+      "container": "main",
+      "type": "content"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "DB_At_VDC2.getVwHrLyLichNvs",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getVwHrLyLichNvsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErpHrPr.Models.DbAtVdc2.VwHrLyLichNv>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "layout": "Main",
+  "name": "Vw Hr Ly Lich Nv"
+}

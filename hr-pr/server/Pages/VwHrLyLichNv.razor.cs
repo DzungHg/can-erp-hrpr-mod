@@ -7,7 +7,7 @@ using Radzen.Blazor;
 
 namespace CanErpHrPr.Pages
 {
-    public partial class AddTblHpNhVienLLichComponent
+    public partial class VwHrLyLichNvComponent
     {
 
     }

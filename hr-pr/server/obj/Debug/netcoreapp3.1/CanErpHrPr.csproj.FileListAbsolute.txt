@@ -430,3 +430,11 @@ F:\My Programming Projects\can-erp-ot-projects\can-erp-hrpr-mod\hr-pr\server\obj
 F:\My Programming Projects\can-erp-ot-projects\can-erp-hrpr-mod\hr-pr\server\obj\Debug\netcoreapp3.1\CanErpHrPr.csproj.CopyComplete
 F:\My Programming Projects\can-erp-ot-projects\can-erp-hrpr-mod\hr-pr\server\obj\Debug\netcoreapp3.1\CanErpHrPr.dll
 F:\My Programming Projects\can-erp-ot-projects\can-erp-hrpr-mod\hr-pr\server\obj\Debug\netcoreapp3.1\CanErpHrPr.pdb
+F:\My Programming Projects\can-erp-ot-projects\can-erp-hrpr-mod\hr-pr\server\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\VwHrLyLichNv.razor.g.cs
+F:\My Programming Projects\can-erp-ot-projects\can-erp-hrpr-mod\hr-pr\server\obj\Debug\netcoreapp3.1\Razor\Pages\VwHrLyLichNv.razor.g.cs
+F:\My Programming Projects\can-erp-ot-projects\can-erp-hrpr-mod\hr-pr\server\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\AddNhanVienLLich.razor.g.cs
+F:\My Programming Projects\can-erp-ot-projects\can-erp-hrpr-mod\hr-pr\server\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\AddVwHpNhanVienLLich.razor.g.cs
+F:\My Programming Projects\can-erp-ot-projects\can-erp-hrpr-mod\hr-pr\server\obj\Debug\netcoreapp3.1\Razor\Pages\AddNhanVienLLich.razor.g.cs
+F:\My Programming Projects\can-erp-ot-projects\can-erp-hrpr-mod\hr-pr\server\obj\Debug\netcoreapp3.1\Razor\Pages\AddVwHpNhanVienLLich.razor.g.cs
+F:\My Programming Projects\can-erp-ot-projects\can-erp-hrpr-mod\hr-pr\server\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\EditVwHpNhanVienLLich.razor.g.cs
+F:\My Programming Projects\can-erp-ot-projects\can-erp-hrpr-mod\hr-pr\server\obj\Debug\netcoreapp3.1\Razor\Pages\EditVwHpNhanVienLLich.razor.g.cs

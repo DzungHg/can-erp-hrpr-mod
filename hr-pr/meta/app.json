@@ -34,7 +34,8 @@
     "Tbl Hp Ton Giaos",
     "Tbl Hp Trinh Do Chuyen Mons",
     "Tbl Hp Trinh Do Van Hoas",
-    "Tbl Hp Xi Nghieps"
+    "Tbl Hp Xi Nghieps",
+    "Vw Hr Ly Lich Nv"
   ],
   "pages": [
     "Tbl Gn Departments",
@@ -109,7 +110,9 @@
     "Tbl Hp Xi Nghieps",
     "Add Tbl Hp Xi Nghiep",
     "Edit Tbl Hp Xi Nghiep",
-    "Add Tbl Hp Nh Vien LLich"
+    "Add Vw Hp Nhan Vien LLich",
+    "Vw Hr Ly Lich Nv",
+    "Edit Vw Hp Nhan Vien LLich"
   ],
   "serverLang": "cs",
   "serverProject": true,

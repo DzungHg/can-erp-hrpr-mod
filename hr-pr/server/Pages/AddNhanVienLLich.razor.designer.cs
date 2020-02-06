@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CanErpHrPr.Pages
 {
-    public partial class AddTblHpNhVienLLichComponent : ComponentBase
+    public partial class AddNhanVienLLichComponent : ComponentBase
     {
         [Parameter(CaptureUnmatchedValues = true)]
         public IReadOnlyDictionary<string, dynamic> Attributes { get; set; }
