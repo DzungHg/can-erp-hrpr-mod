@@ -1,0 +1,302 @@
+{
+  "components": [
+    {
+      "components": [
+        {
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Tbl Hp Nhan Vien Ly Lich",
+          "type": "heading"
+        },
+        {
+          "components": [
+            {
+              "class": "col-md-12",
+              "components": [
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "path": "add-vw-hp-nhan-vien-l-lich",
+                        "type": "popup"
+                      }
+                    ]
+                  },
+                  "icon": "add_circle_outline",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "10px"
+                  },
+                  "text": "Add",
+                  "type": "button"
+                },
+                {
+                  "allowFiltering": true,
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "columns": [
+                    {
+                      "property": "NhanVien_ID",
+                      "title": "Nhan Vien ID"
+                    },
+                    {
+                      "property": "HoTenLot",
+                      "title": "Ho Ten Lot"
+                    },
+                    {
+                      "property": "Ten",
+                      "title": "Ten"
+                    },
+                    {
+                      "property": "MaTheChamCong",
+                      "title": "Ma The Cham Cong"
+                    },
+                    {
+                      "property": "PhaiNam",
+                      "title": "Phai Nam"
+                    },
+                    {
+                      "property": "HinhAnh",
+                      "title": "Hinh Anh"
+                    },
+                    {
+                      "formatString": "{0:d}",
+                      "property": "NgayThangNamSinh",
+                      "title": "Ngay Thang Nam Sinh"
+                    },
+                    {
+                      "property": "NamSinh",
+                      "title": "Nam Sinh"
+                    },
+                    {
+                      "filterProperty": "TblHpTinhTp.TinhTP_Name",
+                      "property": "NoiSinh_FK",
+                      "sortProperty": "TblHpTinhTp.TinhTP_Name",
+                      "template": "${data.TblHpTinhTp?.TinhTP_Name}",
+                      "title": "Tbl Hp Tinh Tp"
+                    },
+                    {
+                      "filterProperty": "TblHpTinhTp1.TinhTP_Name",
+                      "property": "QueQuan_FK",
+                      "sortProperty": "TblHpTinhTp1.TinhTP_Name",
+                      "template": "${data.TblHpTinhTp1?.TinhTP_Name}",
+                      "title": "Tbl Hp Tinh Tp"
+                    },
+                    {
+                      "filterProperty": "TblHpDanToc.DanToc_Name",
+                      "property": "DanToc_FK",
+                      "sortProperty": "TblHpDanToc.DanToc_Name",
+                      "template": "${data.TblHpDanToc?.DanToc_Name}",
+                      "title": "Tbl Hp Dan Toc"
+                    },
+                    {
+                      "filterProperty": "TblHpTonGiao.TonGiao_Name",
+                      "property": "TonGiao_FK",
+                      "sortProperty": "TblHpTonGiao.TonGiao_Name",
+                      "template": "${data.TblHpTonGiao?.TonGiao_Name}",
+                      "title": "Tbl Hp Ton Giao"
+                    },
+                    {
+                      "filterProperty": "TblHpQuocTich.QuocTich_Name",
+                      "property": "QuocTich_FK",
+                      "sortProperty": "TblHpQuocTich.QuocTich_Name",
+                      "template": "${data.TblHpQuocTich?.QuocTich_Name}",
+                      "title": "Tbl Hp Quoc Tich"
+                    },
+                    {
+                      "property": "SoCMND",
+                      "title": "So CMND"
+                    },
+                    {
+                      "formatString": "{0:d}",
+                      "property": "NgayCapCMND",
+                      "title": "Ngay Cap CMND"
+                    },
+                    {
+                      "property": "NoiCapCMND",
+                      "title": "Noi Cap CMND"
+                    },
+                    {
+                      "property": "HoKhau",
+                      "title": "Ho Khau"
+                    },
+                    {
+                      "filterProperty": "TblHpQuan.Quan_Name",
+                      "property": "QuanHoKhau_FK",
+                      "sortProperty": "TblHpQuan.Quan_Name",
+                      "template": "${data.TblHpQuan?.Quan_Name}",
+                      "title": "Tbl Hp Quan"
+                    },
+                    {
+                      "filterProperty": "TblHpTinhTp2.TinhTP_Name",
+                      "property": "TinhTPHoKhau_FK",
+                      "sortProperty": "TblHpTinhTp2.TinhTP_Name",
+                      "template": "${data.TblHpTinhTp2?.TinhTP_Name}",
+                      "title": "Tbl Hp Tinh Tp"
+                    },
+                    {
+                      "property": "ChoOHienNay",
+                      "title": "Cho O Hien Nay"
+                    },
+                    {
+                      "filterProperty": "TblHpQuan1.Quan_Name",
+                      "property": "QuanChoOHienNay_FK",
+                      "sortProperty": "TblHpQuan1.Quan_Name",
+                      "template": "${data.TblHpQuan1?.Quan_Name}",
+                      "title": "Tbl Hp Quan"
+                    },
+                    {
+                      "filterProperty": "TblHpTinhTp3.TinhTP_Name",
+                      "property": "TinhTPChoOHienNay_FK",
+                      "sortProperty": "TblHpTinhTp3.TinhTP_Name",
+                      "template": "${data.TblHpTinhTp3?.TinhTP_Name}",
+                      "title": "Tbl Hp Tinh Tp"
+                    },
+                    {
+                      "property": "SoDienThoai",
+                      "title": "So Dien Thoai"
+                    },
+                    {
+                      "property": "Email",
+                      "title": "Email"
+                    },
+                    {
+                      "property": "MaSoThueCaNhan",
+                      "title": "Ma So Thue Ca Nhan"
+                    },
+                    {
+                      "property": "TaiKhoanThanhToan",
+                      "title": "Tai Khoan Thanh Toan"
+                    },
+                    {
+                      "property": "HoTenATM",
+                      "title": "Ho Ten ATM"
+                    },
+                    {
+                      "property": "MaKeToan",
+                      "title": "Ma Ke Toan"
+                    },
+                    {
+                      "property": "GiaCanh",
+                      "title": "Gia Canh"
+                    },
+                    {
+                      "property": "SoCon",
+                      "title": "So Con"
+                    },
+                    {
+                      "formatString": "{0:d}",
+                      "property": "NgayNhatTu",
+                      "title": "Ngay Nhat Tu"
+                    },
+                    {
+                      "filterable": false,
+                      "sortable": false,
+                      "template": [
+                        {
+                          "attributes": [
+                            {
+                              "name": "@onclick:stopPropagation",
+                              "value": true
+                            }
+                          ],
+                          "buttonStyle": "danger",
+                          "events": {
+                            "click": [
+                              {
+                                "error": [
+                                  {
+                                    "detail": "Unable to delete TblHpNhanVien",
+                                    "severity": "error",
+                                    "summary": "Error",
+                                    "type": "notify"
+                                  }
+                                ],
+                                "name": "DB_At_VDC2.deleteTblHpNhanVien",
+                                "parameters": [
+                                  {
+                                    "name": "NhanVien_ID",
+                                    "value": "${data.NhanVien_ID}"
+                                  }
+                                ],
+                                "then": [
+                                  {
+                                    "code": "grid0.Reload();",
+                                    "condition": "result != null",
+                                    "type": "execute"
+                                  }
+                                ],
+                                "type": "invoke"
+                              }
+                            ]
+                          },
+                          "icon": "close",
+                          "name": "gridDeleteButton",
+                          "size": "sm",
+                          "text": "",
+                          "type": "button"
+                        }
+                      ],
+                      "textAlign": "center",
+                      "width": "70px"
+                    }
+                  ],
+                  "data": "${getTblHpNhanViensResult}",
+                  "events": {
+                    "loadData": [],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "NhanVien_ID",
+                            "value": "${event.NhanVien_ID}"
+                          }
+                        ],
+                        "path": "edit-vw-hp-nhan-vien-l-lich",
+                        "then": [
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ],
+                        "top": "",
+                        "type": "popup"
+                      }
+                    ]
+                  },
+                  "itemType": "CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien",
+                  "name": "grid0",
+                  "title": "",
+                  "type": "grid"
+                }
+              ],
+              "type": "col"
+            }
+          ],
+          "type": "row"
+        }
+      ],
+      "container": "main",
+      "type": "content"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "DB_At_VDC2.getTblHpNhanViens",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblHpNhanViensResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "layout": "Main",
+  "name": "Tbl Hp Nhan Vien Ly Lich"
+}

@@ -1,0 +1,2338 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Edit Tbl Hp Nhan Vien Ly Lich"
+        },
+        {
+          "components": [
+            {
+              "class": "col-md-9",
+              "components": [
+                {
+                  "name": "closeLabel",
+                  "style": {
+                    "fontWeight": "bold"
+                  },
+                  "text": "Item no longer available.",
+                  "type": "label",
+                  "visible": "${!canEdit}"
+                }
+              ],
+              "name": "col0",
+              "type": "col"
+            },
+            {
+              "class": "col-md-3",
+              "components": [
+                {
+                  "buttonStyle": "secondary",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "tbl-hp-nhan-vien-ly-lich",
+                        "type": "navigate"
+                      }
+                    ]
+                  },
+                  "icon": "",
+                  "name": "closeButton",
+                  "style": {
+                    "marginBottom": "20px"
+                  },
+                  "text": "Close",
+                  "type": "button",
+                  "visible": "${!canEdit}"
+                }
+              ],
+              "name": "col1",
+              "type": "col"
+            }
+          ],
+          "name": "row0",
+          "style": {},
+          "type": "row"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "type": "template-form",
+                  "name": "form0",
+                  "components": [
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Nhan Vien Id",
+                              "component": "NhanVien_ID",
+                              "name": "NhanVien_IDLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 4,
+                              "type": "textbox",
+                              "name": "NhanVien_ID",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.NhanVien_ID}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "NhanVien_IDRequiredValidator",
+                              "component": "NhanVien_ID",
+                              "text": "NhanVien_ID is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Ho Ten Lot",
+                              "component": "HoTenLot",
+                              "name": "HoTenLotLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 30,
+                              "type": "textbox",
+                              "name": "HoTenLot",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.HoTenLot}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Ten",
+                              "component": "Ten",
+                              "name": "TenLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 70,
+                              "type": "textbox",
+                              "name": "Ten",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.Ten}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Ma The Cham Cong",
+                              "component": "MaTheChamCong",
+                              "name": "MaTheChamCongLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 12,
+                              "type": "textbox",
+                              "name": "MaTheChamCong",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.MaTheChamCong}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Phai Nam",
+                              "component": "PhaiNam",
+                              "name": "PhaiNamLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "bool?",
+                              "type": "checkbox",
+                              "name": "PhaiNam",
+                              "triState": true,
+                              "value": "${tblhpnhanvien.PhaiNam}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Hinh Anh",
+                              "component": "HinhAnh",
+                              "name": "HinhAnhLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "Byte[]",
+                              "type": "file-input",
+                              "name": "HinhAnh",
+                              "value": "${tblhpnhanvien.HinhAnh}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Ngay Thang Nam Sinh",
+                              "component": "NgayThangNamSinh",
+                              "name": "NgayThangNamSinhLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "DateTime?",
+                              "type": "datepicker",
+                              "name": "NgayThangNamSinh",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.NgayThangNamSinh}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Nam Sinh",
+                              "component": "NamSinh",
+                              "name": "NamSinhLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "Int16?",
+                              "type": "numeric",
+                              "name": "NamSinh",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.NamSinh}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tbl Hp Tinh Tp",
+                              "component": "NoiSinh_FK",
+                              "name": "NoiSinh_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTblHpTinhTpsResult}",
+                              "textProperty": "TinhTP_Name",
+                              "valueProperty": "TinhTP_ID",
+                              "placeholder": "Choose TblHpTinhTp",
+                              "valueType": "string",
+                              "type": "dropdown",
+                              "name": "NoiSinh_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.NoiSinh_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tbl Hp Tinh Tp",
+                              "component": "QueQuan_FK",
+                              "name": "QueQuan_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTblHpTinhTpsResult}",
+                              "textProperty": "TinhTP_Name",
+                              "valueProperty": "TinhTP_ID",
+                              "placeholder": "Choose TblHpTinhTp",
+                              "valueType": "string",
+                              "type": "dropdown",
+                              "name": "QueQuan_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.QueQuan_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tbl Hp Dan Toc",
+                              "component": "DanToc_FK",
+                              "name": "DanToc_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTblHpDanTocsResult}",
+                              "textProperty": "DanToc_Name",
+                              "valueProperty": "DanToc_ID",
+                              "placeholder": "Choose TblHpDanToc",
+                              "valueType": "string",
+                              "type": "dropdown",
+                              "name": "DanToc_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.DanToc_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tbl Hp Ton Giao",
+                              "component": "TonGiao_FK",
+                              "name": "TonGiao_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTblHpTonGiaosResult}",
+                              "textProperty": "TonGiao_Name",
+                              "valueProperty": "TonGiao_ID",
+                              "placeholder": "Choose TblHpTonGiao",
+                              "valueType": "string",
+                              "type": "dropdown",
+                              "name": "TonGiao_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.TonGiao_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tbl Hp Quoc Tich",
+                              "component": "QuocTich_FK",
+                              "name": "QuocTich_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTblHpQuocTichesResult}",
+                              "textProperty": "QuocTich_Name",
+                              "valueProperty": "QuocTich_ID",
+                              "placeholder": "Choose TblHpQuocTich",
+                              "valueType": "string",
+                              "type": "dropdown",
+                              "name": "QuocTich_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.QuocTich_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "So Cmnd",
+                              "component": "SoCMND",
+                              "name": "SoCMNDLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 12,
+                              "type": "textbox",
+                              "name": "SoCMND",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.SoCMND}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Ngay Cap Cmnd",
+                              "component": "NgayCapCMND",
+                              "name": "NgayCapCMNDLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "DateTime?",
+                              "type": "datepicker",
+                              "name": "NgayCapCMND",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.NgayCapCMND}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Noi Cap Cmnd",
+                              "component": "NoiCapCMND",
+                              "name": "NoiCapCMNDLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 25,
+                              "type": "textbox",
+                              "name": "NoiCapCMND",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.NoiCapCMND}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Ho Khau",
+                              "component": "HoKhau",
+                              "name": "HoKhauLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 50,
+                              "type": "textbox",
+                              "name": "HoKhau",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.HoKhau}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tbl Hp Quan",
+                              "component": "QuanHoKhau_FK",
+                              "name": "QuanHoKhau_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTblHpQuansResult}",
+                              "textProperty": "Quan_Name",
+                              "valueProperty": "Quan_ID",
+                              "placeholder": "Choose TblHpQuan",
+                              "valueType": "string",
+                              "type": "dropdown",
+                              "name": "QuanHoKhau_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.QuanHoKhau_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tbl Hp Tinh Tp",
+                              "component": "TinhTPHoKhau_FK",
+                              "name": "TinhTPHoKhau_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTblHpTinhTpsResult}",
+                              "textProperty": "TinhTP_Name",
+                              "valueProperty": "TinhTP_ID",
+                              "placeholder": "Choose TblHpTinhTp",
+                              "valueType": "string",
+                              "type": "dropdown",
+                              "name": "TinhTPHoKhau_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.TinhTPHoKhau_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Cho O Hien Nay",
+                              "component": "ChoOHienNay",
+                              "name": "ChoOHienNayLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 50,
+                              "type": "textbox",
+                              "name": "ChoOHienNay",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.ChoOHienNay}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tbl Hp Quan",
+                              "component": "QuanChoOHienNay_FK",
+                              "name": "QuanChoOHienNay_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTblHpQuansResult}",
+                              "textProperty": "Quan_Name",
+                              "valueProperty": "Quan_ID",
+                              "placeholder": "Choose TblHpQuan",
+                              "valueType": "string",
+                              "type": "dropdown",
+                              "name": "QuanChoOHienNay_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.QuanChoOHienNay_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tbl Hp Tinh Tp",
+                              "component": "TinhTPChoOHienNay_FK",
+                              "name": "TinhTPChoOHienNay_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTblHpTinhTpsResult}",
+                              "textProperty": "TinhTP_Name",
+                              "valueProperty": "TinhTP_ID",
+                              "placeholder": "Choose TblHpTinhTp",
+                              "valueType": "string",
+                              "type": "dropdown",
+                              "name": "TinhTPChoOHienNay_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.TinhTPChoOHienNay_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "So Dien Thoai",
+                              "component": "SoDienThoai",
+                              "name": "SoDienThoaiLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 25,
+                              "type": "textbox",
+                              "name": "SoDienThoai",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.SoDienThoai}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Email",
+                              "component": "Email",
+                              "name": "EmailLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 50,
+                              "type": "textbox",
+                              "name": "Email",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.Email}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Ma So Thue Ca Nhan",
+                              "component": "MaSoThueCaNhan",
+                              "name": "MaSoThueCaNhanLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 10,
+                              "type": "textbox",
+                              "name": "MaSoThueCaNhan",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.MaSoThueCaNhan}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tai Khoan Thanh Toan",
+                              "component": "TaiKhoanThanhToan",
+                              "name": "TaiKhoanThanhToanLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 15,
+                              "type": "textbox",
+                              "name": "TaiKhoanThanhToan",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.TaiKhoanThanhToan}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Ho Ten Atm",
+                              "component": "HoTenATM",
+                              "name": "HoTenATMLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 30,
+                              "type": "textbox",
+                              "name": "HoTenATM",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.HoTenATM}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Ma Ke Toan",
+                              "component": "MaKeToan",
+                              "name": "MaKeToanLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 10,
+                              "type": "textbox",
+                              "name": "MaKeToan",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.MaKeToan}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Gia Canh",
+                              "component": "GiaCanh",
+                              "name": "GiaCanhLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "Int16?",
+                              "type": "numeric",
+                              "name": "GiaCanh",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.GiaCanh}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "So Con",
+                              "component": "SoCon",
+                              "name": "SoConLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "Int16?",
+                              "type": "numeric",
+                              "name": "SoCon",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.SoCon}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Loai Hop Dong Ld",
+                              "component": "LoaiHopDongLD",
+                              "name": "LoaiHopDongLDLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "Int16?",
+                              "type": "numeric",
+                              "name": "LoaiHopDongLD",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.LoaiHopDongLD}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Hop Dong Lao Dong",
+                              "component": "HopDongLaoDong",
+                              "name": "HopDongLaoDongLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 250,
+                              "type": "textbox",
+                              "name": "HopDongLaoDong",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.HopDongLaoDong}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tbl Gn Department",
+                              "component": "Department_FK",
+                              "name": "Department_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTblGnDepartmentsResult}",
+                              "textProperty": "Deparment_Name",
+                              "valueProperty": "Department_ID",
+                              "placeholder": "Choose TblGnDepartment",
+                              "valueType": "string",
+                              "type": "dropdown",
+                              "name": "Department_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.Department_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tbl Hp Don Vi To",
+                              "component": "DonViTo_FK",
+                              "name": "DonViTo_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTblHpDonViTosResult}",
+                              "textProperty": "DonViTo_Name",
+                              "valueProperty": "DonViTo_ID",
+                              "placeholder": "Choose TblHpDonViTo",
+                              "valueType": "string",
+                              "type": "dropdown",
+                              "name": "DonViTo_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.DonViTo_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tbl Hp Chuc Vu",
+                              "component": "ChucVu_FK",
+                              "name": "ChucVu_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTblHpChucVusResult}",
+                              "textProperty": "ChucVu_Name",
+                              "valueProperty": "ChucVu_ID",
+                              "placeholder": "Choose TblHpChucVu",
+                              "valueType": "string",
+                              "type": "dropdown",
+                              "name": "ChucVu_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.ChucVu_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Thong Tin Luu Tru",
+                              "component": "ThongTinLuuTru",
+                              "name": "ThongTinLuuTruLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 255,
+                              "type": "textbox",
+                              "name": "ThongTinLuuTru",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.ThongTinLuuTru}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Thu Viec",
+                              "component": "ThuViec",
+                              "name": "ThuViecLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "bool?",
+                              "type": "checkbox",
+                              "name": "ThuViec",
+                              "triState": true,
+                              "value": "${tblhpnhanvien.ThuViec}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Da Nghi Viec",
+                              "component": "DaNghiViec",
+                              "name": "DaNghiViecLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "bool?",
+                              "type": "checkbox",
+                              "name": "DaNghiViec",
+                              "triState": true,
+                              "value": "${tblhpnhanvien.DaNghiViec}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Ngay Nghi Viec",
+                              "component": "NgayNghiViec",
+                              "name": "NgayNghiViecLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "DateTime?",
+                              "type": "datepicker",
+                              "name": "NgayNghiViec",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.NgayNghiViec}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tbl Hp Trinh Do Van Hoa",
+                              "component": "TrinhDoHocVan_FK",
+                              "name": "TrinhDoHocVan_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTblHpTrinhDoVanHoasResult}",
+                              "textProperty": "TrinhDoVanHoa_Name",
+                              "valueProperty": "TrinhDoVanHoa_ID",
+                              "placeholder": "Choose TblHpTrinhDoVanHoa",
+                              "valueType": "string",
+                              "type": "dropdown",
+                              "name": "TrinhDoHocVan_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.TrinhDoHocVan_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tbl Hp Ngach",
+                              "component": "Ngach_FK",
+                              "name": "Ngach_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTblHpNgachesResult}",
+                              "textProperty": "Ngach_Name",
+                              "valueProperty": "Ngach_ID",
+                              "placeholder": "Choose TblHpNgach",
+                              "valueType": "string",
+                              "type": "dropdown",
+                              "name": "Ngach_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.Ngach_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tbl Hp Bac",
+                              "component": "Bac_FK",
+                              "name": "Bac_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTblHpBacsResult}",
+                              "textProperty": "Bac_Name",
+                              "valueProperty": "Bac_ID",
+                              "placeholder": "Choose TblHpBac",
+                              "valueType": "string",
+                              "type": "dropdown",
+                              "name": "Bac_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.Bac_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "He So Luong",
+                              "component": "HeSoLuong",
+                              "name": "HeSoLuongLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "double?",
+                              "type": "numeric",
+                              "name": "HeSoLuong",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.HeSoLuong}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Luong Co Ban",
+                              "component": "LuongCoBan",
+                              "name": "LuongCoBanLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "Int64?",
+                              "type": "numeric",
+                              "name": "LuongCoBan",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.LuongCoBan}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "He So Phu Cap Chuc Vu",
+                              "component": "HeSoPhuCapChucVu",
+                              "name": "HeSoPhuCapChucVuLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "double?",
+                              "type": "numeric",
+                              "name": "HeSoPhuCapChucVu",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.HeSoPhuCapChucVu}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "He So Phu Cap Doc Hai",
+                              "component": "HeSoPhuCapDocHai",
+                              "name": "HeSoPhuCapDocHaiLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "double?",
+                              "type": "numeric",
+                              "name": "HeSoPhuCapDocHai",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.HeSoPhuCapDocHai}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "He So Diem Phuc Tap",
+                              "component": "HeSoDiemPhucTap",
+                              "name": "HeSoDiemPhucTapLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "double?",
+                              "type": "numeric",
+                              "name": "HeSoDiemPhucTap",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.HeSoDiemPhucTap}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "He So Phu Cap Tham Nien",
+                              "component": "HeSoPhuCapThamNien",
+                              "name": "HeSoPhuCapThamNienLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "double?",
+                              "type": "numeric",
+                              "name": "HeSoPhuCapThamNien",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.HeSoPhuCapThamNien}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "So Nguoi Phu Thuoc",
+                              "component": "SoNguoiPhuThuoc",
+                              "name": "SoNguoiPhuThuocLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "Byte?",
+                              "type": "numeric",
+                              "name": "SoNguoiPhuThuoc",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.SoNguoiPhuThuoc}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "So Bhxh",
+                              "component": "SoBHXH",
+                              "name": "SoBHXHLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 15,
+                              "type": "textbox",
+                              "name": "SoBHXH",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.SoBHXH}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Ngay Nhat Tu",
+                              "component": "NgayNhatTu",
+                              "name": "NgayNhatTuLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "DateTime?",
+                              "type": "datepicker",
+                              "name": "NgayNhatTu",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblhpnhanvien.NgayNhatTu}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "type": "button",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "buttonStyle": "primary"
+                            },
+                            {
+                              "type": "button",
+                              "buttonStyle": "light",
+                              "text": "Cancel",
+                              "events": {
+                                "click": [
+                                  {
+                                    "path": "tbl-hp-nhan-vien-ly-lich",
+                                    "type": "navigate"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to update TblHpNhanVien",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "DB_At_VDC2.updateTblHpNhanVien",
+                        "parameters": [
+                          {
+                            "name": "NhanVien_ID",
+                            "value": "${parameters.NhanVien_ID}"
+                          },
+                          {
+                            "name": "TblHpNhanVien",
+                            "value": "${tblhpnhanvien}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "path": "tbl-hp-nhan-vien-ly-lich",
+                            "type": "navigate"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "itemType": "CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien",
+                  "data": "${tblhpnhanvien}",
+                  "visible": "${tblhpnhanvien != null && canEdit}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "canEdit",
+        "type": "set",
+        "value": "true",
+        "valueType": "bool"
+      },
+      {
+        "name": "DB_At_VDC2.getTblHpNhanVienByNhanVien_ID",
+        "parameters": [
+          {
+            "name": "NhanVien_ID",
+            "value": "${parameters.NhanVien_ID}"
+          }
+        ],
+        "then": [
+          {
+            "name": "tblhpnhanvien",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien"
+          }
+        ],
+        "error": [],
+        "type": "invoke"
+      },
+      {
+        "name": "DB_At_VDC2.getTblHpTinhTps",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblHpTinhTpsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErpHrPr.Models.DbAtVdc2.TblHpTinhTp>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "DB_At_VDC2.getTblHpDanTocs",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblHpDanTocsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErpHrPr.Models.DbAtVdc2.TblHpDanToc>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "DB_At_VDC2.getTblHpTonGiaos",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblHpTonGiaosResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErpHrPr.Models.DbAtVdc2.TblHpTonGiao>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "DB_At_VDC2.getTblHpQuocTiches",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblHpQuocTichesResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErpHrPr.Models.DbAtVdc2.TblHpQuocTich>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "DB_At_VDC2.getTblHpQuans",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblHpQuansResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErpHrPr.Models.DbAtVdc2.TblHpQuan>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "DB_At_VDC2.getTblGnDepartments",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblGnDepartmentsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErpHrPr.Models.DbAtVdc2.TblGnDepartment>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "DB_At_VDC2.getTblHpDonViTos",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblHpDonViTosResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErpHrPr.Models.DbAtVdc2.TblHpDonViTo>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "DB_At_VDC2.getTblHpChucVus",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblHpChucVusResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErpHrPr.Models.DbAtVdc2.TblHpChucVu>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "DB_At_VDC2.getTblHpTrinhDoVanHoas",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblHpTrinhDoVanHoasResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErpHrPr.Models.DbAtVdc2.TblHpTrinhDoVanHoa>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "DB_At_VDC2.getTblHpNgaches",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblHpNgachesResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErpHrPr.Models.DbAtVdc2.TblHpNgach>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "DB_At_VDC2.getTblHpBacs",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblHpBacsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErpHrPr.Models.DbAtVdc2.TblHpBac>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Edit Tbl Hp Nhan Vien Ly Lich",
+  "layout": "Main"
+}
