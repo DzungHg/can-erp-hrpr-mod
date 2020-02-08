@@ -1411,17 +1411,6 @@
                             }
                           ],
                           "type": "col"
-                        },
-                        {
-                          "class": "col-md-6",
-                          "components": [
-                            {
-                              "components": [],
-                              "name": "row28",
-                              "type": "row"
-                            }
-                          ],
-                          "type": "col"
                         }
                       ],
                       "style": {
@@ -1561,7 +1550,7 @@
         ],
         "then": [
           {
-            "name": "tblLyLichNV",
+            "name": "tblhpnhanvien",
             "type": "set",
             "value": "${result}",
             "valueType": "CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien"

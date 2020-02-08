@@ -52,18 +52,18 @@ namespace CanErpHrPr.Pages
             }
         }
 
-        CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien _tblLyLichNV;
-        protected CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien tblLyLichNV
+        CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien _tblhpnhanvien;
+        protected CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien tblhpnhanvien
         {
             get
             {
-                return _tblLyLichNV;
+                return _tblhpnhanvien;
             }
             set
             {
-                if(!object.Equals(_tblLyLichNV, value))
+                if(!object.Equals(_tblhpnhanvien, value))
                 {
-                    _tblLyLichNV = value;
+                    _tblhpnhanvien = value;
                     InvokeAsync(() => { StateHasChanged(); });
                 }
             }
@@ -256,23 +256,6 @@ namespace CanErpHrPr.Pages
             }
         }
 
-        CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien _tblhpnhanvien;
-        protected CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien tblhpnhanvien
-        {
-            get
-            {
-                return _tblhpnhanvien;
-            }
-            set
-            {
-                if(!object.Equals(_tblhpnhanvien, value))
-                {
-                    _tblhpnhanvien = value;
-                    InvokeAsync(() => { StateHasChanged(); });
-                }
-            }
-        }
-
         protected override async System.Threading.Tasks.Task OnInitializedAsync()
         {
             await Load();
@@ -282,7 +265,7 @@ namespace CanErpHrPr.Pages
             canEdit = true;
 
             var dbAtVdc2GetTblHpNhanVienByNhanVienIdResult = await DbAtVdc2.GetTblHpNhanVienByNhanVienId($"{NhanVien_ID}");
-            tblLyLichNV = dbAtVdc2GetTblHpNhanVienByNhanVienIdResult;
+            tblhpnhanvien = dbAtVdc2GetTblHpNhanVienByNhanVienIdResult;
 
             var dbAtVdc2GetTblHpTinhTpsResult = await DbAtVdc2.GetTblHpTinhTps();
             getTblHpTinhTpsResult = dbAtVdc2GetTblHpTinhTpsResult;
