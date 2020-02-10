@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CanErpHrPr.Pages
 {
-    public partial class EditVwHpNhanVienLLichComponent : ComponentBase
+    public partial class TblHpNhanVienComponent : ComponentBase
     {
         [Parameter(CaptureUnmatchedValues = true)]
         public IReadOnlyDictionary<string, dynamic> Attributes { get; set; }
@@ -32,8 +32,7 @@ namespace CanErpHrPr.Pages
         [Inject]
         protected DbAtVdc2Service DbAtVdc2 { get; set; }
 
-        [Parameter]
-        public dynamic NhanVien_ID  { get; set; }
+        protected RadzenGrid<CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien> grid0;
 
         bool _canEdit;
         protected bool canEdit
@@ -47,23 +46,6 @@ namespace CanErpHrPr.Pages
                 if(!object.Equals(_canEdit, value))
                 {
                     _canEdit = value;
-                    InvokeAsync(() => { StateHasChanged(); });
-                }
-            }
-        }
-
-        CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien _tblhpnhanvien;
-        protected CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien tblhpnhanvien
-        {
-            get
-            {
-                return _tblhpnhanvien;
-            }
-            set
-            {
-                if(!object.Equals(_tblhpnhanvien, value))
-                {
-                    _tblhpnhanvien = value;
                     InvokeAsync(() => { StateHasChanged(); });
                 }
             }
@@ -256,6 +238,57 @@ namespace CanErpHrPr.Pages
             }
         }
 
+        IEnumerable<CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien> _getTblHpNhanViensResult;
+        protected IEnumerable<CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien> getTblHpNhanViensResult
+        {
+            get
+            {
+                return _getTblHpNhanViensResult;
+            }
+            set
+            {
+                if(!object.Equals(_getTblHpNhanViensResult, value))
+                {
+                    _getTblHpNhanViensResult = value;
+                    InvokeAsync(() => { StateHasChanged(); });
+                }
+            }
+        }
+
+        CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien _tblhpnhanvien;
+        protected CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien tblhpnhanvien
+        {
+            get
+            {
+                return _tblhpnhanvien;
+            }
+            set
+            {
+                if(!object.Equals(_tblhpnhanvien, value))
+                {
+                    _tblhpnhanvien = value;
+                    InvokeAsync(() => { StateHasChanged(); });
+                }
+            }
+        }
+
+        bool _isEdit;
+        protected bool isEdit
+        {
+            get
+            {
+                return _isEdit;
+            }
+            set
+            {
+                if(!object.Equals(_isEdit, value))
+                {
+                    _isEdit = value;
+                    InvokeAsync(() => { StateHasChanged(); });
+                }
+            }
+        }
+
         protected override async System.Threading.Tasks.Task OnInitializedAsync()
         {
             await Load();
@@ -263,9 +296,6 @@ namespace CanErpHrPr.Pages
         protected async System.Threading.Tasks.Task Load()
         {
             canEdit = true;
-
-            var dbAtVdc2GetTblHpNhanVienByNhanVienIdResult = await DbAtVdc2.GetTblHpNhanVienByNhanVienId($"{NhanVien_ID}");
-            tblhpnhanvien = dbAtVdc2GetTblHpNhanVienByNhanVienIdResult;
 
             var dbAtVdc2GetTblHpTinhTpsResult = await DbAtVdc2.GetTblHpTinhTps();
             getTblHpTinhTpsResult = dbAtVdc2GetTblHpTinhTpsResult;
@@ -300,25 +330,74 @@ namespace CanErpHrPr.Pages
             var dbAtVdc2GetTblHpBacsResult = await DbAtVdc2.GetTblHpBacs();
             getTblHpBacsResult = dbAtVdc2GetTblHpBacsResult;
 
+            var dbAtVdc2GetTblHpNhanViensResult = await DbAtVdc2.GetTblHpNhanViens();
+            getTblHpNhanViensResult = dbAtVdc2GetTblHpNhanViensResult;
+
+            tblhpnhanvien = dbAtVdc2GetTblHpNhanViensResult.FirstOrDefault();
+
+            isEdit = true;
+        }
+
+        protected async System.Threading.Tasks.Task Button0Click(MouseEventArgs args)
+        {
             tblhpnhanvien = new CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien();
+
+            isEdit = false;
+        }
+
+        protected async System.Threading.Tasks.Task Grid0RowSelect(CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien args)
+        {
+            isEdit = true;
+
+            tblhpnhanvien = args;
+        }
+
+        protected async System.Threading.Tasks.Task GridDeleteButtonClick(MouseEventArgs args, dynamic data)
+        {
+            try
+            {
+                var dbAtVdc2DeleteTblHpNhanVienResult = await DbAtVdc2.DeleteTblHpNhanVien($"{data.NhanVien_ID}");
+                if (dbAtVdc2DeleteTblHpNhanVienResult != null) {
+                    grid0.Reload();
+}
+            }
+            catch (Exception dbAtVdc2DeleteTblHpNhanVienException)
+            {
+                    NotificationService.Notify(NotificationSeverity.Error, $"Error", $"Unable to delete TblHpNhanVien");
+            }
         }
 
         protected async System.Threading.Tasks.Task Form0Submit(CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien args)
         {
             try
             {
-                var dbAtVdc2CreateTblHpNhanVienResult = await DbAtVdc2.CreateTblHpNhanVien(tblhpnhanvien);
-                DialogService.Close(tblhpnhanvien);
+                if (isEdit)
+                {
+                    var dbAtVdc2UpdateTblHpNhanVienResult = await DbAtVdc2.UpdateTblHpNhanVien($"{tblhpnhanvien.NhanVien_ID}", tblhpnhanvien);
+                    NotificationService.Notify(NotificationSeverity.Success, $"Success", $"TblHpNhanVien updated!");
+
+
+                }
+            }
+            catch (Exception dbAtVdc2UpdateTblHpNhanVienException)
+            {
+                    NotificationService.Notify(NotificationSeverity.Error, $"Error", $"Unable to update TblHpNhanVien");
+            }
+
+            try
+            {
+                if (!this.isEdit)
+                {
+                    var dbAtVdc2CreateTblHpNhanVienResult = await DbAtVdc2.CreateTblHpNhanVien(args);
+                tblhpnhanvien = new CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien();
+
+                    NotificationService.Notify(NotificationSeverity.Success, $"Success", $"TblHpNhanVien created!");
+                }
             }
             catch (Exception dbAtVdc2CreateTblHpNhanVienException)
             {
                     NotificationService.Notify(NotificationSeverity.Error, $"Error", $"Unable to create new TblHpNhanVien!");
             }
-        }
-
-        protected async System.Threading.Tasks.Task Button2Click(MouseEventArgs args)
-        {
-            DialogService.Close(null);
         }
     }
 }

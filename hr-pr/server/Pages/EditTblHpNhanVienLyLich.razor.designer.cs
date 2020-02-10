@@ -32,6 +32,9 @@ namespace CanErpHrPr.Pages
         [Inject]
         protected DbAtVdc2Service DbAtVdc2 { get; set; }
 
+        [Parameter]
+        public dynamic NhanVien_ID { get; set; }
+
         bool _canEdit;
         protected bool canEdit
         {

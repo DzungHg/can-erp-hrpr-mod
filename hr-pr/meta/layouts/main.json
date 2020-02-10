@@ -65,10 +65,13 @@
                 {
                   "icon": "",
                   "path": "tbl-hp-nhan-vien-ly-lich",
-                  "text": "Lý lịch"
+                  "text": "NV - Lý lịch"
                 },
                 {
-                  "path": "tbl-hp-nhan-viens",
+                  "text": "NV - Gia cảnh"
+                },
+                {
+                  "path": "tbl-hp-nhan-vien",
                   "text": "DS Nhân viên"
                 }
               ],

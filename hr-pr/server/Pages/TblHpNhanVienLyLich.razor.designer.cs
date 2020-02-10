@@ -68,7 +68,7 @@ namespace CanErpHrPr.Pages
 
         protected async System.Threading.Tasks.Task Grid0RowSelect(CanErpHrPr.Models.DbAtVdc2.TblHpNhanVien args)
         {
-            var result = await DialogService.OpenAsync<EditVwHpNhanVienLLich>("Edit Vw Hp Nhan Vien LLich", new Dictionary<string, object>() { {"NhanVien_ID", args.NhanVien_ID} });
+            var result = await DialogService.OpenAsync<EditTblHpNhanVienLyLich>("Edit Tbl Hp Nhan Vien Ly Lich", new Dictionary<string, object>() { {"NhanVien_ID", args.NhanVien_ID} });
               await InvokeAsync(() => { StateHasChanged(); });
         }
 

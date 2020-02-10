@@ -252,7 +252,7 @@
                             "value": "${event.NhanVien_ID}"
                           }
                         ],
-                        "path": "edit-vw-hp-nhan-vien-l-lich",
+                        "path": "edit-tbl-hp-nhan-vien-ly-lich",
                         "then": [
                           {
                             "code": "await InvokeAsync(() => { StateHasChanged(); });",

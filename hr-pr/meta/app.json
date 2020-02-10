@@ -36,7 +36,8 @@
     "Tbl Hp Trinh Do Van Hoas",
     "Tbl Hp Xi Nghieps",
     "Vw Hr Ly Lich Nv",
-    "Tbl Hp Nhan Vien Ly Lich"
+    "Tbl Hp Nhan Vien Ly Lich",
+    "Tbl Hp Nhan Vien"
   ],
   "pages": [
     "Tbl Gn Departments",
@@ -116,7 +117,8 @@
     "Edit Vw Hp Nhan Vien LLich",
     "Tbl Hp Nhan Vien Ly Lich",
     "Add Tbl Hp Nhan Vien Ly Lich",
-    "Edit Tbl Hp Nhan Vien Ly Lich"
+    "Edit Tbl Hp Nhan Vien Ly Lich",
+    "Tbl Hp Nhan Vien"
   ],
   "serverLang": "cs",
   "serverProject": true,
