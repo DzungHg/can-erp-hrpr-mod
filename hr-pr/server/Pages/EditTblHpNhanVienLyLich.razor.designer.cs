@@ -307,18 +307,18 @@ namespace CanErpHrPr.Pages
         {
             try
             {
-                var dbAtVdc2UpdateTblHpNhanVienResult = await DbAtVdc2.UpdateTblHpNhanVien($"{NhanVien_ID}", tblhpnhanvien);
-                UriHelper.NavigateTo("tbl-hp-nhan-vien-ly-lich");
+                var dbAtVdc2CreateTblHpNhanVienResult = await DbAtVdc2.CreateTblHpNhanVien(tblhpnhanvien);
+                DialogService.Close(tblhpnhanvien);
             }
-            catch (Exception dbAtVdc2UpdateTblHpNhanVienException)
+            catch (Exception dbAtVdc2CreateTblHpNhanVienException)
             {
-                    NotificationService.Notify(NotificationSeverity.Error, $"Error", $"Unable to update TblHpNhanVien");
+                    NotificationService.Notify(NotificationSeverity.Error, $"Error", $"Unable to create new TblHpNhanVien!");
             }
         }
 
-        protected async System.Threading.Tasks.Task Button3Click(MouseEventArgs args)
+        protected async System.Threading.Tasks.Task Button1Click(MouseEventArgs args)
         {
-            UriHelper.NavigateTo("tbl-hp-nhan-vien-ly-lich");
+            DialogService.Close(null);
         }
     }
 }

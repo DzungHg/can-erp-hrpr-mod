@@ -668,3 +668,9 @@ C:\ZDung HDD\GitHub\can-erp-hrpr-mod\hr-pr\server\obj\Debug\netcoreapp3.1\CanErp
 C:\ZDung HDD\GitHub\can-erp-hrpr-mod\hr-pr\server\obj\Debug\netcoreapp3.1\CanErpHrPr.csproj.CopyComplete
 C:\ZDung HDD\GitHub\can-erp-hrpr-mod\hr-pr\server\obj\Debug\netcoreapp3.1\CanErpHrPr.dll
 C:\ZDung HDD\GitHub\can-erp-hrpr-mod\hr-pr\server\obj\Debug\netcoreapp3.1\CanErpHrPr.pdb
+F:\My Programming Projects\can-erp-ot-projects\can-erp-hrpr-mod\hr-pr\server\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\AddTblHpNhanVienLyLich.razor.g.cs
+F:\My Programming Projects\can-erp-ot-projects\can-erp-hrpr-mod\hr-pr\server\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\EditTblHpNhanVienLyLich.razor.g.cs
+F:\My Programming Projects\can-erp-ot-projects\can-erp-hrpr-mod\hr-pr\server\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\TblHpNhanVienLyLich.razor.g.cs
+F:\My Programming Projects\can-erp-ot-projects\can-erp-hrpr-mod\hr-pr\server\obj\Debug\netcoreapp3.1\Razor\Pages\AddTblHpNhanVienLyLich.razor.g.cs
+F:\My Programming Projects\can-erp-ot-projects\can-erp-hrpr-mod\hr-pr\server\obj\Debug\netcoreapp3.1\Razor\Pages\EditTblHpNhanVienLyLich.razor.g.cs
+F:\My Programming Projects\can-erp-ot-projects\can-erp-hrpr-mod\hr-pr\server\obj\Debug\netcoreapp3.1\Razor\Pages\TblHpNhanVienLyLich.razor.g.cs
