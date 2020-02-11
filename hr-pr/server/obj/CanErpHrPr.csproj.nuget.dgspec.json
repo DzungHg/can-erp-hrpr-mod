@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "F:\\My Programming Projects\\can-erp-ot-projects\\can-erp-hrpr-mod\\hr-pr\\server\\CanErpHrPr.csproj": {}
+    "C:\\ZDung HDD\\GitHub\\can-erp-hrpr-mod\\hr-pr\\server\\CanErpHrPr.csproj": {}
   },
   "projects": {
-    "F:\\My Programming Projects\\can-erp-ot-projects\\can-erp-hrpr-mod\\hr-pr\\server\\CanErpHrPr.csproj": {
+    "C:\\ZDung HDD\\GitHub\\can-erp-hrpr-mod\\hr-pr\\server\\CanErpHrPr.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\My Programming Projects\\can-erp-ot-projects\\can-erp-hrpr-mod\\hr-pr\\server\\CanErpHrPr.csproj",
+        "projectUniqueName": "C:\\ZDung HDD\\GitHub\\can-erp-hrpr-mod\\hr-pr\\server\\CanErpHrPr.csproj",
         "projectName": "CanErpHrPr",
-        "projectPath": "F:\\My Programming Projects\\can-erp-ot-projects\\can-erp-hrpr-mod\\hr-pr\\server\\CanErpHrPr.csproj",
-        "packagesPath": "C:\\Users\\BK\\.nuget\\packages\\",
-        "outputPath": "F:\\My Programming Projects\\can-erp-ot-projects\\can-erp-hrpr-mod\\hr-pr\\server\\obj\\",
+        "projectPath": "C:\\ZDung HDD\\GitHub\\can-erp-hrpr-mod\\hr-pr\\server\\CanErpHrPr.csproj",
+        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+        "outputPath": "C:\\ZDung HDD\\GitHub\\can-erp-hrpr-mod\\hr-pr\\server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\BK\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],

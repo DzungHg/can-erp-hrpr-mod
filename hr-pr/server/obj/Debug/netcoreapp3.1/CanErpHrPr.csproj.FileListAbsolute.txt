@@ -676,3 +676,5 @@ F:\My Programming Projects\can-erp-ot-projects\can-erp-hrpr-mod\hr-pr\server\obj
 F:\My Programming Projects\can-erp-ot-projects\can-erp-hrpr-mod\hr-pr\server\obj\Debug\netcoreapp3.1\Razor\Pages\TblHpNhanVienLyLich.razor.g.cs
 F:\My Programming Projects\can-erp-ot-projects\can-erp-hrpr-mod\hr-pr\server\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\TblHpNhanVien.razor.g.cs
 F:\My Programming Projects\can-erp-ot-projects\can-erp-hrpr-mod\hr-pr\server\obj\Debug\netcoreapp3.1\Razor\Pages\TblHpNhanVien.razor.g.cs
+C:\ZDung HDD\GitHub\can-erp-hrpr-mod\hr-pr\server\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\TblHpNhanVien.razor.g.cs
+C:\ZDung HDD\GitHub\can-erp-hrpr-mod\hr-pr\server\obj\Debug\netcoreapp3.1\Razor\Pages\TblHpNhanVien.razor.g.cs
